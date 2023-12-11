@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class AncFilterActivity extends AppCompatActivity {
+public class RegisterFilterActivity extends AppCompatActivity {
     private final Calendar mCalendar = Calendar.getInstance();
     private final SimpleDateFormat mDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
     private SwitchCompat enableFilter;
@@ -128,7 +128,7 @@ public class AncFilterActivity extends AppCompatActivity {
         };
 
         nextAppointmentDate.setOnClickListener(view -> {
-            DatePickerDialog dialog = new DatePickerDialog(AncFilterActivity.this, datePickerListener, mCalendar
+            DatePickerDialog dialog = new DatePickerDialog(RegisterFilterActivity.this, datePickerListener, mCalendar
                     .get(Calendar.YEAR), mCalendar.get(Calendar.MONTH),
                     mCalendar.get(Calendar.DAY_OF_MONTH));
 

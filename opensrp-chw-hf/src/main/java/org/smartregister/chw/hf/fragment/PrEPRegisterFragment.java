@@ -28,7 +28,7 @@ import org.smartregister.chw.core.model.CoreKvpRegisterFragmentModel;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.QueryBuilder;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.activity.AncFilterActivity;
+import org.smartregister.chw.hf.activity.RegisterFilterActivity;
 import org.smartregister.chw.hf.activity.PrEPProfileActivity;
 import org.smartregister.chw.hf.presenter.PrEPRegisterFragmentPresenter;
 import org.smartregister.commonregistry.CommonRepository;
@@ -86,7 +86,7 @@ public class PrEPRegisterFragment extends CoreKvpRegisterFragment implements and
     @Override
     public void onClick(android.view.View view) {
         if (view.getId() == R.id.filter_sort_layout) {
-            Intent intent = new Intent(getContext(), AncFilterActivity.class);
+            Intent intent = new Intent(getContext(), RegisterFilterActivity.class);
             intent.putExtra(FILTERS_ENABLED, filterEnabled);
             intent.putExtra(FILTER_HIV_STATUS, filterHivStatus);
             intent.putExtra(ENABLE_HIV_STATUS_FILTER, false);

@@ -26,7 +26,7 @@
         android:theme="@style/HFTheme"
         tools:replace="android:theme, android:icon">
         <activity
-            android:name=".activity.AncFilterActivity"
+            android:name=".activity.RegisterFilterActivity"
             android:exported="false"
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity

@@ -28,10 +28,9 @@ import org.smartregister.chw.core.provider.ChwPncRegisterProvider;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.QueryBuilder;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.activity.AncFilterActivity;
+import org.smartregister.chw.hf.activity.RegisterFilterActivity;
 import org.smartregister.chw.hf.activity.PncMemberProfileActivity;
 import org.smartregister.chw.hf.model.HfPncRegisterFragmentModel;
-import org.smartregister.chw.hf.presenter.PncRegisterFragmentPresenter;
 import org.smartregister.chw.hf.presenter.PncRegisterFragmentPresenter;
 import org.smartregister.chw.hf.provider.HfPncRegisterProvider;
 import org.smartregister.chw.hf.utils.HfReferralUtils;
@@ -84,7 +83,7 @@ public class PncRegisterFragment extends CorePncRegisterFragment implements andr
     @Override
     public void onClick(android.view.View view) {
         if (view.getId() == R.id.filter_sort_layout) {
-            Intent intent = new Intent(getContext(), AncFilterActivity.class);
+            Intent intent = new Intent(getContext(), RegisterFilterActivity.class);
             intent.putExtra(FILTERS_ENABLED, filterEnabled);
             intent.putExtra(FILTER_HIV_STATUS, filterHivStatus);
             intent.putExtra(FILTER_IS_REFERRED, filterIsReferred);
