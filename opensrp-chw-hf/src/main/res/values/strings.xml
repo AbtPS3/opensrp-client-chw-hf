@@ -1506,6 +1506,16 @@
     </string-array>
 
     <string name="hiv_status_filter_title">HIV Status</string>
+
+    <string name="index_contacts_elicitation_status_filter_title">Elicitation Status</string>
+
+
+    <string-array name="index_contacts_elicitation_status_filter_options">
+        <item>All</item>
+        <item>Elicited</item>
+        <item>Not Elicited</item>
+    </string-array>
+
     <string name="referred_from_community_filter_title">Referred From Community</string>
     <string name="next_facility_visit_date_filter_title">Next Facility Visit Date</string>
     <string name="global_search_description"><![CDATA[Fill in client’s name & search through UCS’s global database]]></string>
