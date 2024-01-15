@@ -1,0 +1,995 @@
+{
+  "count": "4",
+  "encounter_type": "History Collection",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Witness Details",
+    "next": "step2",
+    "fields": [
+      {
+        "key": "no_of_witnesses",
+        "type": "repeating_group",
+        "reference_edit_text_hint": "Number of Witnesses",
+        "repeating_group_label": "Witness #",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_of_witnesses",
+        "repeating_group_max": "10",
+        "expand_on_text_change": "true",
+        "value": [
+          {
+            "key": "spacer",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "",
+            "type": "spacer",
+            "spacer_height": "15dp"
+          },
+          {
+            "key": "witness_first_name",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "witness_first_name",
+            "type": "edit_text",
+            "hint": "Witness First Name",
+            "edit_type": "name",
+            "v_regex": {
+              "value": "[A-Za-z\\u00C0-\\u017F\\s\\u00C0-\\u017F\\.\\-\\']*",
+              "err": "Please enter a valid name"
+            },
+            "v_required": {
+              "value": "true",
+              "err": "Please enter the First Name"
+            }
+          },
+          {
+            "key": "witness_middle_name",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "witness_middle_name",
+            "type": "edit_text",
+            "hint": "Witness Middle name",
+            "edit_type": "name",
+            "v_regex": {
+              "value": "[A-Za-z\\u00C0-\\u017F\\s\\u00C0-\\u017F\\.\\-\\']*",
+              "err": "Please enter a valid name"
+            },
+            "v_required": {
+              "value": "true",
+              "err": "Please enter the middle name"
+            }
+          },
+          {
+            "key": "witness_surname",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "witness_surname",
+            "type": "edit_text",
+            "hint": "Witness Surname",
+            "edit_type": "name",
+            "v_regex": {
+              "value": "[A-Za-z\\u00C0-\\u017F\\s\\u00C0-\\u017F\\.\\-\\']*",
+              "err": "Please enter a valid name"
+            },
+            "v_required": {
+              "value": "true",
+              "err": "Please enter the middle name"
+            }
+          },
+          {
+            "key": "witness_occupation",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "witness_occupation",
+            "type": "check_box",
+            "combine_checkbox_option_values": "true",
+            "label": "Witness occupation",
+            "label_text_style": "normal",
+            "text_color": "#C0C0C0",
+            "options": [
+              {
+                "key": "police",
+                "text": "Police",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "police"
+              },
+              {
+                "key": "social_welfare_officer",
+                "text": "Social Welfare Officer",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "social_welfare_officer"
+              },
+              {
+                "key": "teacher",
+                "text": "Teacher",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "teacher"
+              },
+              {
+                "key": "other",
+                "text": "Other",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "other"
+              }
+            ]
+          },
+          {
+            "key": "other_witness_occupation",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_witness_occupation",
+            "type": "edit_text",
+            "hint": "Other (Specify)",
+            "v_required": {
+              "value": true,
+              "err": "Required"
+            },
+            "relevance": {
+              "step1:witness_occupation": {
+                "ex-checkbox": [
+                  {
+                    "or": [
+                      "other"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the number of children"
+        }
+      }
+    ]
+  },
+  "step2": {
+    "title": "Assault Details",
+    "next": "step3",
+    "fields": [
+      {
+        "key": "assault_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "assault_date",
+        "type": "date_picker",
+        "hint": "Date of Assault",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the date of assault"
+        }
+      },
+      {
+        "key": "assault_time",
+        "type": "time_picker",
+        "hint": "Time of Assault",
+        "openmrs_entity_id": "assault_time",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "place_of_assault",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "place_of_assault",
+        "type": "edit_text",
+        "hint": "Place of Assault",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        }
+      },
+      {
+        "key": "no_of_assailant",
+        "type": "edit_text",
+        "hint": "Number of Assailant",
+        "openmrs_entity_id": "no_of_assailant",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of Assailants"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "the number of Assailants must be equal or greater than 1"
+        },
+        "v_max": {
+          "value": "100",
+          "err": "The number of Assailants equal or less than 100"
+        }
+      },
+      {
+        "key": "alleged_assailants",
+        "type": "native_radio",
+        "label": "Alleged Assailants (perpetrator)",
+        "openmrs_entity_id": "alleged_assailants",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "known",
+            "text": "Known",
+            "openmrs_entity_id": "known",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "unknown",
+            "text": "Unknown",
+            "openmrs_entity_id": "unknown",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        }
+      },
+      {
+        "key": "type_of_assault",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_assault",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Type of Assault",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual",
+            "text": "Sexual",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual"
+          },
+          {
+            "key": "physical",
+            "text": "Physical",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "physical"
+          },
+          {
+            "key": "psychological",
+            "text": "Psychological",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological"
+          },
+          {
+            "key": "neglect",
+            "text": "Neglect",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neglect"
+          },
+          {
+            "key": "fgm",
+            "text": "Female Genital Mutilation (FGM)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fgm"
+          }
+        ]
+      }
+    ]
+  },
+  "step3": {
+    "title": "Complaint & Circumstances",
+    "next": "step4",
+    "fields": [
+      {
+        "key": "presenting_signs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "presenting_signs",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Presenting signs/symptoms/complaints",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "abdominal_pain",
+            "text": "Abdominal pain",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abdominal_pain"
+          },
+          {
+            "key": "vomiting",
+            "text": "Vomiting",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vomiting"
+          },
+          {
+            "key": "headache",
+            "text": "Headache",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "headache"
+          },
+          {
+            "key": "vaginal_bleeding",
+            "text": "Vaginal bleeding",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vaginal_bleeding"
+          },
+          {
+            "key": "anal_bleeding",
+            "text": "Anal bleeding",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal_bleeding"
+          },
+          {
+            "key": "foul_smell_from_genital_parts",
+            "text": "Foul smell from genital parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "foul_smell_from_genital_parts"
+          },
+          {
+            "key": "bruises",
+            "text": "Bruises",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bruises"
+          },
+          {
+            "key": "cutting_wounds",
+            "text": "Cutting wounds",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cutting_wounds"
+          },
+          {
+            "key": "pain_in_genital_parts",
+            "text": "Pain in genital parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pain_in_genital_parts"
+          },
+          {
+            "key": "chest_pain",
+            "text": "Chest pain",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chest_pain"
+          },
+          {
+            "key": "chronic_illness",
+            "text": "Chronic illness",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chronic_illness"
+          },
+          {
+            "key": "insomnia",
+            "text": "Insomnia",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "insomnia"
+          },
+          {
+            "key": "anxiety",
+            "text": "Anxiety",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anxiety"
+          },
+          {
+            "key": "trauma",
+            "text": "Trauma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "trauma"
+          },
+          {
+            "key": "others",
+            "text": "Others (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "others"
+          }
+        ]
+      },
+      {
+        "key": "evidence_of_penetration",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "evidence_of_penetration",
+        "type": "native_radio",
+        "label": "Was there evidence of penetration?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "extra_rel": true,
+        "has_extra_rel": "2",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "specify_info": "How?",
+            "specify_info_color": "#b5b5b5",
+            "specify_widget": "check_box",
+            "content_form": "evidence_of_penetration_sub_form"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "did_the_assailant_use_condom",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "did_the_assailant_use_condom",
+        "type": "native_radio",
+        "label": "Did the assailant use a condom?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "did_the_survivor_have_a_bath",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "did_the_survivor_have_a_bath",
+        "type": "native_radio",
+        "label": "Did the survivor have a bath?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "did_the_survivor_vomit_after_the_assault",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "did_the_survivor_vomit_after_the_assault",
+        "type": "native_radio",
+        "label": "Did the survivor vomit after the assault?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "did_the_survivor_go_to_the_toilet_after_the_assault",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "did_the_survivor_go_to_the_toilet_after_the_assault",
+        "type": "native_radio",
+        "label": "Did the survivor go to the toilet after assault?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "was_the_incident_reported_to_the_police",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "was_the_incident_reported_to_the_police",
+        "type": "native_radio",
+        "label": "Was the incident reported to the police?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes",
+            "specify_info": "Mention",
+            "specify_info_color": "#b5b5b5",
+            "specify_widget": "check_box",
+            "content_form": "police_station_sub_form"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      }
+    ]
+  },
+  "step4": {
+    "title": "GNY History",
+    "fields": [
+      {
+        "key": "lnmp",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "lnmp",
+        "type": "date_picker",
+        "expanded": false,
+        "hint": "L.N.M.P",
+        "max_date": "today",
+        "min_date": "today-50w",
+        "v_required": {
+          "value": "true",
+          "err": "Please select date"
+        }
+      },
+      {
+        "key": "gravida",
+        "type": "edit_text",
+        "hint": "Gravida",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the gravida number"
+        },
+        "v_max": {
+          "value": "35",
+          "err": "Gravida must be equal to or less than 35"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please answer"
+        }
+      },
+      {
+        "key": "para",
+        "type": "edit_text",
+        "hint": "Parity",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "para",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter parity number"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThanEqualTo(., step4:gravida)",
+            "err": "Parity must be equal to or less than gravida"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please answer"
+        }
+      },
+      {
+        "key": "history_of_sexual_intercourse_prior_to_incidence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "history_of_sexual_intercourse_prior_to_incidence",
+        "type": "native_radio",
+        "label": "Does the survivor have  a history of sexual intercourse prior to this incidence?",
+        "label_text_style": "bold",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "history_of_pregnancy_prior_to_incidence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "history_of_pregnancy_prior_to_incidence",
+        "type": "native_radio",
+        "label": "History of pregnancy prior to this incidence?",
+        "label_text_style": "bold",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          },
+          {
+            "key": "dont_know",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dont_know",
+            "text": "Don't Know"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "current_pregnancy_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "current_pregnancy_status",
+        "type": "native_radio",
+        "label": "Current pregnancy status",
+        "label_text_style": "bold",
+        "options": [
+          {
+            "key": "pregnant",
+            "text": "Pregnant",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pregnant"
+          },
+          {
+            "key": "not_pregnant",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_pregnant",
+            "text": "Not pregnant"
+          },
+          {
+            "key": "dont_know",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dont_know",
+            "text": "Don't Know"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "cause_of_pregnancy",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_pregnancy",
+        "type": "native_radio",
+        "label": "Cause of Pregnancy",
+        "options": [
+          {
+            "key": "sexual_violence",
+            "text": "Sexual violence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_violence"
+          },
+          {
+            "key": "consensual",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "consensual",
+            "text": "Consensual"
+          }
+        ],
+        "relevance": {
+          "step4:current_pregnancy_status": {
+            "type": "string",
+            "ex": "equalTo(., \"pregnant\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "history_of_contraception",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "history_of_contraception",
+        "type": "native_radio",
+        "label": "Does the survivor have a history of contraception?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "type_of_contraceptives",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_contraceptives",
+        "type": "check_box",
+        "label": "Indicate the type(s) of Contraceptives",
+        "text_color": "#000000",
+        "options": [
+          {
+            "key": "pop",
+            "text": "POP",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pop"
+          },
+          {
+            "key": "coc",
+            "text": "COC",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "coc"
+          },
+          {
+            "key": "injectable",
+            "text": "Injectable",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "injectable"
+          },
+          {
+            "key": "condom",
+            "text": "Condom",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "condom"
+          },
+          {
+            "key": "jadelle",
+            "text": "Jadelle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "jadelle"
+          },
+          {
+            "key": "implanon",
+            "text": "Implanon",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "implanon"
+          },
+          {
+            "key": "iucd",
+            "text": "IUCD",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "iucd"
+          },
+          {
+            "key": "sdm",
+            "text": "SDM",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sdm"
+          },
+          {
+            "key": "lam",
+            "text": "LAM",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lam"
+          },
+          {
+            "key": "btl",
+            "text": "BTL",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "btl"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        },
+        "relevance": {
+          "step4:history_of_contraception": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "last_consensual_sexual_intercourse_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_consensual_sexual_intercourse_date",
+        "type": "date_picker",
+        "hint": "Last Date of consensual sexual intercourse",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today"
+      },
+      {
+        "key": "history_of_current_sexual_relationship",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "history_of_current_sexual_relationship",
+        "type": "native_radio",
+        "label": "History of current sexual relationship",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "hiv_status",
+        "type": "native_radio",
+        "openmrs_entity_id": "hiv_status",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "HIV status",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "unknown",
+            "text": "Unknown",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the HIV status"
+        }
+      }
+    ]
+  }
+}

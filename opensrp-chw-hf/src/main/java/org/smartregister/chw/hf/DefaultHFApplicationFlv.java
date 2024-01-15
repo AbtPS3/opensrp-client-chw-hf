@@ -47,6 +47,11 @@ public class DefaultHFApplicationFlv implements HealthFacilityApplication.Flavor
     }
 
     @Override
+    public boolean hasGbv() {
+        return true;
+    }
+
+    @Override
     public boolean hasMap() {
         return false;
     }

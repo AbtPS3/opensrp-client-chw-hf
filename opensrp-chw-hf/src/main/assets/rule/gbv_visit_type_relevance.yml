@@ -1,0 +1,21 @@
+---
+name: step1_referral_type
+description: relevance rule to hide/show referral type based on whether the provider can manage the case
+priority: 1
+condition: "step1_can_manage_case.equals('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_name_of_hf
+description: relevance rule for referral health facility
+priority: 1
+condition: "step1_referral_type.equals('health_facility')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_services
+description: relevance rule for other services
+priority: 1
+condition: "step1_referral_type.equals('other_services')"
+actions:
+  - "isRelevant = true"

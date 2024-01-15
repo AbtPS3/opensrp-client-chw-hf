@@ -27,6 +27,7 @@ import org.smartregister.chw.core.fragment.FamilyCallDialogFragment;
 import org.smartregister.chw.core.utils.BAJsonFormUtils;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.Utils;
+import org.smartregister.chw.gbv.dao.GbvDao;
 import org.smartregister.chw.hf.BuildConfig;
 import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
@@ -209,6 +210,11 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     }
 
     @Override
+    protected void startGbvRegistration() {
+        GbvRegisterActivity.startRegistration(FamilyOtherMemberProfileActivity.this, baseEntityId);
+    }
+
+    @Override
     protected void setIndependentClient(boolean b) {
         this.isIndependent = false;
     }
@@ -282,9 +288,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
             }
             if (viewId == R.id.refer_to_facility_layout) {
                 String gender = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.GENDER, false);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    LFTUFormUtils.startLTFUReferral(this, baseEntityId, gender, Utils.getAgeFromDate(dob));
-                }
+                LFTUFormUtils.startLTFUReferral(this, baseEntityId, gender, Utils.getAgeFromDate(dob));
             }
         };
     }
@@ -355,7 +359,6 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
             menu.findItem(R.id.action_kvp_registration).setVisible(!KvpDao.isRegisteredForKvp(baseEntityId) && age >= 15);
         }
 
-        //TODO ChrissDisigale: vmmc-menu-option
         if (gender.equalsIgnoreCase("male") && HealthFacilityApplication.getApplicationFlavor().hasVmmc()){
             menu.findItem(R.id.action_vmmc_registration).setVisible(!VmmcDao.isRegisteredForVmmc(baseEntityId));
         }
@@ -368,6 +371,10 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
             String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
             int age = Utils.getAgeFromDate(dob);
             menu.findItem(R.id.action_sbc_registration).setVisible(!SbcDao.isRegisteredForSbc(baseEntityId) && age >= 10);
+        }
+
+        if (HealthFacilityApplication.getApplicationFlavor().hasGbv()) {
+            menu.findItem(R.id.action_gbv_registration).setVisible(!GbvDao.isRegisteredForGbv(baseEntityId));
         }
     }
 

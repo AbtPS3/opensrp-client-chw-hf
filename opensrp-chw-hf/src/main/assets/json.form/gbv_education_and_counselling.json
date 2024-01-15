@@ -1,0 +1,197 @@
+{
+  "count": "1",
+  "encounter_type": "Education and Counselling",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Education and Counselling",
+    "fields": [
+      {
+        "key": "was_the_survivor_educated_on_the_violence_that_occurred",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "was_the_survivor_educated_on_the_violence_that_occurred",
+        "type": "native_radio",
+        "label": "Was the survivor educated on the violence that occurred?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select whether the client was provided with education"
+        }
+      },
+      {
+        "key": "medical_counseling_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_counseling_provided",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Select medical counseling provided",
+        "options": [
+          {
+            "key": "pre_and_post_hiv_testing",
+            "text": "Pre & post HIV testing",
+            "value": false,
+            "openmrs_choice_id": "pre_and_post_hiv_testing"
+          },
+          {
+            "key": "pep",
+            "text": "PEP",
+            "value": false,
+            "openmrs_choice_id": "pep"
+          },
+          {
+            "key": "prep",
+            "text": "Pre exposure prophylaxis (PrEP)",
+            "value": false,
+            "openmrs_choice_id": "prep"
+          },
+          {
+            "key": "post_trauma",
+            "text": "Post Trauma",
+            "value": false,
+            "openmrs_choice_id": "post_trauma"
+          },
+          {
+            "key": "fp",
+            "text": "Family planning",
+            "value": false,
+            "openmrs_choice_id": "fp"
+          },
+          {
+            "key": "ec",
+            "text": "EC",
+            "value": false,
+            "openmrs_choice_id": "ec"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "value": false,
+            "openmrs_choice_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "other_medical_counseling_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_medical_counseling_provided",
+        "type": "edit_text",
+        "hint": "Other (Specify)",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step1:medical_counseling_provided": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "was_mental_and_psychosocial_support_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "was_mental_and_psychosocial_support_provided",
+        "type": "native_radio",
+        "label": "Was mental health and psychosocial support counseling provided? ",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select whether the client was provided with mental health and psychosocial support"
+        }
+      }
+    ]
+  }
+}

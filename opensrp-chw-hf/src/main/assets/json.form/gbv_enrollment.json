@@ -1,0 +1,438 @@
+{
+  "count": "1",
+  "encounter_type": "GBV Registration",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "GBV/VAC Enrollment",
+    "fields": [
+      {
+        "key": "registration_number",
+        "hint": "Registration number",
+        "openmrs_entity_id": "registration_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "type": "mask_edit_text",
+        "mask": "######-##-##-###",
+        "mask_hint": "1234567891234",
+        "edit_type": "number",
+        "v_regex": {
+          "value": "(\\d{6}-\\d{2}-\\d{2}-\\d{3})?",
+          "err": "Registration number should be of the format (XXXXXX-XX-XX-XXX)"
+        },
+        "v_max_length": {
+          "value": "16",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid Registration Number"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the Registration number"
+        }
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "combine_checkbox_option_values": "true",
+        "type": "native_radio",
+        "label": "Education level",
+        "options": [
+          {
+            "key": "not_educated",
+            "text": "Not Educated",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_educated"
+          },
+          {
+            "key": "not_of_age",
+            "text": "Not of age",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_of_age"
+          },
+          {
+            "key": "pre_school",
+            "text": "Pre school",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pre_school"
+          },
+          {
+            "key": "primary_education",
+            "text": "Primary education",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "primary_education"
+          },
+          {
+            "key": "secondary_education",
+            "text": "Secondary education",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "secondary_education"
+          },
+          {
+            "key": "vocational_colleges",
+            "text": "Vocational colleges",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vocational_colleges"
+          },
+          {
+            "key": "university",
+            "text": "University",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "university"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select education level"
+        }
+      },
+      {
+        "key": "referred_from",
+        "type": "spinner",
+        "hint": "Referred from",
+        "openmrs_entity_id": "referred_from",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please select where the survivor was referred from"
+        },
+        "values": [
+          "Self-referral",
+          "Gender desk",
+          "Police station",
+          "Social welfare",
+          "Legal aid",
+          "Community (local government offices/Safehouse/community health care worker)",
+          "Religious leaders",
+          "Health facility(Dispensary, Health center, Hospital",
+          "Civil society organization(CSO)",
+          "Other(Specify)"
+        ],
+        "keys": [
+          "self_referral",
+          "gender_desk",
+          "police_station",
+          "social_welfare",
+          "legal_aid",
+          "community",
+          "religious_leaders",
+          "health_facility",
+          "cso",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "self_referral":  "self_referral",
+          "gender_desk":  "gender_desk",
+          "police_station":  "police_station",
+          "social_welfare":  "social_welfare",
+          "legal_aid":  "legal_aid",
+          "community":  "community",
+          "religious_leaders":  "religious_leaders",
+          "health_facility":  "health_facility",
+          "cso":  "cso",
+          "other":  "other"
+        }
+      },
+      {
+        "key": "number_of_living_children",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of living children",
+        "openmrs_entity_id": "number_of_living_children",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept"
+      },
+      {
+        "key": "staying_with",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "staying_with",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Staying with",
+        "options": [
+          {
+            "key": "wife_or_husband",
+            "text": "Wife/Husband",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wife_or_husband"
+          },
+          {
+            "key": "mother_and_father",
+            "text": "Mother & Father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_father"
+          },
+          {
+            "key": "father_only",
+            "text": "Father only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "father_only"
+          },
+          {
+            "key": "mother_only",
+            "text": "Mother only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_only"
+          },
+          {
+            "key": "step_mother_and_father",
+            "text": "Step mother and father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "step_mother_and_father"
+          },
+          {
+            "key": "mother_and_step_father",
+            "text": "Mother and stepfather",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_step_father"
+          },
+          {
+            "key": "uncle",
+            "text": "Uncle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "uncle"
+          },
+          {
+            "key": "aunt",
+            "text": "Aunt",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aunt"
+          },
+          {
+            "key": "brother",
+            "text": "Brother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "brother"
+          },
+          {
+            "key": "sister",
+            "text": "Sister",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sister"
+          },
+          {
+            "key": "other_relatives",
+            "text": "Other Relatives",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_relatives"
+          },
+          {
+            "key": "neighbour",
+            "text": "Neighbour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neighbour"
+          },
+          {
+            "key": "alone",
+            "text": "Alone",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alone"
+          },
+          {
+            "key": "elderly_parent",
+            "text": "Elderly parent/Guardian",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elderly_parent"
+          },
+          {
+            "key": "childrens_home",
+            "text": "Children's home",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "childrens_home"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        }
+      },
+      {
+        "key": "vulnerable_children_groups",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "vulnerable_children_groups",
+        "combine_checkbox_option_values": "true",
+        "type": "native_radio",
+        "label": "Vulnerable children Groups",
+        "options": [
+          {
+            "key": "not_special_group",
+            "text": "Not special group",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_special_group"
+          },
+          {
+            "key": "orphan",
+            "text": "Orphan",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "orphan"
+          },
+          {
+            "key": "child_living_and_working_in_the_streets",
+            "text": "Child living and working in the streets",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "child_living_and_working_in_the_streets"
+          },
+          {
+            "key": "living_with_disability",
+            "text": "Living with disability",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "living_with_disability"
+          },
+          {
+            "key": "living_with_hiv",
+            "text": "Living with HIV",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "living_with_hiv"
+          },
+          {
+            "key": "other_groups",
+            "text": "Other Groups (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_groups"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        }
+      },
+      {
+        "key": "does_the_survivor_have_any_disabilities",
+        "type": "native_radio",
+        "label": "Does the survivor have any Disabilities",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "does_the_survivor_have_any_disabilities",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "type_of_disability",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_disability",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Type of disability",
+        "options": [
+          {
+            "key": "mental_health",
+            "text": "Mental health",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health"
+          },
+          {
+            "key": "physical_disability",
+            "text": "Physical disability",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "physical_disability"
+          },
+          {
+            "key": "deaf",
+            "text": "Deaf",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "deaf"
+          },
+          {
+            "key": "blind",
+            "text": "Blind",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blind"
+          },
+          {
+            "key": "albinism",
+            "text": "Albinism",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "albinism"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        },
+        "relevance": {
+          "step1:does_the_survivor_have_any_disabilities": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      }
+    ]
+  }
+}

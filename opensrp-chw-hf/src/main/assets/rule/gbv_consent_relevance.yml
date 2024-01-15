@@ -1,0 +1,28 @@
+---
+name: step1_prompt_for_counseling_the_client_to_consent
+description: prompt for counseling the client to provide consent
+priority: 1
+condition: "step1_client_consent.equals('no') && global_age > 14"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_involving_social_welfare_officer
+description: prompt for involving social welfare officer
+priority: 1
+condition: "step1_client_consent.equals('no') && global_age <= 14"
+actions:
+  - "isRelevant = true"
+---
+name: step1_client_consent_after_counseling
+description: client consent after counseling
+priority: 1
+condition: "global_age > 14"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_social_welfare_officer_involved
+description: was social welfare officer involved
+priority: 1
+condition: "global_age <= 14"
+actions:
+  - "isRelevant = true"

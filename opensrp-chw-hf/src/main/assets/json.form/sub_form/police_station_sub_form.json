@@ -1,0 +1,16 @@
+{
+  "content_form": [
+    {
+      "key": "police_station",
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_entity_id": "police_station",
+      "type": "edit_text",
+      "hint": "Name of the Police Station",
+      "v_required": {
+        "value": true,
+        "err": "Required"
+      }
+    }
+  ]
+}

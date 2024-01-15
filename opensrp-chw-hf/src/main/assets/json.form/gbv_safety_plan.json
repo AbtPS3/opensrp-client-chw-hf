@@ -1,0 +1,333 @@
+{
+  "count": "1",
+  "encounter_type": "Safety Plan",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Safety Plan",
+    "fields": [
+      {
+        "key": "signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
+        "type": "native_radio",
+        "openmrs_entity_id": "signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Are there certain signs in your partner’s behavior that alert you to the possibility of violence?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "can_the_client_get_out_of_the_house_before_the_violence_starts",
+        "type": "native_radio",
+        "openmrs_entity_id": "can_the_client_get_out_of_the_house_before_the_violence_starts",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Can you get out of the house before the violence starts?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "can_the_client_send_a_message_for_help",
+        "type": "native_radio",
+        "openmrs_entity_id": "can_the_client_send_a_message_for_help",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Can you send a message to someone for help?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "are_there_neighbours_who_could_help_in_an_emergency_situation",
+        "type": "native_radio",
+        "openmrs_entity_id": "are_there_neighbours_who_could_help_in_an_emergency_situation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Are there neighbors whom you could talk to about the violence who could help you in emergency situations?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help",
+        "type": "native_radio",
+        "openmrs_entity_id": "is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Is there a way you can communicate to alert neighbors that you need help?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "can_the_client_move_into_a_room_to_escape",
+        "type": "native_radio",
+        "openmrs_entity_id": "can_the_client_move_into_a_room_to_escape",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "If violence begins, can you move into a room where you could escape or where others could hear you? Or that might be safer?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "are_there_weapons_in_the_clients_house",
+        "type": "native_radio",
+        "openmrs_entity_id": "are_there_weapons_in_the_clients_house",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Are there weapons in the house?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "weapons_location_in_the_house",
+        "type": "edit_text",
+        "hint": "Where are the weapons location in the house?",
+        "openmrs_entity_id": "weapons_location_in_the_house",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please enter the weapons location in the house"
+        }
+      },
+      {
+        "key": "can_the_client_move_the_weapons",
+        "type": "native_radio",
+        "openmrs_entity_id": "can_the_client_move_the_weapons",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Can you remove or hide them?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "does_the_client_have_places_where_they_can_go_in_an_emergency",
+        "type": "native_radio",
+        "openmrs_entity_id": "does_the_client_have_places_where_they_can_go_in_an_emergency",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Are there places where you could go in an emergency (relative, neighbor, local leader)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "can_the_client_hide_a_bag_with_supplies_for_emergencies",
+        "type": "native_radio",
+        "openmrs_entity_id": "can_the_client_hide_a_bag_with_supplies_for_emergencies",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Can you keep a bag hidden ( at a friend/family Member’s home) for emergencies filled with clothes, some money, keys, and copies of  telephone numbers or important documents in case you need to leave quickly?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      }
+    ]
+  }
+}

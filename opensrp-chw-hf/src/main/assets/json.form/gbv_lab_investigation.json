@@ -1,0 +1,247 @@
+{
+  "count": "1",
+  "encounter_type": "Lab Investigation",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Lab Investigations",
+    "fields": [
+      {
+        "key": "upt_test_results",
+        "type": "native_radio",
+        "openmrs_entity_id": "upt_test_results",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Please select UPT Results",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "not_tested",
+            "text": "Not Tested",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_tested"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the UPT test results"
+        }
+      },
+      {
+        "key": "hiv_test_results",
+        "type": "native_radio",
+        "openmrs_entity_id": "hiv_test_results",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Please select HIV Test Results",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "not_tested",
+            "text": "Not Tested",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_tested"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the HIV test results"
+        }
+      },
+      {
+        "key": "sti_test_results",
+        "type": "native_radio",
+        "openmrs_entity_id": "sti_test_results",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Please select STI Test Results",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "not_tested",
+            "text": "Not Tested",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_tested"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the STI test results"
+        }
+      },
+      {
+        "key": "hepb_test_results",
+        "type": "native_radio",
+        "openmrs_entity_id": "hepb_test_results",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Please select Hepatitis B Test Results",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "not_tested",
+            "text": "Not Tested",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_tested"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the Hepatitis B test results"
+        }
+      },
+      {
+        "key": "pregnancy_status_after_incident",
+        "type": "native_radio",
+        "openmrs_entity_id": "pregnancy_status_after_incident",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Client's Pregnancy status after incident",
+        "options": [
+          {
+            "text": "Positive",
+            "key": "No miscarriage after violence",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "text": "Miscarriage after violence",
+            "key": "miscarriage_after_violence",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "miscarriage_after_violence"
+          },
+          {
+            "text": "Violence was not the cause of miscarriage",
+            "key": "violence_was_not_the_cause_of_miscarriage",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "violence_was_not_the_cause_of_miscarriage"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer to this question"
+        }
+      },
+      {
+        "key": "did_violence_cause_disability",
+        "type": "native_radio",
+        "openmrs_entity_id": "did_violence_cause_disability",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Did the violence result to disability?",
+        "options": [
+          {
+            "text": "Yes",
+            "key": "yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "text": "No",
+            "key": "no",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer to this question"
+        }
+      }
+    ]
+  }
+}

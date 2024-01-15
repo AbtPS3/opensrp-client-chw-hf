@@ -29,6 +29,7 @@ import org.smartregister.chw.core.form_data.NativeFormsDataBinder;
 import org.smartregister.chw.core.fragment.FamilyCallDialogFragment;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.Utils;
+import org.smartregister.chw.gbv.dao.GbvDao;
 import org.smartregister.chw.hf.BuildConfig;
 import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
@@ -45,8 +46,8 @@ import org.smartregister.chw.kvp.dao.KvpDao;
 import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.malaria.dao.MalariaDao;
 import org.smartregister.chw.sbc.dao.SbcDao;
-import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.chw.vmmc.dao.VmmcDao;
+import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.commonregistry.CommonRepository;
 import org.smartregister.family.adapter.ViewPagerAdapter;
@@ -126,6 +127,9 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
             String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
             int age = Utils.getAgeFromDate(dob);
             menu.findItem(R.id.action_sbc_registration).setVisible(!SbcDao.isRegisteredForSbc(baseEntityId) && age >= 10);
+        }
+        if (HealthFacilityApplication.getApplicationFlavor().hasGbv()) {
+            menu.findItem(R.id.action_gbv_registration).setVisible(!GbvDao.isRegisteredForGbv(baseEntityId));
         }
         return true;
     }
@@ -378,6 +382,11 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
     @Override
     protected void startSbcRegistration() {
         SbcRegisterActivity.startRegistration(AllClientsMemberProfileActivity.this, baseEntityId);
+    }
+
+    @Override
+    protected void startGbvRegistration() {
+        GbvRegisterActivity.startRegistration(AllClientsMemberProfileActivity.this, baseEntityId);
     }
 
     @Override

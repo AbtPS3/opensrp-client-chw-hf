@@ -25,6 +25,7 @@ import org.smartregister.chw.core.utils.ChwDBConstants;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.FormUtils;
 import org.smartregister.chw.fp.FpLibrary;
+import org.smartregister.chw.gbv.GbvLibrary;
 import org.smartregister.chw.hf.activity.AllClientsRegisterActivity;
 import org.smartregister.chw.hf.activity.AncRegisterActivity;
 import org.smartregister.chw.hf.activity.CdpRegisterActivity;
@@ -32,6 +33,7 @@ import org.smartregister.chw.hf.activity.ChildRegisterActivity;
 import org.smartregister.chw.hf.activity.FamilyProfileActivity;
 import org.smartregister.chw.hf.activity.FamilyRegisterActivity;
 import org.smartregister.chw.hf.activity.FpRegisterActivity;
+import org.smartregister.chw.hf.activity.GbvRegisterActivity;
 import org.smartregister.chw.hf.activity.HeiRegisterActivity;
 import org.smartregister.chw.hf.activity.HivIndexContactsContactsRegisterActivity;
 import org.smartregister.chw.hf.activity.HivRegisterActivity;
@@ -154,6 +156,7 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
             registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.CDP_REGISTER_ACTIVITY, CdpRegisterActivity.class);
             registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.FP_REGISTER_ACTIVITY, FpRegisterActivity.class);
             registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.SBC_REGISTER_ACTIVITY, SbcRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.GBV_REGISTER_ACTIVITY, GbvRegisterActivity.class);
         }
 //          TODO uncomment these when NACP is ready to test these modules
         //registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.TB_REGISTER_ACTIVITY, TbRegisterActivity.class);
@@ -315,6 +318,10 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
             SbcLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         }
 
+        if (flavor.hasGbv()) {
+            GbvLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
+
         //Needed for all clients register
         OpdLibrary.init(context, getRepository(),
                 new OpdConfiguration.Builder(HfAllClientsRegisterQueryProvider.class)
@@ -425,6 +432,8 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         boolean hasChildModule();
 
         boolean hasSbc();
+
+        boolean hasGbv();
 
         boolean hasMap();
     }

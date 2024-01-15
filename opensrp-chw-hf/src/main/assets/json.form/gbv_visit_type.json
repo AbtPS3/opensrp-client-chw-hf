@@ -1,0 +1,246 @@
+{
+  "count": "1",
+  "encounter_type": "GBV_VAC_VISIT_TYPE",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Visit Type",
+    "fields": [
+      {
+        "key": "visit_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "visit_status",
+        "type": "native_radio",
+        "label": "Client Visit Status",
+        "options": [
+          {
+            "key": "new",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new",
+            "text": "New"
+          },
+          {
+            "key": "repeat",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "repeat",
+            "text": "Repeat"
+          },
+          {
+            "key": "follow_up",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "follow_up",
+            "text": "Follow-up"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the visit status"
+        }
+      },
+      {
+        "key": "can_manage_case",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "can_manage_case",
+        "type": "native_radio",
+        "label": "Can you manage the client case?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Indicate if you can manage the case"
+        }
+      },
+      {
+        "key": "referral_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referral_type",
+        "type": "native_radio",
+        "label": "What type of referral would you like to refer the client to?",
+        "options": [
+          {
+            "key": "other_services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_services",
+            "text": "Other Services"
+          },
+          {
+            "key": "health_facility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_facility",
+            "text": "Health Facility"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the type of referral"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_visit_type_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "name_of_hf",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "name_of_hf",
+        "buttonText": "Select Health Facility",
+        "sort": true,
+        "maxSelectable": 1,
+        "dialogTitle": "Name of the Health Facility to refer the client to",
+        "searchHint": "Type the name of the health facility",
+        "type": "multi_select_list",
+        "options": [
+          {
+            "key": "10001-10",
+            "text": "Muhimbili National Hospital",
+            "property": {
+              "presumed-id": "10001-10",
+              "confirmed-id": "10001-10"
+            }
+          },
+          {
+            "key": "10001-11",
+            "text": "Amana Region Referral Hospital",
+            "property": {
+              "presumed-id": "10001-11",
+              "confirmed-id": "10001-11"
+            }
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select the name of the health facility"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_visit_type_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_services",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Other Services the client has been linked to",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "police_gender_and_children_desk",
+            "text": "Police gender and children desk",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "police_gender_and_children_desk"
+          },
+          {
+            "key": "police",
+            "text": "Police",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "police"
+          },
+          {
+            "key": "legal_aid",
+            "text": "Legal Aid",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_aid"
+          },
+          {
+            "key": "social_welfare_officer",
+            "text": "Social welfare officer",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "social_welfare_officer"
+          },
+          {
+            "key": "other",
+            "text": "Other",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_visit_type_relevance.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

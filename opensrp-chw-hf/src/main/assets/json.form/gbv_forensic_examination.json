@@ -1,0 +1,304 @@
+{
+  "count": "1",
+  "encounter_type": "Forensic Examination",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "global": {},
+  "step1": {
+    "title": "Forensic Examination",
+    "fields": [
+      {
+        "key": "virginal_swab",
+        "type": "native_radio",
+        "openmrs_entity_id": "virginal_swab",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Virginal swab",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "blood_specimen",
+        "type": "native_radio",
+        "openmrs_entity_id": "blood_specimen",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Blood specimen",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "pluck_pubic_hair",
+        "type": "native_radio",
+        "openmrs_entity_id": "pluck_pubic_hair",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Pluck pubic hair",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "collected_urine_for_lab_investigation",
+        "type": "native_radio",
+        "openmrs_entity_id": "collected_urine_for_lab_investigation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Collection urine for lab investigation",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "collected_blood_sample_for_dna",
+        "type": "native_radio",
+        "openmrs_entity_id": "collected_blood_sample_for_dna",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Collection blood sample for DNA",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "collected_nails_from_survivors",
+        "type": "native_radio",
+        "openmrs_entity_id": "collected_nails_from_survivors",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Collect nails from the survivors",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "collected_hair_root",
+        "type": "native_radio",
+        "openmrs_entity_id": "collected_hair_root",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Collection of hair root",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "collected_stained_clothes",
+        "type": "native_radio",
+        "openmrs_entity_id": "collected_stained_clothes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Collection of stained clothes",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+
+      {
+        "key": "other_obtained_materials",
+        "type": "edit_text",
+        "hint": "Other obtained materials(specify)",
+        "openmrs_entity_id": "other_obtained_materials",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept"
+      },
+      {
+        "key": "does_the_client_need_lab_investigation",
+        "type": "native_radio",
+        "openmrs_entity_id": "does_the_client_need_lab_investigation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Does the client need Lab investigation?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      }
+    ]
+  }
+}

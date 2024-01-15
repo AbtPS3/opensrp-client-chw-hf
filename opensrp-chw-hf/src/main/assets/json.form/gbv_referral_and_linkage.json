@@ -1,0 +1,152 @@
+{
+  "count": "1",
+  "encounter_type": "Referral and Linkage",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Referral and Linkage",
+    "fields": [
+      {
+        "key": "was_the_client_linked_to_other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "was_the_client_linked_to_other_services",
+        "type": "native_radio",
+        "label": "Was the client linked to other services?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select whether the client was linked to other services"
+        }
+      },
+      {
+        "key": "services_the_client_has_been_linked_to",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "services_the_client_has_been_linked_to",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Select the other services the client has been linked to",
+        "options": [
+          {
+            "key": "police_gender_and_children_desk",
+            "text": "Police gender and children desk (PG&CD)",
+            "openmrs_choice_id": "police_gender_and_children_desk"
+          },
+          {
+            "key": "police",
+            "text": "Police",
+            "openmrs_choice_id": "police"
+          },
+          {
+            "key": "legal_aid",
+            "text": "Legal aid",
+            "openmrs_choice_id": "legal_aid"
+          },
+          {
+            "key": "social_welfare",
+            "text": "Social welfare officer",
+            "openmrs_choice_id": "social_welfare"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_choice_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "other_services_the_client_has_been_linked_to",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_services_the_client_has_been_linked_to",
+        "type": "edit_text",
+        "hint": "Other (Specify)",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step1:services_the_client_has_been_linked_to": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

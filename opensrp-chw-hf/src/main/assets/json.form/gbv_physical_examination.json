@@ -1,0 +1,614 @@
+{
+  "count": "1",
+  "encounter_type": "Physical examination",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Physical examination",
+    "fields": [
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Blood Pressure)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the systolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Systolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Systolic value must be equal or less than 320"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the systolic value"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic (Blood Pressure)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the diastolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Diastolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Diastolic value must be equal or less than 200"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the diastolic value"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "The diastolic value must be less than the systolic value"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Manage the hypertension according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "fp_method_screening_physical_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Elicit the cause of hypotension and manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "fp_method_screening_physical_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pulse_rate",
+        "type": "edit_text",
+        "hint": "Pulse Rate (Beats per minute)",
+        "openmrs_entity_id": "pulse_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the pulse rate"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "The pulse rate must be equal or greater than 0 (bpm)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "The pulse rate must be equal or less than 200 (bpm)"
+        }
+      },
+      {
+        "key": "prompt_for_Bradycardia",
+        "type": "toaster_notes",
+        "text": "Elicit the cause of bradycardia and manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_Bradycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"60\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_Tachycardia",
+        "type": "toaster_notes",
+        "text": "Elicit the cause of tachycardia and manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_Tachycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"100\")"
+          }
+        }
+      },
+      {
+        "key": "respiratory_rate",
+        "type": "edit_text",
+        "hint": "Respiratory Rate (Breaths per minute)",
+        "openmrs_entity_id": "respiratory_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the respiratory rate"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "The respiratory rate must be equal or greater than 0 (Breaths per minute)"
+        },
+        "v_max": {
+          "value": "100",
+          "err": "The respiratory rate must be equal or less than 100 (Breaths per minute)"
+        }
+      },
+      {
+        "key": "prompt_for_respiratory_rate",
+        "type": "toaster_notes",
+        "text": "Manage according to SOP and National guideline",
+        "openmrs_entity_id": "prompt_for_respiratory_rate",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_general_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Temperature (\u2103)",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the temperature"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Temperature must be equal or greater than 10"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Temperature must be equal or less than 50"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Conduct relevant laboratory tests to elicit the cause of fever and manage according to standard guidelines ",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Manage the hypothermia according to standard guidelines",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "weight",
+        "type": "edit_text",
+        "hint": "Weight (KG)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the weight"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "The weight must be equal or greater than 20 (KG)"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "The weight must be equal or less than 300 (KG)"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the weight"
+        }
+      },
+      {
+        "key": "height",
+        "type": "edit_text",
+        "hint": "Height (CM)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the height"
+        },
+        "v_min": {
+          "value": "60",
+          "err": "The height must be equal or greater than 60 (CM)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "The height must be equal or less than 200 (CM)"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the height"
+        }
+      },
+      {
+        "key": "did_the_survivor_change_clothes",
+        "type": "native_radio",
+        "label": "Did the survivor change clothes?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "did_the_survivor_change_clothes",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "where_the_clothes_were_taken",
+        "type": "edit_text",
+        "hint": "Where were the worn clothes taken?",
+        "openmrs_entity_id": "where_the_clothes_were_taken",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "state_of_the_clothes",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "state_of_the_clothes",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "State of the clothes?",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "stains",
+            "text": "Stains",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stains"
+          },
+          {
+            "key": "tears",
+            "text": "Tears",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tears"
+          },
+          {
+            "key": "colour",
+            "text": "Colour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "colour"
+          },
+          {
+            "key": "other",
+            "text": "Other ( Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "any_visible_injuries",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "any_visible_injuries",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Does the client have any visible obvious injuries?",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "bruises",
+            "text": "Bruises",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bruises"
+          },
+          {
+            "key": "inflammation",
+            "text": "Inflammation",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "inflammation"
+          },
+          {
+            "key": "laceration",
+            "text": "Laceration",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "laceration"
+          },
+          {
+            "key": "cut_wound",
+            "text": "Cut wound",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cut_wound"
+          },
+          {
+            "key": "other",
+            "text": "Other ( Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "area_of_injuries",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "area_of_injuries",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Select area of Injuries",
+        "options": [
+          {
+            "key": "back",
+            "text": "Back",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "back"
+          },
+          {
+            "key": "stomach",
+            "text": "Stomach",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stomach"
+          },
+          {
+            "key": "buttocks",
+            "text": "Buttocks",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "buttocks"
+          },
+          {
+            "key": "neck",
+            "text": "Neck",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neck"
+          },
+          {
+            "key": "face",
+            "text": "Face",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "face"
+          },
+          {
+            "key": "hand",
+            "text": "Hand",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hand"
+          },
+          {
+            "key": "chest",
+            "text": "Chest",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chest"
+          },
+          {
+            "key": "leg",
+            "text": "Leg",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "leg"
+          },
+          {
+            "key": "genital_parts",
+            "text": "Genital parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "genital_parts"
+          },
+          {
+            "key": "anal_parts",
+            "text": "Anal parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal_parts"
+          },
+          {
+            "key": "other",
+            "text": "Other ( Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
+      },
+      {
+        "key": "comment_on_general_condition_of_the_survivor",
+        "type": "edit_text",
+        "hint": "Comment on general condition of the survivor",
+        "openmrs_entity_id": "comment_on_general_condition_of_the_survivor",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "external_genitalia",
+        "type": "edit_text",
+        "hint": "External genitalia",
+        "openmrs_entity_id": "external_genitalia",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "vaginal_hymen",
+        "type": "edit_text",
+        "hint": "Vaginal/hymen",
+        "openmrs_entity_id": "vaginal_hymen",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "cervix",
+        "type": "edit_text",
+        "hint": "Cervix",
+        "openmrs_entity_id": "cervix",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "digital_rectal_examination",
+        "type": "edit_text",
+        "hint": "Digital rectal examination",
+        "openmrs_entity_id": "digital_rectal_examination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      },
+      {
+        "key": "other_orifices",
+        "type": "edit_text",
+        "hint": "Other orifices",
+        "openmrs_entity_id": "other_orifices",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_required": {
+          "value": true,
+          "err": "Please answer the following question"
+        }
+      }
+    ]
+  }
+}
