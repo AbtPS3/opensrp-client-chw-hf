@@ -25,8 +25,8 @@ public class GbvVisitActivity extends BaseGbvHfVisitActivity {
         Intent intent = new Intent(this, Utils.metadata().familyMemberFormActivity);
         intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
 
-        if (getFormConfig() != null) {
-            intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, getFormConfig());
+        if (getFormConfig(jsonForm) != null) {
+            intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, getFormConfig(jsonForm));
         }
 
         startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
