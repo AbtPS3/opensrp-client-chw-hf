@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.show-on-print {
+  display: none;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px;
+    margin-right: 10px;
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: normal;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    padding: 5px;
+}
+
+.table-th-color {
+    background-color: #55efc4;
+}
+
+.table-total-color {
+    background-color: #74b9ff;
+}
+
+.category-color {
+    background-color: #74b65f;
+}
+
+.table-category-color {
+    background-color: #f39c12;
+}
+
+
+ul {
+    width: 100%;
+}
+ul li {
+    width: 49%;
+    display: inline-block;
+}
+
+ul li > * {
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+.no-data {
+  background: #ccc;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+#reporting_facility {
+  font-weight: 700;
+}
+#report_period {
+  font-weight: 700;
+}
+
+@media print {
+  .show-on-print {
+    display: block;
+  }
+
+  .child-table {
+    width: 50%;
+  }
+}
+
+    </style>
+</head>
+
+<body onload="loadData(&#39;monthly&#39;, &#39;anc&#39;)">
+<div class="show-on-print" style="font-size:12px;">
+    <h1> FOMU YA MUOANISHO (TALLY SHEETS) KITABU NA 18: REJESTA YA UKATILI WA KIJINSIA NA UKATILI
+        DHIDI YA WATOTO</h1>
+</div>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>SN</th>
+            <th>Kiashiria</th>
+            <th>Jumla Kuu (KE+ME)</th>
+            <th colspan="10">Wanawake (KE)</th>
+            <th colspan="13">Wanaume (ME)</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>TOTAL (F)</th>
+            <th>0-4</th>
+            <th>5-9</th>
+            <th>10-14</th>
+            <th>15-17</th>
+            <th>18-19</th>
+            <th>20-24</th>
+            <th>25-29</th>
+            <th>30-34</th>
+            <th>35 and above</th>
+            <th>TOTAL (M)</th>
+            <th>0-4</th>
+            <th>5-9</th>
+            <th>10-14</th>
+            <th>15-17</th>
+            <th>18-19</th>
+            <th>20-24</th>
+            <th>25-29</th>
+            <th>30-34</th>
+            <th>35 and above</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Idadi ya Manusura wapya waliofanyiwa ukatili</td>
+            <td align="center" id="gbv-1-grandTotal"></td>
+            <td align="center" id="gbv-1-totalFemale"></td>
+            <td align="center" id="gbv-1-0-4-F"></td>
+            <td align="center" id="gbv-1-5-9-F"></td>
+            <td align="center" id="gbv-1-10-14-F"></td>
+            <td align="center" id="gbv-1-15-17-F"></td>
+            <td align="center" id="gbv-1-18-19-F"></td>
+            <td align="center" id="gbv-1-20-24-F"></td>
+            <td align="center" id="gbv-1-25-29-F"></td>
+            <td align="center" id="gbv-1-30-34-F"></td>
+            <td align="center" id="gbv-1-35-above-F"></td>
+            <td align="center" id="gbv-1-totalMale"></td>
+            <td align="center" id="gbv-1-0-4-M"></td>
+            <td align="center" id="gbv-1-5-9-M"></td>
+            <td align="center" id="gbv-1-10-14-M"></td>
+            <td align="center" id="gbv-1-15-17-M"></td>
+            <td align="center" id="gbv-1-18-19-M"></td>
+            <td align="center" id="gbv-1-20-24-M"></td>
+            <td align="center" id="gbv-1-25-29-M"></td>
+            <td align="center" id="gbv-1-30-34-M"></td>
+            <td align="center" id="gbv-1-35-above-M"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Idadi ya manusura (wapya na marudio) waliofanyiwa ukatili </td>
+            <td align="center" id="gbv-2-grandTotal"></td>
+            <td align="center" id="gbv-2-totalFemale"></td>
+            <td align="center" id="gbv-2-0-4-F"></td>
+            <td align="center" id="gbv-2-5-9-F"></td>
+            <td align="center" id="gbv-2-10-14-F"></td>
+            <td align="center" id="gbv-2-15-17-F"></td>
+            <td align="center" id="gbv-2-18-19-F"></td>
+            <td align="center" id="gbv-2-20-24-F"></td>
+            <td align="center" id="gbv-2-25-29-F"></td>
+            <td align="center" id="gbv-2-30-34-F"></td>
+            <td align="center" id="gbv-2-35-above-F"></td>
+            <td align="center" id="gbv-2-totalMale"></td>
+            <td align="center" id="gbv-2-0-4-M"></td>
+            <td align="center" id="gbv-2-5-9-M"></td>
+            <td align="center" id="gbv-2-10-14-M"></td>
+            <td align="center" id="gbv-2-15-17-M"></td>
+            <td align="center" id="gbv-2-18-19-M"></td>
+            <td align="center" id="gbv-2-20-24-M"></td>
+            <td align="center" id="gbv-2-25-29-M"></td>
+            <td align="center" id="gbv-2-30-34-M"></td>
+            <td align="center" id="gbv-2-35-above-M"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Aina ya matukio ya ukatili waliofanyiwa manusura</td>
+            <td align="center" id="gbv-3-grandTotal"></td>
+            <td align="center" id="gbv-3-totalFemale"></td>
+            <td align="center" id="gbv-3-0-4-F"></td>
+            <td align="center" id="gbv-3-5-9-F"></td>
+            <td align="center" id="gbv-3-10-14-F"></td>
+            <td align="center" id="gbv-3-15-17-F"></td>
+            <td align="center" id="gbv-3-18-19-F"></td>
+            <td align="center" id="gbv-3-20-24-F"></td>
+            <td align="center" id="gbv-3-25-29-F"></td>
+            <td align="center" id="gbv-3-30-34-F"></td>
+            <td align="center" id="gbv-3-35-above-F"></td>
+            <td align="center" id="gbv-3-totalMale"></td>
+            <td align="center" id="gbv-3-0-4-M"></td>
+            <td align="center" id="gbv-3-5-9-M"></td>
+            <td align="center" id="gbv-3-10-14-M"></td>
+            <td align="center" id="gbv-3-15-17-M"></td>
+            <td align="center" id="gbv-3-18-19-M"></td>
+            <td align="center" id="gbv-3-20-24-M"></td>
+            <td align="center" id="gbv-3-25-29-M"></td>
+            <td align="center" id="gbv-3-30-34-M"></td>
+            <td align="center" id="gbv-3-35-above-M"></td>
+        </tr>
+        <tr>
+            <td>3a</td>
+            <td>Kimwili (Physical Violence) </td>
+            <td align="center" id="gbv-3a-grandTotal"></td>
+            <td align="center" id="gbv-3a-totalFemale"></td>
+            <td align="center" id="gbv-3a-0-4-F"></td>
+            <td align="center" id="gbv-3a-5-9-F"></td>
+            <td align="center" id="gbv-3a-10-14-F"></td>
+            <td align="center" id="gbv-3a-15-17-F"></td>
+            <td align="center" id="gbv-3a-18-19-F"></td>
+            <td align="center" id="gbv-3a-20-24-F"></td>
+            <td align="center" id="gbv-3a-25-29-F"></td>
+            <td align="center" id="gbv-3a-30-34-F"></td>
+            <td align="center" id="gbv-3a-35-above-F"></td>
+            <td align="center" id="gbv-3a-totalMale"></td>
+            <td align="center" id="gbv-3a-0-4-M"></td>
+            <td align="center" id="gbv-3a-5-9-M"></td>
+            <td align="center" id="gbv-3a-10-14-M"></td>
+            <td align="center" id="gbv-3a-15-17-M"></td>
+            <td align="center" id="gbv-3a-18-19-M"></td>
+            <td align="center" id="gbv-3a-20-24-M"></td>
+            <td align="center" id="gbv-3a-25-29-M"></td>
+            <td align="center" id="gbv-3a-30-34-M"></td>
+            <td align="center" id="gbv-3a-35-above-M"></td>
+        </tr>
+        <tr>
+            <td>3b</td>
+            <td>Kingono wa kubakwa (Sexual Violence)</td>
+            <td align="center" id="gbv-3b-grandTotal"></td>
+            <td align="center" id="gbv-3b-totalFemale"></td>
+            <td align="center" id="gbv-3b-0-4-F"></td>
+            <td align="center" id="gbv-3b-5-9-F"></td>
+            <td align="center" id="gbv-3b-10-14-F"></td>
+            <td align="center" id="gbv-3b-15-17-F"></td>
+            <td align="center" id="gbv-3b-18-19-F"></td>
+            <td align="center" id="gbv-3b-20-24-F"></td>
+            <td align="center" id="gbv-3b-25-29-F"></td>
+            <td align="center" id="gbv-3b-30-34-F"></td>
+            <td align="center" id="gbv-3b-35-above-F"></td>
+            <td align="center" id="gbv-3b-totalMale"></td>
+            <td align="center" id="gbv-3b-0-4-M"></td>
+            <td align="center" id="gbv-3b-5-9-M"></td>
+            <td align="center" id="gbv-3b-10-14-M"></td>
+            <td align="center" id="gbv-3b-15-17-M"></td>
+            <td align="center" id="gbv-3b-18-19-M"></td>
+            <td align="center" id="gbv-3b-20-24-M"></td>
+            <td align="center" id="gbv-3b-25-29-M"></td>
+            <td align="center" id="gbv-3b-30-34-M"></td>
+            <td align="center" id="gbv-3b-35-above-M"></td>
+        </tr>
+        <tr>
+            <td>3c</td>
+            <td>Kingono wa kulawitiwa (Sexual Violence)</td>
+            <td align="center" id="gbv-3c-grandTotal"></td>
+            <td align="center" id="gbv-3c-totalFemale"></td>
+            <td align="center" id="gbv-3c-0-4-F"></td>
+            <td align="center" id="gbv-3c-5-9-F"></td>
+            <td align="center" id="gbv-3c-10-14-F"></td>
+            <td align="center" id="gbv-3c-15-17-F"></td>
+            <td align="center" id="gbv-3c-18-19-F"></td>
+            <td align="center" id="gbv-3c-20-24-F"></td>
+            <td align="center" id="gbv-3c-25-29-F"></td>
+            <td align="center" id="gbv-3c-30-34-F"></td>
+            <td align="center" id="gbv-3c-35-above-F"></td>
+            <td align="center" id="gbv-3c-totalMale"></td>
+            <td align="center" id="gbv-3c-0-4-M"></td>
+            <td align="center" id="gbv-3c-5-9-M"></td>
+            <td align="center" id="gbv-3c-10-14-M"></td>
+            <td align="center" id="gbv-3c-15-17-M"></td>
+            <td align="center" id="gbv-3c-18-19-M"></td>
+            <td align="center" id="gbv-3c-20-24-M"></td>
+            <td align="center" id="gbv-3c-25-29-M"></td>
+            <td align="center" id="gbv-3c-30-34-M"></td>
+            <td align="center" id="gbv-3c-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>3d</td>
+            <td>Kihisia (Emotional Violence)</td>
+            <td align="center" id="gbv-3d-grandTotal"></td>
+            <td align="center" id="gbv-3d-totalFemale"></td>
+            <td align="center" id="gbv-3d-0-4-F"></td>
+            <td align="center" id="gbv-3d-5-9-F"></td>
+            <td align="center" id="gbv-3d-10-14-F"></td>
+            <td align="center" id="gbv-3d-15-17-F"></td>
+            <td align="center" id="gbv-3d-18-19-F"></td>
+            <td align="center" id="gbv-3d-20-24-F"></td>
+            <td align="center" id="gbv-3d-25-29-F"></td>
+            <td align="center" id="gbv-3d-30-34-F"></td>
+            <td align="center" id="gbv-3d-35-above-F"></td>
+            <td align="center" id="gbv-3d-totalMale"></td>
+            <td align="center" id="gbv-3d-0-4-M"></td>
+            <td align="center" id="gbv-3d-5-9-M"></td>
+            <td align="center" id="gbv-3d-10-14-M"></td>
+            <td align="center" id="gbv-3d-15-17-M"></td>
+            <td align="center" id="gbv-3d-18-19-M"></td>
+            <td align="center" id="gbv-3d-20-24-M"></td>
+            <td align="center" id="gbv-3d-25-29-M"></td>
+            <td align="center" id="gbv-3d-30-34-M"></td>
+            <td align="center" id="gbv-3d-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>3e</td>
+            <td>Waliotelekezwa (Neglect)</td>
+            <td align="center" id="gbv-3e-grandTotal"></td>
+            <td align="center" id="gbv-3e-totalFemale"></td>
+            <td align="center" id="gbv-3e-0-4-F"></td>
+            <td align="center" id="gbv-3e-5-9-F"></td>
+            <td align="center" id="gbv-3e-10-14-F"></td>
+            <td align="center" id="gbv-3e-15-17-F"></td>
+            <td align="center" id="gbv-3e-18-19-F"></td>
+            <td align="center" id="gbv-3e-20-24-F"></td>
+            <td align="center" id="gbv-3e-25-29-F"></td>
+            <td align="center" id="gbv-3e-30-34-F"></td>
+            <td align="center" id="gbv-3e-35-above-F"></td>
+            <td align="center" id="gbv-3e-totalMale"></td>
+            <td align="center" id="gbv-3e-0-4-M"></td>
+            <td align="center" id="gbv-3e-5-9-M"></td>
+            <td align="center" id="gbv-3e-10-14-M"></td>
+            <td align="center" id="gbv-3e-15-17-M"></td>
+            <td align="center" id="gbv-3e-18-19-M"></td>
+            <td align="center" id="gbv-3e-20-24-M"></td>
+            <td align="center" id="gbv-3e-25-29-M"></td>
+            <td align="center" id="gbv-e3-30-34-M"></td>
+            <td align="center" id="gbv-3e-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>3f</td>
+            <td>Waliokeketwa</td>
+            <td align="center" id="gbv-3f-grandTotal"></td>
+            <td align="center" id="gbv-3f-totalFemale"></td>
+            <td align="center" id="gbv-3f-0-4-F"></td>
+            <td align="center" id="gbv-3f-5-9-F"></td>
+            <td align="center" id="gbv-3f-10-14-F"></td>
+            <td align="center" id="gbv-3f-15-17-F"></td>
+            <td align="center" id="gbv-3f-18-19-F"></td>
+            <td align="center" id="gbv-3f-20-24-F"></td>
+            <td align="center" id="gbv-3f-25-29-F"></td>
+            <td align="center" id="gbv-3f-30-34-F"></td>
+            <td align="center" id="gbv-3f-35-above-F"></td>
+            <td align="center" id="gbv-3f-totalMale"></td>
+            <td align="center" id="gbv-3f-0-4-M"></td>
+            <td align="center" id="gbv-3f-5-9-M"></td>
+            <td align="center" id="gbv-3f-10-14-M"></td>
+            <td align="center" id="gbv-3f-15-17-M"></td>
+            <td align="center" id="gbv-3f-18-19-M"></td>
+            <td align="center" id="gbv-3f-20-24-M"></td>
+            <td align="center" id="gbv-3f-25-29-M"></td>
+            <td align="center" id="gbv-3f-30-34-M"></td>
+            <td align="center" id="gbv-3f-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>3g</td>
+            <td>Aina Nyinginezo</td>
+            <td align="center" id="gbv-3g-grandTotal"></td>
+            <td align="center" id="gbv-3g-totalFemale"></td>
+            <td align="center" id="gbv-3g-0-4-F"></td>
+            <td align="center" id="gbv-3g-5-9-F"></td>
+            <td align="center" id="gbv-3g-10-14-F"></td>
+            <td align="center" id="gbv-3g-15-17-F"></td>
+            <td align="center" id="gbv-3g-18-19-F"></td>
+            <td align="center" id="gbv-3g-20-24-F"></td>
+            <td align="center" id="gbv-3g-25-29-F"></td>
+            <td align="center" id="gbv-3g-30-34-F"></td>
+            <td align="center" id="gbv-3g-35-above-F"></td>
+            <td align="center" id="gbv-3g-totalMale"></td>
+            <td align="center" id="gbv-3g-0-4-M"></td>
+            <td align="center" id="gbv-3g-5-9-M"></td>
+            <td align="center" id="gbv-3g-10-14-M"></td>
+            <td align="center" id="gbv-3g-15-17-M"></td>
+            <td align="center" id="gbv-3g-18-19-M"></td>
+            <td align="center" id="gbv-3g-20-24-M"></td>
+            <td align="center" id="gbv-3g-25-29-M"></td>
+            <td align="center" id="gbv-3g-30-34-M"></td>
+            <td align="center" id="gbv-3g-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>Huduma kwa manusura waliofanyiwa ukatili </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Idadi ya manusura waliopewa vidonge vya dharura vya uzazi wa mpango ndani ya saa 120 baada ya kufanyiwa ukatili wa kingono.
+                (Emergency Contraceptive)  </td>
+            <td align="center" id="gbv-4-grandTotal"></td>
+            <td align="center" id="gbv-4-totalFemale"></td>
+            <td align="center" id="gbv-4-0-4-F"></td>
+            <td align="center" id="gbv-4-5-9-F"></td>
+            <td align="center" id="gbv-4-10-14-F"></td>
+            <td align="center" id="gbv-4-15-17-F"></td>
+            <td align="center" id="gbv-4-18-19-F"></td>
+            <td align="center" id="gbv-4-20-24-F"></td>
+            <td align="center" id="gbv-4-25-29-F"></td>
+            <td align="center" id="gbv-4-30-34-F"></td>
+            <td align="center" id="gbv-4-35-above-F"></td>
+            <td align="center" id="gbv-4-totalMale"></td>
+            <td align="center" id="gbv-4-0-4-M"></td>
+            <td align="center" id="gbv-4-5-9-M"></td>
+            <td align="center" id="gbv-4-10-14-M"></td>
+            <td align="center" id="gbv-4-15-17-M"></td>
+            <td align="center" id="gbv-4-18-19-M"></td>
+            <td align="center" id="gbv-4-20-24-M"></td>
+            <td align="center" id="gbv-4-25-29-M"></td>
+            <td align="center" id="gbv-4-30-34-M"></td>
+            <td align="center" id="gbv-4-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>Idadi ya manusura waliofanyiwa uchunguzi kwa ajili ya ushahidi wa kisheria (Forensic Investigation)</td>
+            <td align="center" id="gbv-5-grandTotal"></td>
+            <td align="center" id="gbv-5-totalFemale"></td>
+            <td align="center" id="gbv-5-0-4-F"></td>
+            <td align="center" id="gbv-5-5-9-F"></td>
+            <td align="center" id="gbv-5-10-14-F"></td>
+            <td align="center" id="gbv-5-15-17-F"></td>
+            <td align="center" id="gbv-5-18-19-F"></td>
+            <td align="center" id="gbv-5-20-24-F"></td>
+            <td align="center" id="gbv-5-25-29-F"></td>
+            <td align="center" id="gbv-5-30-34-F"></td>
+            <td align="center" id="gbv-5-35-above-F"></td>
+            <td align="center" id="gbv-5-totalMale"></td>
+            <td align="center" id="gbv-5-0-4-M"></td>
+            <td align="center" id="gbv-5-5-9-M"></td>
+            <td align="center" id="gbv-5-10-14-M"></td>
+            <td align="center" id="gbv-5-15-17-M"></td>
+            <td align="center" id="gbv-5-18-19-M"></td>
+            <td align="center" id="gbv-5-20-24-M"></td>
+            <td align="center" id="gbv-5-25-29-M"></td>
+            <td align="center" id="gbv-5-30-34-M"></td>
+            <td align="center" id="gbv-5-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td>Idadi ya manusura waliopimwa Virusi vya UKIMWI  baada ya kufanyiwa ukatili </td>
+            <td align="center" id="gbv-6-grandTotal"></td>
+            <td align="center" id="gbv-6-totalFemale"></td>
+            <td align="center" id="gbv-6-0-4-F"></td>
+            <td align="center" id="gbv-6-5-9-F"></td>
+            <td align="center" id="gbv-6-10-14-F"></td>
+            <td align="center" id="gbv-6-15-17-F"></td>
+            <td align="center" id="gbv-6-18-19-F"></td>
+            <td align="center" id="gbv-6-20-24-F"></td>
+            <td align="center" id="gbv-6-25-29-F"></td>
+            <td align="center" id="gbv-6-30-34-F"></td>
+            <td align="center" id="gbv-6-35-above-F"></td>
+            <td align="center" id="gbv-6-totalMale"></td>
+            <td align="center" id="gbv-6-0-4-M"></td>
+            <td align="center" id="gbv-6-5-9-M"></td>
+            <td align="center" id="gbv-6-10-14-M"></td>
+            <td align="center" id="gbv-6-15-17-M"></td>
+            <td align="center" id="gbv-6-18-19-M"></td>
+            <td align="center" id="gbv-6-20-24-M"></td>
+            <td align="center" id="gbv-6-25-29-M"></td>
+            <td align="center" id="gbv-6-30-34-M"></td>
+            <td align="center" id="gbv-6-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>Idadi ya manusura waliofanyiwa ukatili wa kingono  wa kubakwa/kulawitiwa walioanzishiwa matibabu ya kinga dhidi ya VVU (PEP)</td>
+            <td align="center" id="gbv-7-grandTotal"></td>
+            <td align="center" id="gbv-7-totalFemale"></td>
+            <td align="center" id="gbv-7-0-4-F"></td>
+            <td align="center" id="gbv-7-5-9-F"></td>
+            <td align="center" id="gbv-7-10-14-F"></td>
+            <td align="center" id="gbv-7-15-17-F"></td>
+            <td align="center" id="gbv-7-18-19-F"></td>
+            <td align="center" id="gbv-7-20-24-F"></td>
+            <td align="center" id="gbv-7-25-29-F"></td>
+            <td align="center" id="gbv-7-30-34-F"></td>
+            <td align="center" id="gbv-7-35-above-F"></td>
+            <td align="center" id="gbv-7-totalMale"></td>
+            <td align="center" id="gbv-7-0-4-M"></td>
+            <td align="center" id="gbv-7-5-9-M"></td>
+            <td align="center" id="gbv-7-10-14-M"></td>
+            <td align="center" id="gbv-7-15-17-M"></td>
+            <td align="center" id="gbv-7-18-19-M"></td>
+            <td align="center" id="gbv-7-20-24-M"></td>
+            <td align="center" id="gbv-7-25-29-M"></td>
+            <td align="center" id="gbv-7-30-34-M"></td>
+            <td align="center" id="gbv-7-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>8</td>
+            <td>Idadi ya waliofika kituoni ndani ya saa 72 baada ya tukio la ukatili</td>
+            <td align="center" id="gbv-8-grandTotal"></td>
+            <td align="center" id="gbv-8-totalFemale"></td>
+            <td align="center" id="gbv-8-0-4-F"></td>
+            <td align="center" id="gbv-8-5-9-F"></td>
+            <td align="center" id="gbv-8-10-14-F"></td>
+            <td align="center" id="gbv-8-15-17-F"></td>
+            <td align="center" id="gbv-8-18-19-F"></td>
+            <td align="center" id="gbv-8-20-24-F"></td>
+            <td align="center" id="gbv-8-25-29-F"></td>
+            <td align="center" id="gbv-8-30-34-F"></td>
+            <td align="center" id="gbv-8-35-above-F"></td>
+            <td align="center" id="gbv-8-totalMale"></td>
+            <td align="center" id="gbv-8-0-4-M"></td>
+            <td align="center" id="gbv-8-5-9-M"></td>
+            <td align="center" id="gbv-8-10-14-M"></td>
+            <td align="center" id="gbv-8-15-17-M"></td>
+            <td align="center" id="gbv-8-18-19-M"></td>
+            <td align="center" id="gbv-8-20-24-M"></td>
+            <td align="center" id="gbv-8-25-29-M"></td>
+            <td align="center" id="gbv-8-30-34-M"></td>
+            <td align="center" id="gbv-8-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>9</td>
+            <td>Idadi ya manusura Wenye Ulemavu waliofanyiwa ukatili </td>
+            <td align="center" id="gbv-9-grandTotal"></td>
+            <td align="center" id="gbv-9-totalFemale"></td>
+            <td align="center" id="gbv-9-0-4-F"></td>
+            <td align="center" id="gbv-9-5-9-F"></td>
+            <td align="center" id="gbv-9-10-14-F"></td>
+            <td align="center" id="gbv-9-15-17-F"></td>
+            <td align="center" id="gbv-9-18-19-F"></td>
+            <td align="center" id="gbv-9-20-24-F"></td>
+            <td align="center" id="gbv-9-25-29-F"></td>
+            <td align="center" id="gbv-9-30-34-F"></td>
+            <td align="center" id="gbv-9-35-above-F"></td>
+            <td align="center" id="gbv-9-totalMale"></td>
+            <td align="center" id="gbv-9-0-4-M"></td>
+            <td align="center" id="gbv-9-5-9-M"></td>
+            <td align="center" id="gbv-9-10-14-M"></td>
+            <td align="center" id="gbv-9-15-17-M"></td>
+            <td align="center" id="gbv-9-18-19-M"></td>
+            <td align="center" id="gbv-9-20-24-M"></td>
+            <td align="center" id="gbv-9-25-29-M"></td>
+            <td align="center" id="gbv-9-30-34-M"></td>
+            <td align="center" id="gbv-9-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>10</td>
+            <td>Idadi ya watoto walio katika mazingira hatarishi waliofanyiwa ukatili</td>
+            <td align="center" id="gbv-10-grandTotal"></td>
+            <td align="center" id="gbv-10-totalFemale"></td>
+            <td align="center" id="gbv-10-0-4-F"></td>
+            <td align="center" id="gbv-10-5-9-F"></td>
+            <td align="center" id="gbv-10-10-14-F"></td>
+            <td align="center" id="gbv-10-15-17-F"></td>
+            <td align="center" id="gbv-10-18-19-F"></td>
+            <td align="center" id="gbv-10-20-24-F"></td>
+            <td align="center" id="gbv-10-25-29-F"></td>
+            <td align="center" id="gbv-10-30-34-F"></td>
+            <td align="center" id="gbv-10-35-above-F"></td>
+            <td align="center" id="gbv-10-totalMale"></td>
+            <td align="center" id="gbv-10-0-4-M"></td>
+            <td align="center" id="gbv-10-5-9-M"></td>
+            <td align="center" id="gbv-10-10-14-M"></td>
+            <td align="center" id="gbv-10-15-17-M"></td>
+            <td align="center" id="gbv-10-18-19-M"></td>
+            <td align="center" id="gbv-10-20-24-M"></td>
+            <td align="center" id="gbv-10-25-29-M"></td>
+            <td align="center" id="gbv-10-30-34-M"></td>
+            <td align="center" id="gbv-10-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>11</td>
+            <td>Idadi ya wateja wanaoishi na virusi vya UKIMWI  waliofanyiwa ukatili wa kingono na wenza wao</td>
+            <td align="center" id="gbv-11-grandTotal"></td>
+            <td align="center" id="gbv-11-totalFemale"></td>
+            <td align="center" id="gbv-11-0-4-F"></td>
+            <td align="center" id="gbv-11-5-9-F"></td>
+            <td align="center" id="gbv-11-10-14-F"></td>
+            <td align="center" id="gbv-11-15-17-F"></td>
+            <td align="center" id="gbv-11-18-19-F"></td>
+            <td align="center" id="gbv-11-20-24-F"></td>
+            <td align="center" id="gbv-11-25-29-F"></td>
+            <td align="center" id="gbv-11-30-34-F"></td>
+            <td align="center" id="gbv-11-35-above-F"></td>
+            <td align="center" id="gbv-11-totalMale"></td>
+            <td align="center" id="gbv-11-0-4-M"></td>
+            <td align="center" id="gbv-11-5-9-M"></td>
+            <td align="center" id="gbv-11-10-14-M"></td>
+            <td align="center" id="gbv-11-15-17-M"></td>
+            <td align="center" id="gbv-11-18-19-M"></td>
+            <td align="center" id="gbv-11-20-24-M"></td>
+            <td align="center" id="gbv-11-25-29-M"></td>
+            <td align="center" id="gbv-11-30-34-M"></td>
+            <td align="center" id="gbv-11-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>12</td>
+            <td>Idadi ya manusura waliopewa matibabu  yaliyotokana na madhara/athari za ukeketaji  </td>
+            <td align="center" id="gbv-12-grandTotal"></td>
+            <td align="center" id="gbv-12-totalFemale"></td>
+            <td align="center" id="gbv-12-0-4-F"></td>
+            <td align="center" id="gbv-12-5-9-F"></td>
+            <td align="center" id="gbv-12-10-14-F"></td>
+            <td align="center" id="gbv-12-15-17-F"></td>
+            <td align="center" id="gbv-12-18-19-F"></td>
+            <td align="center" id="gbv-12-20-24-F"></td>
+            <td align="center" id="gbv-12-25-29-F"></td>
+            <td align="center" id="gbv-12-30-34-F"></td>
+            <td align="center" id="gbv-12-35-above-F"></td>
+            <td align="center" id="gbv-12-totalMale"></td>
+            <td align="center" id="gbv-12-0-4-M"></td>
+            <td align="center" id="gbv-12-5-9-M"></td>
+            <td align="center" id="gbv-12-10-14-M"></td>
+            <td align="center" id="gbv-12-15-17-M"></td>
+            <td align="center" id="gbv-12-18-19-M"></td>
+            <td align="center" id="gbv-12-20-24-M"></td>
+            <td align="center" id="gbv-12-25-29-M"></td>
+            <td align="center" id="gbv-12-30-34-M"></td>
+            <td align="center" id="gbv-12-35-above-M"></td>
+        </tr>
+
+        <tr>
+            <td>13</td>
+            <td>Idadi ya manusura waliopata ulemavu wa kudumu kutokana na ukatili wa kijinsia na ukatili dhidi ya watoto</td>
+            <td align="center" id="gbv-13-grandTotal"></td>
+            <td align="center" id="gbv-13-totalFemale"></td>
+            <td align="center" id="gbv-13-0-4-F"></td>
+            <td align="center" id="gbv-13-5-9-F"></td>
+            <td align="center" id="gbv-13-10-14-F"></td>
+            <td align="center" id="gbv-13-15-17-F"></td>
+            <td align="center" id="gbv-13-18-19-F"></td>
+            <td align="center" id="gbv-13-20-24-F"></td>
+            <td align="center" id="gbv-13-25-29-F"></td>
+            <td align="center" id="gbv-13-30-34-F"></td>
+            <td align="center" id="gbv-13-35-above-F"></td>
+            <td align="center" id="gbv-13-totalMale"></td>
+            <td align="center" id="gbv-13-0-4-M"></td>
+            <td align="center" id="gbv-13-5-9-M"></td>
+            <td align="center" id="gbv-13-10-14-M"></td>
+            <td align="center" id="gbv-13-15-17-M"></td>
+            <td align="center" id="gbv-13-18-19-M"></td>
+            <td align="center" id="gbv-13-20-24-M"></td>
+            <td align="center" id="gbv-13-25-29-M"></td>
+            <td align="center" id="gbv-13-30-34-M"></td>
+            <td align="center" id="gbv-13-35-above-M"></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
