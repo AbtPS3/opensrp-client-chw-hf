@@ -353,37 +353,6 @@
           "value": "true",
           "err": "Please select the answer"
         }
-      },
-      {
-        "key": "which_services_were_provided",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "which_services_were_provided",
-        "type": "check_box",
-        "combine_checkbox_option_values": "true",
-        "label": "Which service were provided?",
-        "label_text_style": "normal",
-        "text_color": "#C0C0C0",
-        "options": [
-          {
-            "key": "vagina",
-            "text": "Vagina",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "vagina"
-          },
-          {
-            "key": "anal",
-            "text": "Anal",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "anal"
-          },
-          {
-            "key": "oral",
-            "text": "Oral",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "oral"
-          }
-        ]
       }
 
     ]
