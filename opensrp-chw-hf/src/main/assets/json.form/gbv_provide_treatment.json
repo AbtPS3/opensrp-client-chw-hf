@@ -1,0 +1,391 @@
+{
+  "count": "1",
+  "encounter_type": "Provide Treatment",
+  "validate_on_submit": true,
+  "entity_id": "",
+  "relational_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Provide Treatment",
+    "fields": [
+      {
+        "key": "was_the_survivor_provided_et",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_et",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with ET?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_sti_preventive_treatment",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_sti_preventive_treatment",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor given STI preventive treatment?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_ec",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_ec",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with EC?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_pep",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_pep",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with PEP?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_vaccinated_for_td",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_vaccinated_for_td",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor vaccinated on TD?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_vaccinated_for_hepb",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_vaccinated_for_hepb",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor vaccinated for HEP B",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_surgical_treatment",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_surgical_treatment",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with surgical treatment?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_antibiotics",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_antibiotics",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with antibiotics?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_the_survivor_provided_fp",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_the_survivor_provided_fp",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was the survivor provided with Family planning?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "was_police_legal_and_social_services_required",
+        "type": "native_radio",
+        "openmrs_entity_id": "was_police_legal_and_social_services_required",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Was police, legal and social services required?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "which_services_were_provided",
+        "type": "native_radio",
+        "openmrs_entity_id": "which_services_were_provided",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Which service were provided?",
+        "options": [
+          {
+            "key": "police_gender_and_children_desk",
+            "text": "Police gender & children desk",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "police_gender_and_children_desk"
+          },
+          {
+            "key": "police",
+            "text": "Police",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "police"
+          },
+          {
+            "key": "legal_aid",
+            "text": "Legal aid",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_aid"
+          },
+          {
+            "key": "social_welfare_services",
+            "text": "Social welfare services",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "social_welfare_services"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "which_services_were_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "which_services_were_provided",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Which service were provided?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "vagina",
+            "text": "Vagina",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vagina"
+          },
+          {
+            "key": "anal",
+            "text": "Anal",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal"
+          },
+          {
+            "key": "oral",
+            "text": "Oral",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "oral"
+          }
+        ]
+      }
+
+    ]
+  }
+}
