@@ -10344,7 +10344,7 @@
           }
         },
         {
-          "column_name": "where",
+          "column_name": "where_penetration_occurred",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
@@ -10472,7 +10472,7 @@
           }
         },
         {
-          "column_name": "was_the_survivor_provided_et",
+          "column_name": "did_violence_cause_disability",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
@@ -10484,7 +10484,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "did_violence_cause_disability"
+            "concept": "was_the_survivor_provided_et"
           }
         },
         {
