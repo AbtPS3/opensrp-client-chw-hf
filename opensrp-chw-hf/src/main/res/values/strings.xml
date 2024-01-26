@@ -1719,6 +1719,8 @@
     <string name="sbc_mobilization_sessions_title">SBC Mobilizations</string>
     <string name="sbc_type_of_sbc_activity">Type of SBC Activity</string>
     <string name="sbc_reports_title">SBC Report</string>
+    <string name="gbv_reports_title">GBV/VAC Report</string>
+    <string name="view_reports_for_gbv_clients">View Reports for GBV/VAC Clients</string>
     <string name="sbc_reports">SBC Reports</string>
     <string name="sbc_reports_subtitle">View SBC Report</string>
     <string name="sbc_registration">SBC Registration</string>

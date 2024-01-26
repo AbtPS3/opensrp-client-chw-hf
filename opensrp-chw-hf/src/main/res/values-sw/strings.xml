@@ -653,6 +653,8 @@
     <string name="sbc_mobilization_sessions_title">Mobilizesheni (SBC)</string>
     <string name="sbc_type_of_sbc_activity">Aina ya uelimishaji (SBC)</string>
     <string name="sbc_reports_title">Ripoti ya SBC</string>
+    <string name="gbv_reports_title">Ripoti ya Ukatili wa Kijinsia na Ukatili Dhidi ya Watoto</string>
+    <string name="view_reports_for_gbv_clients">Fungua Ripoti ya Ukatili wa Kijinsia na Ukatili Dhidi ya Watoto</string>
     <string name="sbc_reports">Ripoti za SBC</string>
     <string name="sbc_reports_subtitle">Tazama Ripoti za SBC</string>
     <string name="sbc_campaign">Kampeni</string>
