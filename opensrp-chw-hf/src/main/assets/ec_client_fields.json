@@ -10285,6 +10285,209 @@
           }
         },
         {
+          "column_name": "does_the_survivor_have_any_disabilities",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "does_the_survivor_have_any_disabilities"
+          }
+        },
+        {
+          "column_name": "type_of_disability",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "type_of_disability"
+          }
+        },
+        {
+          "column_name": "vulnerable_children_groups",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "vulnerable_children_groups"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_gbv_visit",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "type_of_assault",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "type_of_assault"
+          }
+        },
+        {
+          "column_name": "evidence_of_penetration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "evidence_of_penetration"
+          }
+        },
+        {
+          "column_name": "where",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "where"
+          }
+        },
+        {
+          "column_name": "was_the_survivor_provided_ec",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "was_the_survivor_provided_ec"
+          }
+        },
+        {
+          "column_name": "virginal_swab",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "virginal_swab"
+          }
+        },
+        {
+          "column_name": "blood_specimen",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "blood_specimen"
+          }
+        },
+        {
+          "column_name": "pluck_pubic_hair",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pluck_pubic_hair"
+          }
+        },
+        {
+          "column_name": "collected_urine_for_lab_investigation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collected_urine_for_lab_investigation"
+          }
+        },
+        {
+          "column_name": "collected_blood_sample_for_dna",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collected_blood_sample_for_dna"
+          }
+        },
+        {
+          "column_name": "collected_nails_from_survivors",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collected_nails_from_survivors"
+          }
+        },
+        {
+          "column_name": "collected_hair_root",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collected_hair_root"
+          }
+        },
+        {
+          "column_name": "collected_stained_clothes",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collected_stained_clothes"
+          }
+        },
+        {
+          "column_name": "other_obtained_materials",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_obtained_materials"
+          }
+        },
+        {
+          "column_name": "does_the_client_need_lab_investigation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "does_the_client_need_lab_investigation"
+          }
+        },
+        {
+          "column_name": "hiv_test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_results"
+          }
+        },
+        {
+          "column_name": "assault_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "assault_date"
+          }
+        },
+        {
+          "column_name": "was_the_survivor_provided_pep",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "was_the_survivor_provided_pep"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "was_the_survivor_provided_et",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "did_violence_cause_disability"
+          }
+        },
+        {
+          "column_name": "was_the_survivor_provided_et",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "did_violence_cause_disability"
+          }
+        },
+        {
           "column_name": "last_interacted_with",
           "type": "Event",
           "json_mapping": {
