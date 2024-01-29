@@ -292,16 +292,16 @@
         "text_color": "#C0C0C0",
         "options": [
           {
-            "key": "sexual",
+            "key": "sexual_violence",
             "text": "Sexual",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sexual"
+            "openmrs_entity_id": "sexual_violence"
           },
           {
-            "key": "physical",
+            "key": "physical_violence",
             "text": "Physical",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "physical"
+            "openmrs_entity_id": "physical_violence"
           },
           {
             "key": "psychological",
