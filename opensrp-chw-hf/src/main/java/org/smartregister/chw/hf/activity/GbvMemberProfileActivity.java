@@ -42,7 +42,7 @@ public class GbvMemberProfileActivity extends BaseGbvProfileActivity {
 
     @Override
     public void openMedicalHistory() {
-
+        GbvMedicalHistoryActivity.startMe(this,memberObject);
     }
 
     @Override

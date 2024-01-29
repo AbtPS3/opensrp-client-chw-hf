@@ -564,6 +564,12 @@
             android:name=".activity.FpReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
+            android:name=".activity.GbvReportsViewActivity"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
+            android:name=".activity.GbvReportsActivity"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
             android:name=".activity.SbcRegisterActivity"
             android:theme="@style/HFTheme.NoActionBar" />
 
@@ -589,6 +595,10 @@
 
         <activity
             android:name=".activity.GbvVisitActivity"
+            android:theme="@style/HFTheme.NoActionBar" />
+
+        <activity
+            android:name=".activity.GbvMedicalHistoryActivity"
             android:theme="@style/HFTheme.NoActionBar" />
 
         <meta-data

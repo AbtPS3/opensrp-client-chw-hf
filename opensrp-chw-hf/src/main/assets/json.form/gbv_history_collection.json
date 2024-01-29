@@ -292,16 +292,16 @@
         "text_color": "#C0C0C0",
         "options": [
           {
-            "key": "sexual",
+            "key": "sexual_violence",
             "text": "Sexual",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sexual"
+            "openmrs_entity_id": "sexual_violence"
           },
           {
-            "key": "physical",
+            "key": "physical_violence",
             "text": "Physical",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "physical"
+            "openmrs_entity_id": "physical_violence"
           },
           {
             "key": "psychological",
@@ -449,11 +449,7 @@
             "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes",
-            "specify_info": "How?",
-            "specify_info_color": "#b5b5b5",
-            "specify_widget": "check_box",
-            "content_form": "evidence_of_penetration_sub_form"
+            "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
@@ -466,6 +462,93 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        }
+      },
+      {
+        "key": "how",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "how",
+        "type": "edit_text",
+        "hint": "How?",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step3:evidence_of_penetration": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "where",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "where",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Where?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "vagina",
+            "text": "Vagina",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vagina"
+          },
+          {
+            "key": "anal",
+            "text": "Anal",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal"
+          },
+          {
+            "key": "oral",
+            "text": "Oral",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "oral"
+          }
+        ],
+        "relevance": {
+          "step3:evidence_of_penetration": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "what_was_used",
+        "type": "native_radio",
+        "label": "What was used?",
+        "openmrs_entity_id": "what_was_used",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "sharp_object",
+            "text": "Sharp object",
+            "openmrs_entity_id": "sharp_object",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "blunt_object",
+            "text": "Blunt object",
+            "openmrs_entity_id": "blunt_object",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step3:evidence_of_penetration": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -593,11 +676,7 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Yes",
-            "specify_info": "Mention",
-            "specify_info_color": "#b5b5b5",
-            "specify_widget": "check_box",
-            "content_form": "police_station_sub_form"
+            "text": "Yes"
           },
           {
             "key": "no",
@@ -610,6 +689,24 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        }
+      },
+      {
+        "key": "police_station",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "police_station",
+        "type": "edit_text",
+        "hint": "Name of the Police Station",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step3:was_the_incident_reported_to_the_police": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       }
     ]

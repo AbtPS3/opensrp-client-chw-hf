@@ -78,6 +78,9 @@ public class HfWebAppInterface {
         } else if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.FP_REPORT)) {
             ReportUtils.setPrintJobName("fp_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
             return ReportUtils.FpReport.computeReport(ReportUtils.getReportDate());
+        } else if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.GBV_REPORT)) {
+            ReportUtils.setPrintJobName("gbv-vac_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+            return ReportUtils.GbvReport.computeReport(ReportUtils.getReportDate());
         } else if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.VMMC_REPORT)) {
             switch (key) {
                 case VMMC_REPORT:

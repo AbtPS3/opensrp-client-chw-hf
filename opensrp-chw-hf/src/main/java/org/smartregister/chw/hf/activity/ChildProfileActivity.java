@@ -22,6 +22,8 @@ import org.smartregister.chw.core.fragment.FamilyCallDialogFragment;
 import org.smartregister.chw.core.listener.OnClickFloatingMenu;
 import org.smartregister.chw.core.model.CoreChildProfileModel;
 import org.smartregister.chw.core.utils.CoreConstants;
+import org.smartregister.chw.gbv.dao.GbvDao;
+import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.adapter.ReferralCardViewAdapter;
 import org.smartregister.chw.hf.custom_view.FamilyMemberFloatingMenu;
@@ -156,6 +158,10 @@ public class ChildProfileActivity extends CoreChildProfileActivity {
         menu.findItem(R.id.action_remove_member).setVisible(false);
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(true);
 
+        if (HealthFacilityApplication.getApplicationFlavor().hasGbv()) {
+            menu.findItem(R.id.action_gbv_registration).setVisible(!GbvDao.isRegisteredForGbv(memberObject.getBaseEntityId()));
+        }
+
         if (MalariaDao.isRegisteredForMalaria(childBaseEntityId)) {
             menu.findItem(R.id.action_malaria_followup_visit).setTitle(R.string.hf_malaria_follow_up);
             menu.findItem(R.id.action_malaria_followup_visit).setVisible(true);
@@ -164,6 +170,11 @@ public class ChildProfileActivity extends CoreChildProfileActivity {
             menu.findItem(R.id.action_malaria_diagnosis).setVisible(true);
         }
         return true;
+    }
+
+    @Override
+    protected void startVacRegistration() {
+        GbvRegisterActivity.startRegistration(ChildProfileActivity.this, memberObject.getBaseEntityId());
     }
 
     @Override
