@@ -352,6 +352,12 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "step1:was_police_legal_and_social_services_required": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       }
 

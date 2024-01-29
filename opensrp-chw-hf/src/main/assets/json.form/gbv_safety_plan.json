@@ -248,6 +248,12 @@
         "v_required": {
           "value": true,
           "err": "Please enter the weapons location in the house"
+        },
+        "relevance": {
+          "step1:are_there_weapons_in_the_clients_house": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {

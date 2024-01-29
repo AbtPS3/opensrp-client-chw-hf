@@ -139,6 +139,12 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "step1:was_the_survivor_educated_on_the_violence_that_occurred": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
