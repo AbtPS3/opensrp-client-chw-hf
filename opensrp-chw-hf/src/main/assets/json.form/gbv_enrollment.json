@@ -137,7 +137,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
@@ -152,7 +152,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-calculation-rules.yml"
+              "rules-file": "gbv_enrollment_calculation_rules.yml"
             }
           }
         }
@@ -216,7 +216,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
@@ -334,7 +334,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
@@ -440,7 +440,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.ymll"
             }
           }
         }
@@ -540,7 +540,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
@@ -556,7 +556,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-calculation-rules.yml"
+              "rules-file": "gbv_enrollment_calculation_rules.yml"
             }
           }
         }
@@ -614,7 +614,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "basic-form-relevance-rules.yml"
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
