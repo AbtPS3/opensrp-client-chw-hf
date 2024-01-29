@@ -12,7 +12,7 @@ import org.smartregister.chw.anc.contract.BaseAncMedicalHistoryContract;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.core.CoreBaseAncMedicalHistoryInteractor;
-import org.smartregister.chw.fp.util.FamilyPlanningConstants;
+import org.smartregister.chw.gbv.util.Constants;
 import org.smartregister.chw.hf.domain.SortableVisit;
 
 import java.util.ArrayList;
@@ -21,11 +21,11 @@ import java.util.List;
 
 public class
 
-FpMedicalHistoryInteractor extends CoreBaseAncMedicalHistoryInteractor {
+GbvMedicalHistoryInteractor extends CoreBaseAncMedicalHistoryInteractor {
     public static List<SortableVisit> getVisits(String memberID, String... eventTypes) {
 
         List<Visit> visits = new ArrayList<>();
-        if (eventTypes != null && eventTypes.length > 0) {
+        if (eventTypes != null) {
             for (String eventType : eventTypes) {
                 List<Visit> visit = getVisitsOnly(memberID, eventType);
                 visits.addAll(visit);
@@ -56,12 +56,7 @@ FpMedicalHistoryInteractor extends CoreBaseAncMedicalHistoryInteractor {
     public void getMemberHistory(final String memberID, final Context context, final BaseAncMedicalHistoryContract.InteractorCallBack callBack) {
         final Runnable runnable = () -> {
             String[] eventTypes = new String[]{
-                    FamilyPlanningConstants.EVENT_TYPE.FP_POINT_OF_SERVICE_DELIVERY,
-                    FamilyPlanningConstants.EVENT_TYPE.FP_COUNSELING,
-                    FamilyPlanningConstants.EVENT_TYPE.FP_SCREENING,
-                    FamilyPlanningConstants.EVENT_TYPE.FP_PROVIDE_METHOD,
-                    FamilyPlanningConstants.EVENT_TYPE.FP_OTHER_SERVICES,
-                    FamilyPlanningConstants.EVENT_TYPE.FP_FOLLOW_UP_VISIT,
+                    Constants.EVENT_TYPE.GBV_FOLLOW_UP_VISIT
             };
             List<SortableVisit> visits = getVisits(memberID, eventTypes);
             final List<Visit> all_visits = new ArrayList<>(visits);

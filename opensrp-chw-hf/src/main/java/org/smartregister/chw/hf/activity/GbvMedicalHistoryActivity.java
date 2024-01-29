@@ -1,7 +1,5 @@
 package org.smartregister.chw.hf.activity;
 
-import static org.smartregister.chw.pmtct.util.DBConstants.KEY.FORM_SUBMISSION_ID;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.vijay.jsonwizard.utils.FormUtils;
-
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -26,11 +22,10 @@ import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
 import org.smartregister.chw.core.activity.CoreAncMedicalHistoryActivity;
 import org.smartregister.chw.core.activity.DefaultAncMedicalHistoryActivityFlv;
-import org.smartregister.chw.fp.domain.FpMemberObject;
 import org.smartregister.chw.fp.util.FamilyPlanningConstants;
+import org.smartregister.chw.gbv.domain.MemberObject;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.interactor.FpMedicalHistoryInteractor;
-import org.smartregister.chw.hf.utils.HfAncJsonFormUtils;
+import org.smartregister.chw.hf.interactor.GbvMedicalHistoryInteractor;
 import org.smartregister.family.util.Utils;
 
 import java.text.MessageFormat;
@@ -41,22 +36,22 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class FpMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
-    private static FpMemberObject fpMemberObject;
+public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
+    private static MemberObject gbvMemberObject;
 
     private final Flavor flavor = new FpMedicalHistoryActivityFlv();
 
     private ProgressBar progressBar;
 
-    public static void startMe(Activity activity, FpMemberObject memberObject) {
-        Intent intent = new Intent(activity, FpMedicalHistoryActivity.class);
-        fpMemberObject = memberObject;
+    public static void startMe(Activity activity, MemberObject memberObject) {
+        Intent intent = new Intent(activity, GbvMedicalHistoryActivity.class);
+        gbvMemberObject = memberObject;
         activity.startActivity(intent);
     }
 
     @Override
     public void initializePresenter() {
-        presenter = new BaseAncMedicalHistoryPresenter(new FpMedicalHistoryInteractor(), this, fpMemberObject.getBaseEntityId());
+        presenter = new BaseAncMedicalHistoryPresenter(new GbvMedicalHistoryInteractor(), this, gbvMemberObject.getBaseEntityId());
     }
 
     @Override
@@ -65,7 +60,7 @@ public class FpMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
         progressBar = findViewById(org.smartregister.chw.opensrp_chw_anc.R.id.progressBarMedicalHistory);
 
         TextView tvTitle = findViewById(org.smartregister.chw.opensrp_chw_anc.R.id.tvTitle);
-        tvTitle.setText(getString(org.smartregister.chw.opensrp_chw_anc.R.string.back_to, fpMemberObject.getFullName()));
+        tvTitle.setText(getString(org.smartregister.chw.opensrp_chw_anc.R.string.back_to, gbvMemberObject.getFullName()));
 
         ((TextView) findViewById(R.id.medical_history)).setText(getString(R.string.visits_history));
     }
@@ -118,81 +113,109 @@ public class FpMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
                     }
 
                     String[] params = {
-                            "point_of_service_delivery",
-                            "service_delivery_point_facility",
-                            "service_delivery_point_outreach",
-                            "family_planning_education_provided",
-                            "client_counseled_with_her_partner",
-                            "client_agreed_on_fp_choice",
-                            "selected_fp_method_after_counseling",
-                            "client_medical_history",
-                            "ctc_number",
-                            "number_of_pregnancies",
-                            "number_of_miscarriages",
-                            "number_still_births",
-                            "number_live_births",
-                            "number_children_alive",
-                            "date_last_delivery",
-                            "is_client_breastfeeding",
-                            "weight",
+                            "visit_status",
+                            "can_manage_case",
+                            "referral_type",
+                            "other_services",
+                            "client_consent",
+                            "client_consent_after_counseling",
+                            "was_social_welfare_officer_involved",
+                            "no_of_witnesses",
+                            "assault_date",
+                            "assault_time",
+                            "place_of_assault",
+                            "no_of_assailant",
+                            "alleged_assailants",
+                            "type_of_assault",
+                            "presenting_signs",
+                            "evidence_of_penetration",
+                            "how",
+                            "where",
+                            "what_was_used",
+                            "did_the_assailant_use_condom",
+                            "did_the_survivor_have_a_bath",
+                            "did_the_survivor_vomit_after_the_assault",
+                            "did_the_survivor_go_to_the_toilet_after_the_assault",
+                            "was_the_incident_reported_to_the_police",
+                            "police_station",
+                            "lnmp",
+                            "gravida",
+                            "para",
+                            "history_of_sexual_intercourse_prior_to_incidence",
+                            "history_of_pregnancy_prior_to_incidence",
+                            "current_pregnancy_status",
+                            "cause_of_pregnancy",
+                            "history_of_contraception",
+                            "type_of_contraceptives",
+                            "last_consensual_sexual_intercourse_date",
+                            "history_of_current_sexual_relationship",
+                            "hiv_status",
+                            "clients_mental_state",
                             "systolic",
                             "diastolic",
-                            "anaemia",
-                            "jaundice",
-                            "thyroid_enlarged",
-                            "chest_movement",
-                            "breast_condition",
-                            "specify_other_condition",
+                            "pulse_rate",
+                            "respiratory_rate",
+                            "temperature",
+                            "weight",
+                            "height",
+                            "did_the_survivor_change_clothes",
+                            "where_the_clothes_were_taken",
+                            "state_of_the_clothes",
+                            "any_visible_injuries",
+                            "area_of_injuries",
+                            "comment_on_general_condition_of_the_survivor",
+                            "external_genitalia",
+                            "vaginal_hymen",
                             "cervix",
-                            "discharge",
-                            "growth",
-                            "uterine_size",
-                            "uterine_position",
-                            "adnexa",
-                            "menarche",
-                            "lnmp",
-                            "mp_duration",
-                            "blood_loss",
-                            "cycle_length",
-                            "dysmenorrhoea",
-                            "client_category_after_screening",
-                            "pop",
-                            "coc",
-                            "ecp",
-                            "injection_administered",
-                            "jadelle_inserted",
-                            "implanon_inserted",
-                            "iucd_inserted",
-                            "cycle_beads_provided",
-                            "client_counseled_on_lam",
-                            "vasectomy",
-                            "btl",
-                            "post_instruction_fp_method_provided",
-                            "reasons_for_not_providing_method",
-                            "client_provided_condom",
-                            "type_of_condom_collected",
-                            "number_male_condoms_collected",
-                            "number_female_condoms_collected",
-                            "next_appointment_date",
-                            "other_services_offered",
-                            "client_hiv_test_results",
-                            "client_referred_to_ctc",
-                            "partner_tested_for_hiv",
-                            "partner_hiv_test_results",
-                            "partner_referred_to_ctc",
-                            "counseling_cervical_cancer_provided",
-                            "client_eligible_for_via",
-                            "via_results",
-                            "client_satisfied_with_fp_method",
-                            "reason_for_dissatisfaction",
-                            "side_effects",
-                            "complication",
-                            "specify_other_reasons_for_dissatisfaction",
-                            "client_want_to_switch_stop",
-                            "jadelle_removed",
-                            "implanon_removed",
-                            "iud_removed",
-                            "client_have_any_complain"
+                            "digital_rectal_examination",
+                            "other_orifices",
+                            "virginal_swab",
+                            "blood_specimen",
+                            "pluck_pubic_hair",
+                            "collected_urine_for_lab_investigation",
+                            "collected_blood_sample_for_dna",
+                            "collected_nails_from_survivors",
+                            "collected_hair_root",
+                            "collected_stained_clothes",
+                            "other_obtained_materials",
+                            "does_the_client_need_lab_investigation",
+                            "upt_test_results",
+                            "hiv_test_results",
+                            "sti_test_results",
+                            "hepb_test_results",
+                            "pregnancy_status_after_incident",
+                            "did_violence_cause_disability",
+                            "was_the_survivor_provided_et",
+                            "was_the_survivor_provided_sti_preventive_treatment",
+                            "was_the_survivor_provided_ec",
+                            "was_the_survivor_provided_pep",
+                            "was_the_survivor_vaccinated_for_td",
+                            "was_the_survivor_vaccinated_for_hepb",
+                            "was_the_survivor_provided_surgical_treatment",
+                            "was_the_survivor_provided_antibiotics",
+                            "was_the_survivor_provided_fp",
+                            "was_police_legal_and_social_services_required",
+                            "which_services_were_provided",
+                            "was_the_survivor_educated_on_the_violence_that_occurred",
+                            "medical_counseling_provided",
+                            "other_medical_counseling_provided",
+                            "was_mental_and_psychosocial_support_provided",
+                            "signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
+                            "can_the_client_get_out_of_the_house_before_the_violence_starts",
+                            "can_the_client_send_a_message_for_help",
+                            "are_there_neighbours_who_could_help_in_an_emergency_situation",
+                            "is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help",
+                            "can_the_client_move_into_a_room_to_escape",
+                            "are_there_weapons_in_the_clients_house",
+                            "weapons_location_in_the_house",
+                            "can_the_client_move_the_weapons",
+                            "does_the_client_have_places_where_they_can_go_in_an_emergency",
+                            "can_the_client_hide_a_bag_with_supplies_for_emergencies",
+                            "was_the_client_linked_to_other_services",
+                            "services_the_client_has_been_linked_to",
+                            "other_services_the_client_has_been_linked_to",
+                            "does_the_client_require_a_followup_visit",
+                            "next_appointment_date"
                     };
                     extractVisitDetails(visits, params, visitDetails, x, context);
 
@@ -258,28 +281,7 @@ public class FpMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
                         edit.setVisibility(View.VISIBLE);
                         edit.setOnClickListener(view1 -> {
                             try {
-                                if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_POINT_OF_SERVICE_DELIVERY)) {
-                                    JSONObject jsonObject = (new FormUtils()).getFormJsonFromRepositoryOrAssets(context, FamilyPlanningConstants.FORMS.FP_POINT_OF_SERVICE_DELIVERY);
-                                    jsonObject.put(FORM_SUBMISSION_ID, visits.get(position).getFormSubmissionId());
-                                    HfAncJsonFormUtils.populateForm(jsonObject, visits.get(position).getVisitDetails());
-                                    startFormActivity(jsonObject, context);
-                                } else if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_PROVIDE_METHOD)) {
-                                    JSONObject jsonObject = (new FormUtils()).getFormJsonFromRepositoryOrAssets(context, FamilyPlanningConstants.FORMS.FP_PROVISION_OF_FP_METHOD);
-                                    jsonObject.put(FORM_SUBMISSION_ID, visits.get(position).getFormSubmissionId());
-                                    HfAncJsonFormUtils.populateForm(jsonObject, visits.get(position).getVisitDetails());
-                                    startFormActivity(jsonObject, context);
-                                } else if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_COUNSELING)) {
-                                    JSONObject jsonObject = (new FormUtils()).getFormJsonFromRepositoryOrAssets(context, FamilyPlanningConstants.FORMS.FP_COUNSELING);
-                                    jsonObject.put(FORM_SUBMISSION_ID, visits.get(position).getFormSubmissionId());
-                                    HfAncJsonFormUtils.populateForm(jsonObject, visits.get(position).getVisitDetails());
-                                    startFormActivity(jsonObject, context);
-                                } else if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_SCREENING)) {
-                                    FpScreeningActivity.startMe((Activity) context, visits.get(position).getBaseEntityId(), true);
-                                } else if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_OTHER_SERVICES)) {
-                                    FpOtherServicesActivity.startMe((Activity) context, visits.get(position).getBaseEntityId(), true);
-                                } else if (visits.get(position).getVisitType().equalsIgnoreCase(FamilyPlanningConstants.EVENT_TYPE.FP_FOLLOW_UP_VISIT)) {
-                                    FpFollowupVisitProvisionOfServicesActivity.startMe((Activity) context, visits.get(position).getBaseEntityId(), true);
-                                }
+                                GbvVisitActivity.startMe((Activity) context, visits.get(position).getBaseEntityId(), true);
                             } catch (Exception e) {
                                 Timber.e(e);
                             }
@@ -300,8 +302,8 @@ public class FpMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
 
 
                         try {
-                            int resource = context.getResources().getIdentifier("fp_" + entry.getKey(), "string", context.getPackageName());
-                            evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "fp_");
+                            int resource = context.getResources().getIdentifier("gbv_" + entry.getKey(), "string", context.getPackageName());
+                            evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "gbv_");
                         } catch (Exception e) {
                             Timber.e(e);
                         }
