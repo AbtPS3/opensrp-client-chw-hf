@@ -110,6 +110,30 @@
           "value": "true",
           "err": "Required"
         }
+      },
+      {
+        "key": "other_client_mental_state",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_client_mental_state",
+        "type": "edit_text",
+        "hint": "Specify other client mental state",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "step1:clients_mental_state": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
       }
     ]
   }
