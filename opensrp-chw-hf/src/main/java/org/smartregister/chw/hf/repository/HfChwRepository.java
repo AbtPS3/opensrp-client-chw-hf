@@ -305,8 +305,9 @@ public class HfChwRepository extends CoreChwRepository {
 
     private static void upgradeToVersion22(SQLiteDatabase db) {
         try {
+            refreshIndicatorQueries(db);
             DatabaseMigrationUtils.createAddedECTables(db,
-                    new HashSet<>(Collections.singletonList("ec_gbv_register")),
+                    new HashSet<>(Arrays.asList("ec_gbv_register", "ec_gbv_visit")),
                     HealthFacilityApplication.createCommonFtsObject());
         } catch (Exception e) {
             Timber.e(e, "upgradeToVersion22");
@@ -352,13 +353,14 @@ public class HfChwRepository extends CoreChwRepository {
                 String ltfuIndicatorConfigFile = "config/community-ltfu-summary.yml";
                 String fpIndicatorConfigFile = "config/fp-reporting-indicator-definitions.yml";
                 String vmmcIndicatorConfigFile = "config/vmmc-monthly-report.yml";
-
+                String gbvIndicatorConfigFile = "config/gbv-monthly-report.yml";
 
                 for (String configFile : Collections.unmodifiableList(
                         Arrays.asList(indicatorsConfigFile, ancIndicatorConfigFile,
                                 pmtctIndicatorConfigFile, pncIndicatorConfigFile,
                                 cbhsReportingIndicatorConfigFile, ldReportingIndicatorConfigFile,
-                                motherChampionReportingIndicatorConfigFile, selfTestingIndicatorConfigFile, kvpTestingIndicatorConfigFile, ltfuIndicatorConfigFile, vmmcIndicatorConfigFile, fpIndicatorConfigFile))) {
+                                motherChampionReportingIndicatorConfigFile, selfTestingIndicatorConfigFile,
+                                kvpTestingIndicatorConfigFile, ltfuIndicatorConfigFile, vmmcIndicatorConfigFile, fpIndicatorConfigFile, gbvIndicatorConfigFile))) {
                     reportingLibraryInstance.readConfigFile(configFile, db);
                 }
 

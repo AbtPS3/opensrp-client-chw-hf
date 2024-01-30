@@ -35,6 +35,8 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
 
     protected ConstraintLayout fpReportsLayout;
 
+    protected ConstraintLayout gbvReportsLayout;
+
     protected ConstraintLayout vmcReports;
 
     @Override
@@ -59,6 +61,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         kvpReports = findViewById(R.id.kvp_reports);
         vmcReports = findViewById(R.id.vmmc_reports);
         fpReportsLayout = findViewById(R.id.fp_reports);
+        gbvReportsLayout = findViewById(R.id.gbv_reports);
 
         if (HealthFacilityApplication.getApplicationFlavor().hasLD())
             ldReportsLayout.setVisibility(View.VISIBLE);
@@ -84,6 +87,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         condomDistributionReports.setOnClickListener(this);
         kvpReports.setOnClickListener(this);
         fpReportsLayout.setOnClickListener(this);
+        gbvReportsLayout.setOnClickListener(this);
         vmcReports.setOnClickListener(this);
     }
 
@@ -149,6 +153,9 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
             startActivity(intent);
         } else if (id == R.id.vmmc_reports) {
             Intent intent = new Intent(this, VmmcReportsActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.gbv_reports) {
+            Intent intent = new Intent(this, GbvReportsActivity.class);
             startActivity(intent);
         }
     }

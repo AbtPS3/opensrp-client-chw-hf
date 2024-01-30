@@ -41,6 +41,7 @@
                 tools:text="REPORT" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -53,7 +54,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                app:constraint_referenced_ids="anc_reports,ld_reports,pnc_reports,pmtct_reports,cbhs_reports, fp_reports,ltfu_summary, mother_champion_reports, self_testing_reports, cdp_reports, kvp_reports, vmmc_reports"
+                app:constraint_referenced_ids="anc_reports,ld_reports,pnc_reports,pmtct_reports,cbhs_reports, fp_reports, gbv_reports,ltfu_summary, mother_champion_reports, self_testing_reports, cdp_reports, kvp_reports, vmmc_reports"
                 app:flow_horizontalAlign="center"
                 app:flow_horizontalGap="20dp"
                 app:flow_horizontalStyle="packed"
@@ -341,10 +342,10 @@
                     android:id="@+id/iv_fp_report"
                     android:layout_width="68dp"
                     android:layout_height="93dp"
-                    android:contentDescription="FP Report Icon"
                     android:layout_margin="20dp"
-                    android:src="@drawable/fp_menu"
+                    android:contentDescription="FP Report Icon"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/fp_menu"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -382,6 +383,59 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gbv_reports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/reports_bg_blue"
+                android:minHeight="150dp"
+                android:paddingVertical="30dp">
+
+                <ImageView
+                    android:id="@+id/iv_gbv_report"
+                    android:layout_width="92dp"
+                    android:layout_height="93dp"
+                    android:layout_margin="20dp"
+                    android:contentDescription="GBV Report Icon"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gbv_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTitle_gbv"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/gbv_reports_title"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewSubtitle_gbv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/iv_gbv_report"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewSubtitle_gbv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/view_reports_for_gbv_clients"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/iv_gbv_report"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTitle_gbv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ld_reports"
@@ -389,8 +443,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/reports_bg_green"
                 android:minHeight="150dp"
-                android:visibility="gone"
-                android:paddingVertical="30dp">
+                android:paddingVertical="30dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/iv_ld_report"
@@ -487,17 +541,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitle_motherChampion" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/self_testing_reports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:background="@drawable/reports_bg_blue_green"
-                app:layout_constraintTop_toBottomOf="@id/mother_champion_reports"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:minHeight="150dp"
-                android:paddingVertical="30dp">
+                android:paddingVertical="30dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mother_champion_reports">
 
                 <ImageView
                     android:id="@+id/iv_self_testing_report"
@@ -542,17 +597,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitle_self_testing_reports" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cdp_reports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/reports_bg_green"
-                app:layout_constraintTop_toBottomOf="@id/self_testing_reports"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:minHeight="150dp"
+                android:paddingVertical="30dp"
                 android:visibility="gone"
-                android:paddingVertical="30dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/self_testing_reports">
 
                 <ImageView
                     android:id="@+id/iv_cdp"
@@ -597,17 +653,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitle_cdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/kvp_reports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:background="@drawable/reports_bg_blue"
-                app:layout_constraintTop_toBottomOf="@id/cdp_reports"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:minHeight="150dp"
-                android:paddingVertical="30dp">
+                android:paddingVertical="30dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cdp_reports">
 
                 <ImageView
                     android:id="@+id/iv_kvp"
@@ -652,16 +709,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitle_kvp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/vmmc_reports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/reports_bg_red"
-                app:layout_constraintTop_toBottomOf="@id/kvp_reports"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:minHeight="150dp"
-                android:paddingVertical="30dp">
+                android:paddingVertical="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/kvp_reports">
 
                 <ImageView
                     android:id="@+id/iv_vmmc"

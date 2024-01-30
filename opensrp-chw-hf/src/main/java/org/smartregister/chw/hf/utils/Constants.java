@@ -796,6 +796,8 @@ public class Constants extends CoreConstants {
             String FP_REPORT = "fp_report";
 
             String SBC_REPORT = "sbc_report";
+
+            String GBV_REPORT = "gbv_report";
         }
 
         public interface ReportPaths {
@@ -838,6 +840,8 @@ public class Constants extends CoreConstants {
             String FP_REPORT_PATH = "fp-report";
 
             String SBC_REPORT_PATH = "sbc-report";
+
+            String GBV_REPORT_PATH = "gbv-fac-report";
         }
     }
 

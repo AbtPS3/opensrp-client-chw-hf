@@ -23,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.json.JSONException;
 import org.smartregister.chw.hf.domain.FpMonthlyReportObject;
+import org.smartregister.chw.hf.domain.GbvMonthlyReportObject;
 import org.smartregister.chw.hf.domain.anc_reports.AncMonthlyReportObject;
 import org.smartregister.chw.hf.domain.cbhs_reports.CbhsMonthlyReportObject;
 import org.smartregister.chw.hf.domain.cdp_reports.CdpIssuingAtFacilityReportObject;
@@ -414,6 +415,19 @@ public class ReportUtils {
             FpMonthlyReportObject fpMonthlyReportObject = new FpMonthlyReportObject(now);
             try {
                 report = fpMonthlyReportObject.getIndicatorDataAsGson(fpMonthlyReportObject.getIndicatorData());
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+            return report;
+        }
+    }
+
+    public static class GbvReport {
+        public static String computeReport(Date now) {
+            String report = "";
+            GbvMonthlyReportObject gbvMonthlyReportObject = new GbvMonthlyReportObject(now);
+            try {
+                report = gbvMonthlyReportObject.getIndicatorDataAsGson(gbvMonthlyReportObject.getIndicatorData());
             } catch (Exception e) {
                 Timber.e(e);
             }
