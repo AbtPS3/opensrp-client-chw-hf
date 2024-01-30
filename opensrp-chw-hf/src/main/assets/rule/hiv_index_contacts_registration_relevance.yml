@@ -59,7 +59,7 @@ actions:
 name: step2_gbv_analysis
 description: gbv_analysis relevance
 priority: 1
-condition: "!step2_relationship.equals('biological_child') && !step2_relationship.equals('siblings') "
+condition: "!step2_relationship.equals('biological_child') && !step2_relationship.equals('non_biological_child') && !step2_relationship.equals('siblings') "
 actions:
   - "isRelevant = true"
 ---

@@ -476,6 +476,12 @@
             "text": "Siblings",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings"
+          },
+          {
+            "key": "non_biological_child",
+            "text": "Non-Biological child living in the same household",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_biological_child"
           }
         ],
         "v_required": {
@@ -558,6 +564,12 @@
             "text": "Siblings",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings"
+          },
+          {
+            "key": "non_biological_child",
+            "text": "Non-Biological child living in the same household",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_biological_child"
           },
           {
             "key": "sexual_partner",
