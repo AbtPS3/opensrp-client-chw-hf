@@ -52,7 +52,7 @@
       "value": ""
     }
   },
-  "global": {},
+  "global": {"gender": "Female"},
   "step1": {
     "title": "Forensic Examination",
     "fields": [
@@ -80,6 +80,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
