@@ -384,7 +384,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "type_of_assault",
         "read_only": true,
-        "type": "edit_text",
+        "type": "hidden",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -619,7 +619,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "presenting_signs",
         "read_only": true,
-        "type": "edit_text",
+        "type": "hidden",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -754,7 +754,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "where",
         "read_only": true,
-        "type": "edit_text",
+        "type": "hidden",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
