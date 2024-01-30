@@ -1,0 +1,14 @@
+---
+name: step1_education_level
+description: The Education level should be a calculated field with value not of Age
+priority: 1
+condition: "true"
+actions:
+  - "calculation = global_age <=6 ? 'not_of_age' : step1_education_level_filled"
+---
+name: step1_staying_with
+description: The Education level should be a calculated field with value not of Age
+priority: 1
+condition: "true"
+actions:
+  - "calculation = global_age >=18? step1_staying_with_above_18 : global_age >= 15 ? step1_staying_with_between_15_and_17: step1_staying_with_below_15"

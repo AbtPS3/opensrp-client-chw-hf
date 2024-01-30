@@ -1,0 +1,42 @@
+---
+name: step1_education_level_filled
+description: Only show when the age of clients is above 6
+priority: 1
+condition: "global_age > 6"
+actions:
+  - "isRelevant = true"
+---
+name: step1_number_of_living_children
+description: Should only be visible visible for clients above 14
+priority: 1
+condition: "global_age >= 14"
+actions:
+  - "isRelevant = true"
+---
+name: step1_staying_with_below_15
+description: Only visible for clients with the age below 15
+priority: 1
+condition: "global_age < 15"
+actions:
+  - "isRelevant = true"
+---
+name: step1_staying_with_between_15_and_17
+description: Only visible for clients with the age above of equal to 15
+priority: 1
+condition: "global_age >= 15 && global_age < 18"
+actions:
+  - "isRelevant = true"
+---
+name: step1_staying_with_above_18
+description: Only visible for clients with the age above of equal to 15
+priority: 1
+condition: "global_age >= 18"
+actions:
+  - "isRelevant = true"
+---
+name: step1_vulnerable_children_groups
+description: Only be visible for clients below 18
+priority: 1
+condition: "global_age < 18"
+actions:
+  - "isRelevant = true"

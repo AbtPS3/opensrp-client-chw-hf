@@ -4,7 +4,10 @@
   "validate_on_submit": true,
   "entity_id": "",
   "relational_id": "",
-  "global": {},
+  "global": {
+    "age": 5,
+    "gender":"Male"
+  },
   "metadata": {
     "start": {
       "openmrs_entity_parent": "",
@@ -76,10 +79,10 @@
         }
       },
       {
-        "key": "education_level",
+        "key": "education_level_filled",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "education_level",
+        "openmrs_entity_id": "education_level_filled",
         "combine_checkbox_option_values": "true",
         "type": "native_radio",
         "label": "Education level",
@@ -130,6 +133,28 @@
         "v_required": {
           "value": true,
           "err": "Please select education level"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "read_only": true,
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_calculation_rules.yml"
+            }
+          }
         }
       },
       {
@@ -168,16 +193,16 @@
           "other"
         ],
         "openmrs_choice_ids": {
-          "self_referral":  "self_referral",
-          "gender_desk":  "gender_desk",
-          "police_station":  "police_station",
-          "social_welfare":  "social_welfare",
-          "legal_aid":  "legal_aid",
-          "community":  "community",
-          "religious_leaders":  "religious_leaders",
-          "health_facility":  "health_facility",
-          "cso":  "cso",
-          "other":  "other"
+          "self_referral": "self_referral",
+          "gender_desk": "gender_desk",
+          "police_station": "police_station",
+          "social_welfare": "social_welfare",
+          "legal_aid": "legal_aid",
+          "community": "community",
+          "religious_leaders": "religious_leaders",
+          "health_facility": "health_facility",
+          "cso": "cso",
+          "other": "other"
         }
       },
       {
@@ -187,13 +212,20 @@
         "hint": "Number of living children",
         "openmrs_entity_id": "number_of_living_children",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept"
+        "openmrs_entity": "concept",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
+          }
+        }
       },
       {
-        "key": "staying_with",
+        "key": "step1_staying_with_between_15_and_17",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "staying_with",
+        "openmrs_entity_id": "step1_staying_with_between_15_and_17",
         "combine_checkbox_option_values": "true",
         "type": "check_box",
         "label": "Staying with",
@@ -298,6 +330,235 @@
         "v_required": {
           "value": true,
           "err": "Please select at least one option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "staying_with_below_15",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "staying_with_below_15",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Staying with",
+        "options": [
+          {
+            "key": "mother_and_father",
+            "text": "Mother & Father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_father"
+          },
+          {
+            "key": "father_only",
+            "text": "Father only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "father_only"
+          },
+          {
+            "key": "mother_only",
+            "text": "Mother only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_only"
+          },
+          {
+            "key": "step_mother_and_father",
+            "text": "Step mother and father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "step_mother_and_father"
+          },
+          {
+            "key": "mother_and_step_father",
+            "text": "Mother and stepfather",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_step_father"
+          },
+          {
+            "key": "uncle",
+            "text": "Uncle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "uncle"
+          },
+          {
+            "key": "aunt",
+            "text": "Aunt",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aunt"
+          },
+          {
+            "key": "brother",
+            "text": "Brother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "brother"
+          },
+          {
+            "key": "sister",
+            "text": "Sister",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sister"
+          },
+          {
+            "key": "other_relatives",
+            "text": "Other Relatives",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_relatives"
+          },
+          {
+            "key": "neighbour",
+            "text": "Neighbour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neighbour"
+          },
+          {
+            "key": "elderly_parent",
+            "text": "Elderly parent/Guardian",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elderly_parent"
+          },
+          {
+            "key": "childrens_home",
+            "text": "Children's home",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "childrens_home"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.ymll"
+            }
+          }
+        }
+      },
+      {
+        "key": "staying_with_above_18",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "staying_with_above_18",
+        "combine_checkbox_option_values": "true",
+        "type": "check_box",
+        "label": "Staying with",
+        "options": [
+          {
+            "key": "mother_and_father",
+            "text": "Mother & Father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_father"
+          },
+          {
+            "key": "father_only",
+            "text": "Father only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "father_only"
+          },
+          {
+            "key": "mother_only",
+            "text": "Mother only",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_only"
+          },
+          {
+            "key": "step_mother_and_father",
+            "text": "Step mother and father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "step_mother_and_father"
+          },
+          {
+            "key": "mother_and_step_father",
+            "text": "Mother and stepfather",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother_and_step_father"
+          },
+          {
+            "key": "uncle",
+            "text": "Uncle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "uncle"
+          },
+          {
+            "key": "aunt",
+            "text": "Aunt",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aunt"
+          },
+          {
+            "key": "brother",
+            "text": "Brother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "brother"
+          },
+          {
+            "key": "sister",
+            "text": "Sister",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sister"
+          },
+          {
+            "key": "other_relatives",
+            "text": "Other Relatives",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_relatives"
+          },
+          {
+            "key": "neighbour",
+            "text": "Neighbour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neighbour"
+          },
+          {
+            "key": "elderly_parent",
+            "text": "Elderly parent/Guardian",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elderly_parent"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
+          }
+        }
+      },
+
+      {
+        "key": "staying_with",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "staying_with",
+        "read_only": true,
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_calculation_rules.yml"
+            }
+          }
         }
       },
       {
@@ -349,6 +610,13 @@
         "v_required": {
           "value": true,
           "err": "Please select at least one option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
+          }
         }
       },
       {

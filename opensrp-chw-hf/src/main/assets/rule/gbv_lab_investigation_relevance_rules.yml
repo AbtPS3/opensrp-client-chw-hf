@@ -1,0 +1,14 @@
+---
+name: step1_upt_test_results
+description: Hide (UPT results and client's pregnancy status) if client is male or has an age below 13
+priority: 1
+condition: "global_gender == 'Female' && global_age >= 13"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pregnancy_status_after_incident
+description: Pregnancy status after incidence should only be visible for female clients who have reported to be pregnant on GYN history
+priority: 1
+condition: "global_isPregnant == 'true'"
+actions:
+  - "isRelevant = true"
