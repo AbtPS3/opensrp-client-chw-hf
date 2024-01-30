@@ -1,0 +1,14 @@
+---
+name: step1_vaginal_hymen
+description: Hide the following options (external genitalia, vaginal/hemen, cervix) if client is male
+priority: 1
+condition: "global_gender == 'Female'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_cervix
+description: Hide the following options (external genitalia, vaginal/hemen, cervix) if client is male
+priority: 1
+condition: "global_gender == 'Female'"
+actions:
+  - "isRelevant = true"

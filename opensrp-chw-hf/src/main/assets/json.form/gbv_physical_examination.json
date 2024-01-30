@@ -4,7 +4,7 @@
   "validate_on_submit": true,
   "entity_id": "",
   "relational_id": "",
-  "global": {},
+  "global": {"gender": "Female"},
   "metadata": {
     "start": {
       "openmrs_entity_parent": "",
@@ -571,6 +571,13 @@
         "v_required": {
           "value": true,
           "err": "Please answer the following question"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -583,6 +590,13 @@
         "v_required": {
           "value": true,
           "err": "Please answer the following question"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
