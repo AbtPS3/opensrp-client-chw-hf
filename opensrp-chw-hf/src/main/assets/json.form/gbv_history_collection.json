@@ -1,10 +1,14 @@
 {
   "count": "4",
+  "skip_blank_steps": false,
   "encounter_type": "History Collection",
-  "validate_on_submit": true,
+  "validate_on_submit": false,
   "entity_id": "",
   "relational_id": "",
-  "global": {},
+  "global": {
+    "gender": "Male",
+    "age": 12
+  },
   "metadata": {
     "start": {
       "openmrs_entity_parent": "",
@@ -281,10 +285,54 @@
         }
       },
       {
-        "key": "type_of_assault",
+        "key": "type_of_assault_male",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "type_of_assault",
+        "openmrs_entity_id": "type_of_assault_male",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Type of Assault",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual_violence",
+            "text": "Sexual",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_violence"
+          },
+          {
+            "key": "physical_violence",
+            "text": "Physical",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "physical_violence"
+          },
+          {
+            "key": "psychological",
+            "text": "Psychological",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological"
+          },
+          {
+            "key": "neglect",
+            "text": "Neglect",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neglect"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "type_of_assault_female",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_assault_female",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Type of Assault",
@@ -321,7 +369,29 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "fgm"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "type_of_assault",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_assault",
+        "read_only": true,
+        "type": "edit_text",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_calculation_rules.yml"
+            }
+          }
+        }
       }
     ]
   },
@@ -330,10 +400,114 @@
     "next": "step4",
     "fields": [
       {
-        "key": "presenting_signs",
+        "key": "presenting_signs_male",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "presenting_signs",
+        "openmrs_entity_id": "presenting_signs_male",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Presenting signs/symptoms/complaints",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "abdominal_pain",
+            "text": "Abdominal pain",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abdominal_pain"
+          },
+          {
+            "key": "vomiting",
+            "text": "Vomiting",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vomiting"
+          },
+          {
+            "key": "headache",
+            "text": "Headache",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "headache"
+          },
+          {
+            "key": "anal_bleeding",
+            "text": "Anal bleeding",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal_bleeding"
+          },
+          {
+            "key": "foul_smell_from_genital_parts",
+            "text": "Foul smell from genital parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "foul_smell_from_genital_parts"
+          },
+          {
+            "key": "bruises",
+            "text": "Bruises",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bruises"
+          },
+          {
+            "key": "cutting_wounds",
+            "text": "Cutting wounds",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cutting_wounds"
+          },
+          {
+            "key": "pain_in_genital_parts",
+            "text": "Pain in genital parts",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pain_in_genital_parts"
+          },
+          {
+            "key": "chest_pain",
+            "text": "Chest pain",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chest_pain"
+          },
+          {
+            "key": "chronic_illness",
+            "text": "Chronic illness",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chronic_illness"
+          },
+          {
+            "key": "insomnia",
+            "text": "Insomnia",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "insomnia"
+          },
+          {
+            "key": "anxiety",
+            "text": "Anxiety",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anxiety"
+          },
+          {
+            "key": "trauma",
+            "text": "Trauma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "trauma"
+          },
+          {
+            "key": "others",
+            "text": "Others (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "others"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "presenting_signs_female",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "presenting_signs_female",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Presenting signs/symptoms/complaints",
@@ -430,7 +604,29 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "others"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "presenting_signs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "presenting_signs",
+        "read_only": true,
+        "type": "edit_text",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_calculation_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "evidence_of_penetration",
@@ -483,10 +679,42 @@
         }
       },
       {
-        "key": "where",
+        "key": "where_male",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "where",
+        "openmrs_entity_id": "where_male",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Where?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "anal",
+            "text": "Anal",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anal"
+          },
+          {
+            "key": "oral",
+            "text": "Oral",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "oral"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "where_female",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "where_female",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Where?",
@@ -513,9 +741,25 @@
           }
         ],
         "relevance": {
-          "step3:evidence_of_penetration": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "where",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "where",
+        "read_only": true,
+        "type": "edit_text",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_calculation_rules.yml"
+            }
           }
         }
       },
@@ -727,6 +971,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select date"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -747,6 +998,13 @@
         "v_required": {
           "value": true,
           "err": "Please answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -770,6 +1028,13 @@
         "v_required": {
           "value": true,
           "err": "Please answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -799,6 +1064,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -835,6 +1107,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -871,6 +1150,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -933,6 +1219,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -1010,9 +1303,10 @@
           "err": "Required"
         },
         "relevance": {
-          "step4:history_of_contraception": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
           }
         }
       },
@@ -1025,7 +1319,14 @@
         "hint": "Last Date of consensual sexual intercourse",
         "expanded": false,
         "min_date": "today-2y",
-        "max_date": "today"
+        "max_date": "today",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "history_of_current_sexual_relationship",
@@ -1053,6 +1354,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {

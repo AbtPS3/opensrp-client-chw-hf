@@ -1,0 +1,21 @@
+---
+name: step2_type_of_assault
+description: Female genital mutilation should not be visible if the client is male
+priority: 1
+condition: "true"
+actions:
+    - "calculation = global_gender =='Male' ? step2_type_of_assault_male : step2_type_of_assault_female"
+---
+name: step3_presenting_signs
+description: For Male Clients Remove the following options (Vaginal Bleeding)
+priority: 1
+condition: "true"
+actions:
+    - "calculation = global_gender =='Male' ? step3_presenting_signs_male : step3_presenting_signs_female"
+---
+name: step3_where
+description: In Where, Remove the following options if the client is male (Vaginal)
+priority: 1
+condition: "true"
+actions:
+    - "calculation = global_gender =='Male' ? step3_where_male : step3_where_female"
