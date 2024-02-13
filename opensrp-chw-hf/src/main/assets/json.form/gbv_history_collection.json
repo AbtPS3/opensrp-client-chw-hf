@@ -6,8 +6,8 @@
   "entity_id": "",
   "relational_id": "",
   "global": {
-    "gender": "Male",
-    "age": 12
+    "gender": "Female",
+    "age": 17
   },
   "metadata": {
     "start": {
@@ -384,7 +384,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "type_of_assault",
         "read_only": true,
-        "type": "hidden",
+        "type": "edit_text",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -821,6 +821,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -849,6 +856,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -905,6 +919,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -940,7 +961,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "police_station",
-        "type": "edit_text",
+        "type": "hidden",
         "hint": "Name of the Police Station",
         "v_required": {
           "value": true,
