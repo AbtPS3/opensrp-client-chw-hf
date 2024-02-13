@@ -56,6 +56,9 @@ public interface HfQueryConstant {
             "    SELECT ec_hiv_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_hiv_register WHERE (UPPER (ec_hiv_register.client_hiv_status_after_testing) LIKE UPPER('Positive')) \n" +
             "    UNION ALL\n" +
+            "    SELECT ec_gbv_register.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_gbv_register\n" +
+            "    UNION ALL\n" +
             "    SELECT ec_hts_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_hts_register \n"+
             "    WHERE ec_hts_register.is_closed is 0\n" +
@@ -515,6 +518,48 @@ public interface HfQueryConstant {
             "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_tb_register\n" +
             "    WHERE ec_tb_register.tb_case_closure_date is null)\n" +
+            "UNION ALL\n" +
+            "/*ONLY GBV/VAC clients*/\n" +
+            "SELECT ec_family_member.first_name,\n" +
+            "       ec_family_member.middle_name,\n" +
+            "       ec_family_member.last_name,\n" +
+            "       ec_family_member.gender,\n" +
+            "       ec_family_member.dob,\n" +
+            "       ec_family_member.base_entity_id,\n" +
+            "       ec_family_member.id                          as _id,\n" +
+            "       'GBV/VAC'                                    AS register_type,\n" +
+            "       ec_family_member.relational_id               as relationalid,\n" +
+            "       ec_family.village_town                       as home_address,\n" +
+            "       NULL                                         AS mother_first_name,\n" +
+            "       NULL                                         AS mother_last_name,\n" +
+            "       NULL                                         AS mother_middle_name,\n" +
+            "       ec_gbv_register.last_interacted_with AS last_interacted_with\n" +
+            "FROM ec_family_member\n" +
+            "         inner join ec_family on ec_family.base_entity_id = ec_family_member.relational_id\n" +
+            "         inner join ec_gbv_register\n" +
+            "                    on ec_family_member.base_entity_id = ec_gbv_register.base_entity_id\n" +
+            "where ec_family_member.date_removed is null\n" +
+            "  AND ec_gbv_register.is_closed is 0\n" +
+            "  AND ec_family_member.base_entity_id IN (%s)\n" +
+            "  AND ec_family_member.base_entity_id NOT IN (\n" +
+            "    SELECT ec_kvp_register.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_kvp_register where ec_kvp_register.is_closed is 0\n" +
+            "    UNION ALL\n" +
+            "    SELECT ec_anc_register.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_anc_register\n" +
+            "    UNION ALL\n" +
+            "    SELECT ec_pregnancy_outcome.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_pregnancy_outcome\n" +
+            "    UNION ALL\n" +
+            "    SELECT ec_child.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_child\n" +
+            "    UNION ALL\n" +
+            "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_tb_register\n" +
+            "    WHERE ec_tb_register.tb_case_closure_date is null\n" +
+            "    UNION ALL\n" +
+            "    SELECT ec_sbc_register.base_entity_id AS base_entity_id\n" +
+            "    FROM ec_sbc_register)\n" +
             "UNION ALL\n" +
             "\n" +
             "/*ONLY KVP CLIENTS */\n" +

@@ -670,6 +670,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
         }
       },
       {

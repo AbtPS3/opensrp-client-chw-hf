@@ -26,6 +26,7 @@ import org.smartregister.chw.hf.activity.AncMemberProfileActivity;
 import org.smartregister.chw.hf.activity.ChildProfileActivity;
 import org.smartregister.chw.hf.activity.FamilyOtherMemberProfileActivity;
 import org.smartregister.chw.hf.activity.FpMemberProfileActivity;
+import org.smartregister.chw.hf.activity.GbvMemberProfileActivity;
 import org.smartregister.chw.hf.activity.HivProfileActivity;
 import org.smartregister.chw.hf.activity.KvpProfileActivity;
 import org.smartregister.chw.hf.activity.LDProfileActivity;
@@ -96,6 +97,9 @@ public class AllClientsUtils {
                 case CoreConstants.REGISTER_TYPE.VMMC:
                     AllClientsUtils.goToVmmcProfile(activity, commonPersonObjectClient);
                     break;
+                case CoreConstants.REGISTER_TYPE.GBV:
+                    AllClientsUtils.goToGbvProfile(activity, commonPersonObjectClient);
+                    break;
                 default:
                     AllClientsUtils.goToOtherMemberProfile(activity, commonPersonObjectClient, bundle,
                             familyDetailsModel.getFamilyHead(), familyDetailsModel.getPrimaryCareGiver());
@@ -154,6 +158,10 @@ public class AllClientsUtils {
 
     public static void goToVmmcProfile(Activity activity, CommonPersonObjectClient patient) {
         VmmcProfileActivity.startVmmcActivity(activity, patient.getCaseId());
+    }
+
+    public static void goToGbvProfile(Activity activity, CommonPersonObjectClient client) {
+        GbvMemberProfileActivity.startMe(activity, client.getCaseId());
     }
 
     private static Intent initProfileActivityIntent(Activity activity, CommonPersonObjectClient patient, Bundle bundle, Class clazz) {
