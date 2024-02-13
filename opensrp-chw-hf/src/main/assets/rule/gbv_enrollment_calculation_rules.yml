@@ -4,7 +4,7 @@ description: The Education level should be a calculated field with value not of 
 priority: 1
 condition: "true"
 actions:
-  - "calculation = global_age <=6 ? 'not_of_age' : step1_education_level_filled"
+  - "calculation = global_age <=2 ? 'not_of_age' : step1_education_level_filled"
 ---
 name: step1_staying_with
 description: The Education level should be a calculated field with value not of Age

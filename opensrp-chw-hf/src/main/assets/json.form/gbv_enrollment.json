@@ -94,12 +94,6 @@
             "openmrs_entity_id": "not_educated"
           },
           {
-            "key": "not_of_age",
-            "text": "Not of age",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "not_of_age"
-          },
-          {
             "key": "pre_school",
             "text": "Pre school",
             "openmrs_entity": "concept",
@@ -222,10 +216,10 @@
         }
       },
       {
-        "key": "step1_staying_with_between_15_and_17",
+        "key": "staying_with_between_15_and_17",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "step1_staying_with_between_15_and_17",
+        "openmrs_entity_id": "staying_with_between_15_and_17",
         "combine_checkbox_option_values": "true",
         "type": "check_box",
         "label": "Staying with",
@@ -262,7 +256,7 @@
           },
           {
             "key": "mother_and_step_father",
-            "text": "Mother and stepfather",
+            "text": "Step father and mother",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mother_and_step_father"
           },
@@ -374,7 +368,7 @@
           },
           {
             "key": "mother_and_step_father",
-            "text": "Mother and stepfather",
+            "text": "Step father and mother",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mother_and_step_father"
           },
@@ -455,6 +449,12 @@
         "label": "Staying with",
         "options": [
           {
+            "key": "wife_or_husband",
+            "text": "Wife/Husband",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wife_or_husband"
+          },
+          {
             "key": "mother_and_father",
             "text": "Mother & Father",
             "openmrs_entity": "concept",
@@ -480,7 +480,7 @@
           },
           {
             "key": "mother_and_step_father",
-            "text": "Mother and stepfather",
+            "text": "Step father and mother",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mother_and_step_father"
           },
@@ -521,6 +521,12 @@
             "openmrs_entity_id": "neighbour"
           },
           {
+            "key": "alone",
+            "text": "Alone",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alone"
+          },
+          {
             "key": "elderly_parent",
             "text": "Elderly parent/Guardian",
             "openmrs_entity": "concept",
@@ -545,7 +551,6 @@
           }
         }
       },
-
       {
         "key": "staying_with",
         "openmrs_entity_parent": "",
@@ -557,6 +562,25 @@
           "rules-engine": {
             "ex-rules": {
               "rules-file": "gbv_enrollment_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_staying_with",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_staying_with",
+        "type": "edit_text",
+        "hint": "Specify other the client is staying with",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
             }
           }
         }
@@ -699,6 +723,25 @@
           "step1:does_the_survivor_have_any_disabilities": {
             "type": "string",
             "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "other_type_of_disabilities",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_type_of_disabilities",
+        "type": "edit_text",
+        "hint": "Specify other types of disabilities",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_enrollment_relevance_rules.yml"
+            }
           }
         }
       }

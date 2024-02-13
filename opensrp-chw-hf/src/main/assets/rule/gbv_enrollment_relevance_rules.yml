@@ -40,3 +40,17 @@ priority: 1
 condition: "global_age < 18"
 actions:
   - "isRelevant = true"
+---
+name: step1_other_staying_with
+description: Other people staying with the client
+priority: 1
+condition: "step1_staying_with.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_type_of_disabilities
+description: Other type of disabilities
+priority: 1
+condition: "step1_type_of_disability.contains('other')"
+actions:
+  - "isRelevant = true"
