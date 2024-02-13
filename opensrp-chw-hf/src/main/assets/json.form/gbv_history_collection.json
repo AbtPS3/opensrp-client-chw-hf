@@ -70,7 +70,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "no_of_witnesses",
         "repeating_group_max": "10",
-        "expand_on_text_change": "true",
+        "expand_on_text_change": "false",
         "value": [
           {
             "key": "spacer",
