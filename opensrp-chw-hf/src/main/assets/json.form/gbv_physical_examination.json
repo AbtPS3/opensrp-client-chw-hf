@@ -236,7 +236,7 @@
           "err": "Please enter the temperature"
         },
         "v_min": {
-          "value": "10",
+          "value": "30",
           "err": "Temperature must be equal or greater than 10"
         },
         "v_max": {
@@ -358,6 +358,13 @@
         "v_required": {
           "value": true,
           "err": "Please answer the following question"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -400,6 +407,13 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -454,6 +468,37 @@
         "v_required": {
           "value": "true",
           "err": "Required"
+        }
+      },
+      {
+        "key": "mention_areas_of_injuries",
+        "type": "edit_text",
+        "hint": "Mention areas of injuries",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mention_areas_of_injuries",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_pictogram",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Use pictogram to locate place of injuries",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -537,14 +582,15 @@
           "err": "Required"
         },
         "relevance": {
-          "step1:witness_occupation": {
+          "step1:any_visible_injuries": {
             "ex-checkbox": [
               {
                 "or": [
                   "bruises",
                   "inflammation",
                   "laceration",
-                  "cut_wound"
+                  "cut_wound",
+                  "other"
                 ]
               }
             ]

@@ -12,3 +12,31 @@ priority: 1
 condition: "global_gender == 'Female'"
 actions:
   - "isRelevant = true"
+---
+name: step1_where_the_clothes_were_taken
+description: Only show where the clothes were taken and state of the clothes if the client changed clothes
+priority: 1
+condition: "step1_did_the_survivor_change_clothes == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_state_of_the_clothes
+description: Only show where the clothes were taken and state of the clothes if the client changed clothes
+priority: 1
+condition: "step1_did_the_survivor_change_clothes == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_pictogram
+description: Only show where the clothes were taken and state of the clothes if the client changed clothes
+priority: 1
+condition: "!step1_any_visible_injuries.contains('none') && !step1_any_visible_injuries.isEmpty()"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mention_areas_of_injuries
+description: Add the question (Mention areas of injuries) if the client had any visible injuries
+priority: 1
+condition: "step1_any_visible_injuries.contains('other')"
+actions:
+  - "isRelevant = true"
