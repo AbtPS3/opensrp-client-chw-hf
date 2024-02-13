@@ -58,7 +58,7 @@ actions:
 name: step4_para
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && step4_gravida > 0"
 actions:
     - "isRelevant = true"
 ---
@@ -93,7 +93,7 @@ actions:
 name: step4_type_of_contraceptives
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && step4_history_of_contraception == 'yes'"
 actions:
     - "isRelevant = true"
 ---
@@ -108,5 +108,26 @@ name: step4_history_of_current_sexual_relationship
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
 condition: "global_age > 13"
+actions:
+    - "isRelevant = true"
+---
+name: step3_did_the_survivor_have_a_bath
+description: Only show evidence of bath if type of assault contains sexual_violence
+priority: 1
+condition: "step2_type_of_assault.contains('sexual_violence')"
+actions:
+    - "isRelevant = true"
+---
+name: step3_did_the_survivor_go_to_the_toilet_after_the_assault
+description: Only show go to the toilet if type of assault contains sexual_violence
+priority: 1
+condition: "step2_type_of_assault.contains('sexual_violence')"
+actions:
+    - "isRelevant = true"
+---
+name: step3_did_the_assailant_use_condom
+description: Only show did the assailant use a condom if type of assault contains sexual_violence
+priority: 1
+condition: "step2_type_of_assault.contains('sexual_violence')"
 actions:
     - "isRelevant = true"
