@@ -84,7 +84,7 @@
       {
         "key": "prompt_for_counseling_the_client_to_consent",
         "type": "toaster_notes",
-        "text": "The survivor should be counseled to provide consent",
+        "text": "Counsel the client to provide consent",
         "openmrs_entity_id": "prompt_for_counseling_the_client_to_consent",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",

@@ -384,7 +384,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "type_of_assault",
         "read_only": true,
-        "type": "edit_text",
+        "type": "hidden",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -433,12 +433,6 @@
             "text": "Anal bleeding",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "anal_bleeding"
-          },
-          {
-            "key": "foul_smell_from_genital_parts",
-            "text": "Foul smell from genital parts",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "foul_smell_from_genital_parts"
           },
           {
             "key": "bruises",
@@ -629,13 +623,31 @@
         }
       },
       {
+        "key": "other_presenting_signs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_presenting_signs",
+        "type": "edit_text",
+        "hint": "Specify other presenting signs",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "evidence_of_penetration",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "evidence_of_penetration",
         "type": "native_radio",
         "label": "Was there evidence of penetration?",
-        "label_text_style": "bold",
         "text_color": "#000000",
         "extra_rel": true,
         "has_extra_rel": "2",

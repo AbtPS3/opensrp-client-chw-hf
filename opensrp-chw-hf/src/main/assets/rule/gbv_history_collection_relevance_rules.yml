@@ -128,6 +128,20 @@ actions:
 name: step3_did_the_assailant_use_condom
 description: Only show did the assailant use a condom if type of assault contains sexual_violence
 priority: 1
+condition: "step3_evidence_of_penetration.contains('yes')"
+actions:
+    - "isRelevant = true"
+---
+name: step3_other_presenting_signs
+description: other_presenting_signs
+priority: 1
+condition: "step3_presenting_signs.contains('others')"
+actions:
+    - "isRelevant = true"
+---
+name: step3_evidence_of_penetration
+description: evidence_of_penetration
+priority: 1
 condition: "step2_type_of_assault.contains('sexual_violence')"
 actions:
     - "isRelevant = true"

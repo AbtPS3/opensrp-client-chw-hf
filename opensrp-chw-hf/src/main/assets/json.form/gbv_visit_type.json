@@ -240,6 +240,25 @@
             }
           }
         }
+      },
+      {
+        "key": "specify_other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "specify_other_services",
+        "type": "edit_text",
+        "hint": "Specify other types of disabilities",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_visit_type_relevance.yml"
+            }
+          }
+        }
       }
     ]
   }
