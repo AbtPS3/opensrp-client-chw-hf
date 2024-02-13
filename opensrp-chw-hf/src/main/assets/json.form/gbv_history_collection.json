@@ -1083,6 +1083,42 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "history_of_sexual_intercourse_prior_to_incidence",
         "type": "native_radio",
+        "label": "Does the survivor have a history of sexual intercourse prior to this incidence?",
+        "label_text_style": "bold",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "history_of_sexual_intercourse_to_incidence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "history_of_sexual_intercourse_to_incidence",
+        "type": "native_radio",
         "label": "Does the survivor have  a history of sexual intercourse prior to this incidence?",
         "label_text_style": "bold",
         "options": [

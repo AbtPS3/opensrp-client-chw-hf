@@ -69,6 +69,13 @@ condition: "global_gender == 'Female'"
 actions:
     - "isRelevant = true"
 ---
+name: step4_history_of_sexual_intercourse_to_incidence
+description: history_of_sexual_intercourse_to_incidence
+priority: 1
+condition: "global_gender == 'Female'"
+actions:
+    - "isRelevant = true"
+---
 name: step4_current_pregnancy_status
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
