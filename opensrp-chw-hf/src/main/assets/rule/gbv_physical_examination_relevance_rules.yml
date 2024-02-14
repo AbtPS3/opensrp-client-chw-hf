@@ -34,9 +34,9 @@ condition: "!step1_any_visible_injuries.contains('none') && !step1_any_visible_i
 actions:
   - "isRelevant = true"
 ---
-name: step1_mention_areas_of_injuries
+name: step1_mention_other_areas_of_injuries
 description: Add the question (Mention areas of injuries) if the client had any visible injuries
 priority: 1
-condition: "step1_any_visible_injuries.contains('other')"
+condition: "step1_area_of_injuries.contains('other')"
 actions:
   - "isRelevant = true"

@@ -2,13 +2,34 @@
 name: step1_upt_test_results
 description: Hide (UPT results and client's pregnancy status) if client is male or has an age below 13
 priority: 1
-condition: "global_gender == 'Female' && global_age >= 13"
+condition: "global_gender == 'Female' && global_age >= 13 && global_typeOfAssault.contains('sexual_violence')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_pregnancy_status_after_incident
 description: Pregnancy status after incidence should only be visible for female clients who have reported to be pregnant on GYN history
 priority: 1
-condition: "global_isPregnant == 'true'"
+condition: "global_currentPregnancyStatus == 'pregnant'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hiv_test_results
+description: hiv_test_results
+priority: 1
+condition: "!global_hivStatus.contains('positive')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_sti_test_results
+description: sti_test_results
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hepb_test_results
+description: hepb_test_results
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence')"
 actions:
   - "isRelevant = true"

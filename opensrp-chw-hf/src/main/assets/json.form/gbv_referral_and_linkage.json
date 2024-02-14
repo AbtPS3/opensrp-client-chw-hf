@@ -94,24 +94,39 @@
         "label": "Select the other services the client has been linked to",
         "options": [
           {
+            "key": "mhpss",
+            "text": "Mental Health and Psychosocial Care and Support (MHPSS)",
+            "openmrs_choice_id": "mhpss"
+          },
+          {
+            "key": "alternative_care_services",
+            "text": "Alternative care services",
+            "openmrs_choice_id": "alternative_care_services"
+          },
+          {
+            "key": "legal_services",
+            "text": "Legal Services",
+            "openmrs_choice_id": "legal_services"
+          },
+          {
+            "key": "police_services",
+            "text": "Police Services",
+            "openmrs_choice_id": "police_services"
+          },
+          {
             "key": "police_gender_and_children_desk",
             "text": "Police gender and children desk (PG&CD)",
             "openmrs_choice_id": "police_gender_and_children_desk"
           },
           {
-            "key": "police",
-            "text": "Police",
-            "openmrs_choice_id": "police"
+            "key": "child_protection_services",
+            "text": "Child protection services",
+            "openmrs_choice_id": "child_protection_services"
           },
           {
-            "key": "legal_aid",
-            "text": "Legal aid",
-            "openmrs_choice_id": "legal_aid"
-          },
-          {
-            "key": "social_welfare",
-            "text": "Social welfare officer",
-            "openmrs_choice_id": "social_welfare"
+            "key": "income_generating_groups",
+            "text": "Income generating groups",
+            "openmrs_choice_id": "income_generating_groups"
           },
           {
             "key": "other",

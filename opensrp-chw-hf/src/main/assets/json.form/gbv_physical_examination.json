@@ -237,7 +237,7 @@
         },
         "v_min": {
           "value": "30",
-          "err": "Temperature must be equal or greater than 10"
+          "err": "Temperature must be equal or greater than 30"
         },
         "v_max": {
           "value": "50",
@@ -417,6 +417,29 @@
         }
       },
       {
+        "key": "other_state_of_clothes",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_state_of_clothes",
+        "type": "edit_text",
+        "hint": "Other State of Clothes (Specify)",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
+        "relevance": {
+          "step1:state_of_the_clothes": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
         "key": "any_visible_injuries",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -471,17 +494,25 @@
         }
       },
       {
-        "key": "mention_areas_of_injuries",
-        "type": "edit_text",
-        "hint": "Mention areas of injuries",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "mention_areas_of_injuries",
+        "key": "other_visible_injuries",
         "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_visible_injuries",
+        "type": "edit_text",
+        "hint": "Specify other Visible injuries",
+        "v_required": {
+          "value": true,
+          "err": "Required"
+        },
         "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "gbv_physical_examination_relevance_rules.yml"
-            }
+          "step1:any_visible_injuries": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
           }
         }
       },
@@ -598,6 +629,21 @@
         }
       },
       {
+        "key": "mention_other_areas_of_injuries",
+        "type": "edit_text",
+        "hint": "Specify Other areas of injuries",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mention_other_areas_of_injuries",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_physical_examination_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "comment_on_general_condition_of_the_survivor",
         "type": "edit_text",
         "hint": "Comment on general condition of the survivor",
@@ -608,6 +654,13 @@
           "value": true,
           "err": "Please answer the following question"
         }
+      },
+      {
+        "key": "title",
+        "type": "label",
+        "label_text_style": "bold",
+        "text": "Describe in detail the physical state of the following structure(s):",
+        "text_color": "#000000"
       },
       {
         "key": "external_genitalia",

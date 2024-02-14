@@ -4,11 +4,7 @@
   "validate_on_submit": true,
   "entity_id": "",
   "relational_id": "",
-  "global": {
-    "isPregnant": true,
-    "gender": "Female",
-    "age": 5
-  },
+  "global": {},
   "metadata": {
     "start": {
       "openmrs_entity_parent": "",
@@ -129,6 +125,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the HIV test results"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_lab_investigation_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -161,6 +164,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the STI test results"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_lab_investigation_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -193,6 +203,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the Hepatitis B test results"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_lab_investigation_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -225,6 +242,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer to this question"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_lab_investigation_relevance_rules.yml"
+            }
+          }
         }
       },
       {

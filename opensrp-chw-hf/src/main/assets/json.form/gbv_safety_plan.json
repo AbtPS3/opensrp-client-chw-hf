@@ -83,6 +83,21 @@
         }
       },
       {
+        "key": "prompt_for_signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:signs_of_partner_behaviour_that_alert_for_possibility_of_violence": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
         "key": "can_the_client_get_out_of_the_house_before_the_violence_starts",
         "type": "native_radio",
         "openmrs_entity_id": "can_the_client_get_out_of_the_house_before_the_violence_starts",
@@ -106,6 +121,21 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "prompt_for_can_the_client_get_out_of_the_house_before_the_violence_starts",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_can_the_client_get_out_of_the_house_before_the_violence_starts",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:can_the_client_get_out_of_the_house_before_the_violence_starts": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -135,6 +165,21 @@
         }
       },
       {
+        "key": "prompt_for_can_the_client_send_a_message_for_help",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_can_the_client_send_a_message_for_help",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:can_the_client_send_a_message_for_help": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
         "key": "are_there_neighbours_who_could_help_in_an_emergency_situation",
         "type": "native_radio",
         "openmrs_entity_id": "are_there_neighbours_who_could_help_in_an_emergency_situation",
@@ -158,6 +203,21 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:are_there_neighbours_who_could_help_in_an_emergency_situation": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -187,6 +247,21 @@
         }
       },
       {
+        "key": "prompt_for_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
         "key": "can_the_client_move_into_a_room_to_escape",
         "type": "native_radio",
         "openmrs_entity_id": "can_the_client_move_into_a_room_to_escape",
@@ -213,6 +288,21 @@
         }
       },
       {
+        "key": "prompt_for_can_the_client_move_into_a_room_to_escape",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_can_the_client_move_into_a_room_to_escape",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:can_the_client_move_into_a_room_to_escape": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
         "key": "are_there_weapons_in_the_clients_house",
         "type": "native_radio",
         "openmrs_entity_id": "are_there_weapons_in_the_clients_house",
@@ -236,6 +326,21 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "prompt_for_are_there_weapons_in_the_clients_house",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_for_are_there_weapons_in_the_clients_house",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:are_there_weapons_in_the_clients_house": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -280,6 +385,12 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "step1:are_there_weapons_in_the_clients_house": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -332,6 +443,21 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        }
+      },
+      {
+        "key": "prompt_can_the_client_hide_a_bag_with_supplies_for_emergencies",
+        "type": "toaster_notes",
+        "text": "Have more discussions with the client",
+        "openmrs_entity_id": "prompt_can_the_client_hide_a_bag_with_supplies_for_emergencies",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:can_the_client_hide_a_bag_with_supplies_for_emergencies": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       }
     ]

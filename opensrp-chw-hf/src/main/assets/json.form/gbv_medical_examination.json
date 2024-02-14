@@ -64,6 +64,10 @@
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Clients mental health state",
+        "exclusive": [
+          "normal",
+          "coma"
+        ],
         "options": [
           {
             "key": "normal",

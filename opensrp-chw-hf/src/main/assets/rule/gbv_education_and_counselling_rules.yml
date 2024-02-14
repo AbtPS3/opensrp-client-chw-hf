@@ -1,0 +1,21 @@
+---
+name: step1_medical_counseling_provided_for_client_not_tested_hiv
+description: medical_counseling_provided_for_client_not_tested_hiv
+priority: 1
+condition: "step1_was_the_survivor_educated_on_the_violence_that_occurred == 'yes' && (global_hivTestResults == 'null' || global_hivTestResults == 'not_tested') "
+actions:
+  - "isRelevant = true"
+---
+name: step1_medical_counseling_provided_for_client_tested_hiv
+description: medical_counseling_provided_for_client_tested_hiv
+priority: 1
+condition: "step1_was_the_survivor_educated_on_the_violence_that_occurred == 'yes' && (global_hivTestResults == 'positive' || global_hivTestResults == 'negative') "
+actions:
+  - "isRelevant = true"
+---
+name: step1_medical_counseling_provided
+description: medical_counseling_provided
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_was_the_survivor_educated_on_the_violence_that_occurred == 'yes' && (global_hivTestResults == 'null' || global_hivTestResults == 'not_tested') ) ? step1_medical_counseling_provided_for_client_not_tested_hiv : step1_medical_counseling_provided_for_client_tested_hiv"

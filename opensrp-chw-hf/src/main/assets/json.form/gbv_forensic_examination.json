@@ -57,6 +57,15 @@
     "title": "Forensic Examination",
     "fields": [
       {
+        "key": "information",
+        "type": "toaster_notes",
+        "text": "Record all evidence collected in client case note file and Inform police to collect forensic evidence kit",
+        "openmrs_entity_id": "information",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info"
+      },
+      {
         "key": "virginal_swab",
         "type": "native_radio",
         "openmrs_entity_id": "virginal_swab",

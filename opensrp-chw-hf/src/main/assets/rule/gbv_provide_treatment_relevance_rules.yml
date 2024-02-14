@@ -1,0 +1,49 @@
+---
+name: step1_was_the_survivor_provided_sti_preventive_treatment
+description: was_the_survivor_provided_sti_preventive_treatment
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_provided_ec
+description: was_the_survivor_provided_ec
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_provided_pep
+description: was_the_survivor_provided_pep
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_vaccinated_for_td
+description: was_the_survivor_vaccinated_for_td
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_vaccinated_for_hepb
+description: was_the_survivor_vaccinated_for_hepb
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_provided_surgical_treatment
+description: was_the_survivor_provided_surgical_treatment
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_was_the_survivor_provided_antibiotics
+description: was_the_survivor_provided_antibiotics
+priority: 1
+condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
+actions:
+  - "isRelevant = true"

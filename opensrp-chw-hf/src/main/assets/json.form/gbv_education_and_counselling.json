@@ -85,10 +85,68 @@
         }
       },
       {
-        "key": "medical_counseling_provided",
+        "key": "medical_counseling_provided_for_client_not_tested_hiv",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "medical_counseling_provided",
+        "openmrs_entity_id": "medical_counseling_provided_for_client_not_tested_hiv",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Select medical counseling provided",
+        "options": [
+          {
+            "key": "pep",
+            "text": "PEP",
+            "value": false,
+            "openmrs_choice_id": "pep"
+          },
+          {
+            "key": "prep",
+            "text": "Pre exposure prophylaxis (PrEP)",
+            "value": false,
+            "openmrs_choice_id": "prep"
+          },
+          {
+            "key": "post_trauma",
+            "text": "Post Trauma",
+            "value": false,
+            "openmrs_choice_id": "post_trauma"
+          },
+          {
+            "key": "fp",
+            "text": "Family planning",
+            "value": false,
+            "openmrs_choice_id": "fp"
+          },
+          {
+            "key": "ec",
+            "text": "EC",
+            "value": false,
+            "openmrs_choice_id": "ec"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "value": false,
+            "openmrs_choice_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_education_and_counselling_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "medical_counseling_provided_for_client_tested_hiv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_counseling_provided_for_client_tested_hiv",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Select medical counseling provided",
@@ -141,12 +199,29 @@
           "err": "Required"
         },
         "relevance": {
-          "step1:was_the_survivor_educated_on_the_violence_that_occurred": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_education_and_counselling_rules.yml"
+            }
           }
         }
       },
+      {
+        "key": "medical_counseling_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_counseling_provided",
+        "read_only": true,
+        "type": "edit_text",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_education_and_counselling_rules.yml"
+            }
+          }
+        }
+      },
+
       {
         "key": "other_medical_counseling_provided",
         "openmrs_entity_parent": "",
