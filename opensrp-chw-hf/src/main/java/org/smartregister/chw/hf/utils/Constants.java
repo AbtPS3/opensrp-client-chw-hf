@@ -138,6 +138,7 @@ public class Constants extends CoreConstants {
         public static final String FIRST_EAC = "First Eac";
         public static final String SECOND_EAC = "Second Eac";
         public static final String PMTCT_VISIT = "Pmtct";
+        public static final String GBV_VISIT = "Gbv";
         public static final String HEI_VISIT = "HEI";
         public static final String LD_GENERAL_VISIT = "L&D Examination";
         public static final String LD_PARTOGRAPH_VISIT = "L&D Partograph";

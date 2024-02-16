@@ -2,12 +2,14 @@ package org.smartregister.chw.hf.activity;
 
 import static org.smartregister.chw.core.utils.CoreReferralUtils.getCommonRepository;
 import static org.smartregister.chw.hf.utils.Constants.JsonForm.HIV_REGISTRATION;
+import static org.smartregister.chw.hf.utils.JsonFormUtils.getAutoPopulatedJsonEditFormString;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -28,14 +30,15 @@ import org.smartregister.chw.gbv.GbvLibrary;
 import org.smartregister.chw.gbv.activity.BaseGbvProfileActivity;
 import org.smartregister.chw.gbv.dao.GbvDao;
 import org.smartregister.chw.gbv.domain.MemberObject;
+import org.smartregister.chw.gbv.domain.Visit;
 import org.smartregister.chw.gbv.util.Constants;
-import org.smartregister.chw.gbv.util.VisitUtils;
 import org.smartregister.chw.hf.BuildConfig;
 import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.custom_view.GbvFloatingMenu;
 import org.smartregister.chw.hf.dataloader.FamilyMemberDataLoader;
 import org.smartregister.chw.hf.utils.AllClientsUtils;
+import org.smartregister.chw.hf.utils.GbvVisitUtils;
 import org.smartregister.chw.hivst.dao.HivstDao;
 import org.smartregister.chw.kvp.dao.KvpDao;
 import org.smartregister.chw.ld.dao.LDDao;
@@ -50,7 +53,7 @@ import org.smartregister.family.util.JsonFormUtils;
 import org.smartregister.opd.activity.BaseOpdFormActivity;
 import org.smartregister.opd.utils.OpdConstants;
 
-import static org.smartregister.chw.hf.utils.JsonFormUtils.getAutoPopulatedJsonEditFormString;
+import javax.annotation.Nullable;
 
 import timber.log.Timber;
 
@@ -72,10 +75,53 @@ public class GbvMemberProfileActivity extends BaseGbvProfileActivity {
     protected void setupViews() {
         super.setupViews();
         try {
-            VisitUtils.processVisits(GbvLibrary.getInstance().visitRepository(), GbvLibrary.getInstance().visitDetailsRepository(), GbvMemberProfileActivity.this);
+            GbvVisitUtils.processVisits();
         } catch (Exception e) {
             Timber.e(e);
         }
+
+        Visit lastFollowupVisit = getVisit(Constants.EVENT_TYPE.GBV_FOLLOW_UP_VISIT);
+
+        if (lastFollowupVisit != null && !lastFollowupVisit.getProcessed()) {
+            if (GbvVisitUtils.isVisitComplete(lastFollowupVisit)) {
+                manualProcessVisit.setVisibility(View.VISIBLE);
+                manualProcessVisit.setOnClickListener(view -> {
+                    try {
+                        GbvVisitUtils.manualProcessVisit(lastFollowupVisit);
+                        onResume();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            } else {
+                manualProcessVisit.setVisibility(View.GONE);
+            }
+            showVisitInProgress(org.smartregister.chw.hf.utils.Constants.Visits.GBV_VISIT);
+            setUpEditButton();
+        } else {
+            manualProcessVisit.setVisibility(View.GONE);
+            textViewVisitDoneEdit.setVisibility(View.GONE);
+            visitDone.setVisibility(View.GONE);
+
+            textViewRecordGbv.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void showVisitInProgress(String typeOfVisit) {
+        if (typeOfVisit.equalsIgnoreCase(org.smartregister.chw.hf.utils.Constants.Visits.GBV_VISIT)) {
+            textViewRecordGbv.setVisibility(View.GONE);
+        }
+        textViewVisitDoneEdit.setVisibility(View.VISIBLE);
+        visitDone.setVisibility(View.VISIBLE);
+        textViewVisitDone.setText(getString(R.string.visit_in_progress, typeOfVisit));
+        textViewVisitDone.setTextColor(getResources().getColor(R.color.black_text_color));
+        imageViewCross.setImageResource(org.smartregister.chw.core.R.drawable.activityrow_notvisited);
+    }
+
+    private void setUpEditButton() {
+        textViewVisitDoneEdit.setOnClickListener(v -> {
+            GbvVisitActivity.startMe(GbvMemberProfileActivity.this, memberObject.getBaseEntityId(), true);
+        });
     }
 
     @Override
@@ -391,6 +437,11 @@ public class GbvMemberProfileActivity extends BaseGbvProfileActivity {
         form.setWizard(false);
         intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
         startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);
+    }
+
+    public @Nullable
+    Visit getVisit(String eventType) {
+        return GbvLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), eventType);
     }
 
 }
