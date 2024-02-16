@@ -35,10 +35,8 @@ public class GbvVisitActivity extends BaseGbvHfVisitActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constants.REQUEST_CODE_GET_JSON) {
-            if (resultCode == Activity.RESULT_OK) {
-                submitVisit(Constants.SaveType.AUTO_SUBMIT);
-            }
+        if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == Activity.RESULT_OK) {
+            submitVisit(Constants.SaveType.AUTO_SUBMIT);
         }
     }
 
