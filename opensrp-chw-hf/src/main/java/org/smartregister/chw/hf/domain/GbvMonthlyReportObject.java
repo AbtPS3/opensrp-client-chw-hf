@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import timber.log.Timber;
+
 public class GbvMonthlyReportObject extends ReportObject {
 
     private final List<String> indicatorCodesWithAgeGroups = new ArrayList<>();
@@ -80,6 +82,15 @@ public class GbvMonthlyReportObject extends ReportObject {
                 } else {
                     indicatorDataObject.put(indicatorCode + "-totalFemale", calculateGbvSpecificTotal(indicatorsValues, indicatorCode + "-" + sex));
                 }
+            }
+        }
+
+        for (String indicatorCode : indicatorCodes) {
+            try {
+                int grandTotal = indicatorDataObject.getInt(indicatorCode + "-totalMale") + indicatorDataObject.getInt(indicatorCode + "-totalFemale");
+                indicatorDataObject.put(indicatorCode + "-grandTotal", grandTotal);
+            } catch (Exception e) {
+                Timber.e(e);
             }
         }
 
