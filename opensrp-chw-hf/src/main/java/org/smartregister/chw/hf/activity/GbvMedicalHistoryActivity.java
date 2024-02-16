@@ -39,7 +39,7 @@ import timber.log.Timber;
 public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
     private static MemberObject gbvMemberObject;
 
-    private final Flavor flavor = new FpMedicalHistoryActivityFlv();
+    private final Flavor flavor = new GbvMedicalHistoryActivityFlv();
 
     private ProgressBar progressBar;
 
@@ -82,7 +82,7 @@ public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
         progressBar.setVisibility(state ? View.VISIBLE : View.GONE);
     }
 
-    private class FpMedicalHistoryActivityFlv extends DefaultAncMedicalHistoryActivityFlv {
+    private class GbvMedicalHistoryActivityFlv extends DefaultAncMedicalHistoryActivityFlv {
         private final StyleSpan boldSpan = new StyleSpan(android.graphics.Typeface.BOLD);
 
         @Override
