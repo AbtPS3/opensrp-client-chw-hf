@@ -280,7 +280,6 @@
           "err": "Please select the answer"
         }
       },
-
       {
         "key": "other_obtained_materials",
         "type": "edit_text",

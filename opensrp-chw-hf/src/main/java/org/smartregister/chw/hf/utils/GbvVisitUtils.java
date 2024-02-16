@@ -7,6 +7,7 @@ import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.dao.HomeVisitDao;
 import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.gbv.GbvLibrary;
+import org.smartregister.chw.gbv.dao.GbvDao;
 import org.smartregister.chw.gbv.domain.Visit;
 import org.smartregister.chw.gbv.repository.VisitDetailsRepository;
 import org.smartregister.chw.gbv.repository.VisitRepository;
@@ -86,7 +87,7 @@ public class GbvVisitUtils extends VisitUtils {
         boolean isPhysicalExaminationComplete = computeCompletionStatus(obs, "systolic");
         checks.add(isPhysicalExaminationComplete);
 
-        boolean isForensicExaminationComplete = computeCompletionStatus(obs, "virginal_swab");
+        boolean isForensicExaminationComplete = computeCompletionStatus(obs, "does_the_client_need_lab_investigation");
         checks.add(isForensicExaminationComplete);
 
         if (shouldProvideLabInvestigation(v)) {
@@ -94,14 +95,16 @@ public class GbvVisitUtils extends VisitUtils {
             checks.add(isProvideTreatmentComplete);
         }
 
-        boolean isProvideTreatmentComplete = computeCompletionStatus(obs, "virginal_swab");
+        boolean isProvideTreatmentComplete = computeCompletionStatus(obs, "was_police_legal_and_social_services_required");
         checks.add(isProvideTreatmentComplete);
 
         boolean isEducationAndCounsellingComplete = computeCompletionStatus(obs, "was_the_survivor_educated_on_the_violence_that_occurred");
         checks.add(isEducationAndCounsellingComplete);
 
-        boolean isSafetyPlanComplete = computeCompletionStatus(obs, "signs_of_partner_behaviour_that_alert_for_possibility_of_violence");
-        checks.add(isSafetyPlanComplete);
+        if (GbvDao.getMember(v.getBaseEntityId()).getAge() > 7) {
+            boolean isSafetyPlanComplete = computeCompletionStatus(obs, "signs_of_partner_behaviour_that_alert_for_possibility_of_violence");
+            checks.add(isSafetyPlanComplete);
+        }
 
         boolean isLinkedToOtherServicesComplete = computeCompletionStatus(obs, "was_the_client_linked_to_other_services");
         checks.add(isLinkedToOtherServicesComplete);
