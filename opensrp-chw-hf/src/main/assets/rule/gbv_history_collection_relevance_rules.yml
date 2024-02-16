@@ -44,77 +44,77 @@ actions:
 name: step4_lnmp
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_gravida
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_para
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female' && step4_gravida > 0"
+condition: "global_gender == 'Female' && step4_gravida > 0 && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_history_of_pregnancy_prior_to_incidence
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_history_of_sexual_intercourse_to_incidence
 description: history_of_sexual_intercourse_to_incidence
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_current_pregnancy_status
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_cause_of_pregnancy
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_history_of_contraception
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_type_of_contraceptives
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female' && step4_history_of_contraception == 'yes'"
+condition: "global_gender == 'Female' && step4_history_of_contraception == 'yes' && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_last_consensual_sexual_intercourse_date
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_age > 13"
+condition: "global_age > 13 && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
 name: step4_history_of_current_sexual_relationship
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_age > 13"
+condition: "global_age > 13 && global_age >= 10"
 actions:
     - "isRelevant = true"
 ---
