@@ -73,13 +73,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "repeat",
             "text": "Repeat"
-          },
-          {
-            "key": "follow_up",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "follow_up",
-            "text": "Follow-up"
           }
         ],
         "v_required": {
