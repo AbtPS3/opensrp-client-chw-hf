@@ -2824,8 +2824,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+0 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+0 years') <= date('now'))
       AND (date(efm.dob, '+5 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2838,8 +2838,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+5 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+5 years') <= date('now'))
       AND (date(efm.dob, '+10 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2852,8 +2852,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+10 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+10 years') <= date('now'))
       AND (date(efm.dob, '+15 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2866,8 +2866,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+15 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+15 years') <= date('now'))
       AND (date(efm.dob, '+18 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2880,8 +2880,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+18 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+18 years') <= date('now'))
       AND (date(efm.dob, '+20 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2894,8 +2894,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+20 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+20 years') <= date('now'))
       AND (date(efm.dob, '+25 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2908,8 +2908,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+25 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+25 years') <= date('now'))
       AND (date(efm.dob, '+30 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2922,8 +2922,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+30 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+30 years') <= date('now'))
       AND (date(efm.dob, '+35 years') > date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2936,8 +2936,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+35 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+35 years') <= date('now'))
       AND (efm.gender='Female')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
         date(substr(strftime('%Y-%m-%d', datetime(egr.last_interacted_with / 1000, 'unixepoch', 'localtime')), 1, 4) ||'-' ||
@@ -2950,8 +2950,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+0 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+0 years') <= date('now'))
       AND (date(efm.dob, '+5 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2964,8 +2964,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+5 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+5 years') <= date('now'))
       AND (date(efm.dob, '+10 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2978,8 +2978,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+10 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+10 years') <= date('now'))
       AND (date(efm.dob, '+15 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -2992,8 +2992,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+15 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+15 years') <= date('now'))
       AND (date(efm.dob, '+18 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -3006,8 +3006,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+18 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+18 years') <= date('now'))
       AND (date(efm.dob, '+20 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -3020,8 +3020,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+20 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+20 years') <= date('now'))
       AND (date(efm.dob, '+25 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -3034,8 +3034,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+25 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+25 years') <= date('now'))
       AND (date(efm.dob, '+30 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -3048,8 +3048,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+30 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+30 years') <= date('now'))
       AND (date(efm.dob, '+35 years') > date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
@@ -3062,8 +3062,8 @@ indicators:
     indicatorQuery: " SELECT count(DISTINCT egr.base_entity_id) as count FROM ec_gbv_register egr
       INNER JOIN ec_family_member efm ON efm.base_entity_id = egr.base_entity_id
       WHERE
-      does_the_survivor_have_any_disabilities = 'yes'
-      (date(efm.dob, '+35 years') <= date('now'))
+      disabilities = 'Yes'
+      AND (date(efm.dob, '+35 years') <= date('now'))
       AND (efm.gender='Male')
       AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
         date(substr(strftime('%Y-%m-%d', datetime(egr.last_interacted_with / 1000, 'unixepoch', 'localtime')), 1, 4) ||'-' ||

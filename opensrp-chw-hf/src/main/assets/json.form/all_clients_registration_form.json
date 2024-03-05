@@ -782,7 +782,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "disabilities",
         "type": "spinner",
-        "hint": "Physical disabilities",
+        "hint": "Has disabilities?",
         "values": [
           "Yes",
           "No"
