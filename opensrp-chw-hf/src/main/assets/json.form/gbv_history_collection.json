@@ -58,7 +58,7 @@
     }
   },
   "step1": {
-    "title": "Witness Details",
+    "title": "Witness Details During Examination Investigation",
     "next": "step2",
     "fields": [
       {

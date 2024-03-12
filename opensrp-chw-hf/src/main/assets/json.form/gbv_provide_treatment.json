@@ -337,6 +337,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_provide_treatment_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -367,7 +374,8 @@
       },
       {
         "key": "which_services_were_provided",
-        "type": "native_radio",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "openmrs_entity_id": "which_services_were_provided",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",

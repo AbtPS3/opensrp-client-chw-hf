@@ -1,7 +1,77 @@
 ---
+name: step1_information
+description: information
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_virginal_swab
 description: Hide the following options (external genitalia, vaginal/hemen, cervix) if client is male
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "step1_forensic_examination_done == 'yes' && global_gender == 'Female'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_blood_specimen
+description: blood_specimen
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pluck_pubic_hair
+description: pluck_pubic_hair
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_collected_urine_for_lab_investigation
+description: collected_urine_for_lab_investigation
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_collected_blood_sample_for_dna
+description: collected_blood_sample_for_dna
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_collected_nails_from_survivors
+description: collected_nails_from_survivors
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_collected_hair_root
+description: collected_hair_root
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_collected_stained_clothes
+description: collected_stained_clothes
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_obtained_materials
+description: other_obtained_materials
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_does_the_client_need_lab_investigation
+description: does_the_client_need_lab_investigation
+priority: 1
+condition: "step1_forensic_examination_done == 'yes'"
 actions:
   - "isRelevant = true"

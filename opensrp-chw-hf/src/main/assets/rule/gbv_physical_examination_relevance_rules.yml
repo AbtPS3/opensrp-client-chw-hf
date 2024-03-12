@@ -23,7 +23,7 @@ actions:
 name: step1_state_of_the_clothes
 description: Only show where the clothes were taken and state of the clothes if the client changed clothes
 priority: 1
-condition: "step1_did_the_survivor_change_clothes == 'yes'"
+condition: "step1_did_the_survivor_change_clothes == 'no'"
 actions:
   - "isRelevant = true"
 ---

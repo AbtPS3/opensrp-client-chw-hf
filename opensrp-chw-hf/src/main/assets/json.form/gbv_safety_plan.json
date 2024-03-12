@@ -57,6 +57,32 @@
     "title": "Safety Plan",
     "fields": [
       {
+        "key": "has_safety_plan_been_done",
+        "type": "native_radio",
+        "openmrs_entity_id": "has_safety_plan_been_done",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Has safety plan been done?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
         "key": "signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
         "type": "native_radio",
         "openmrs_entity_id": "signs_of_partner_behaviour_that_alert_for_possibility_of_violence",
@@ -80,6 +106,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -91,9 +124,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:signs_of_partner_behaviour_that_alert_for_possibility_of_violence": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -121,6 +155,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -132,9 +173,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:can_the_client_get_out_of_the_house_before_the_violence_starts": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -162,6 +204,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -173,9 +222,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:can_the_client_send_a_message_for_help": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -203,6 +253,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -214,9 +271,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:are_there_neighbours_who_could_help_in_an_emergency_situation": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -244,6 +302,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -255,9 +320,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -285,6 +351,15 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "gbv_safety_plan_rules.yml"
+              }
+            }
+          }
         }
       },
       {
@@ -296,9 +371,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:can_the_client_move_into_a_room_to_escape": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -326,6 +402,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -337,9 +420,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:are_there_weapons_in_the_clients_house": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -355,9 +439,10 @@
           "err": "Please enter the weapons location in the house"
         },
         "relevance": {
-          "step1:are_there_weapons_in_the_clients_house": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -387,9 +472,10 @@
           "err": "Please select the answer"
         },
         "relevance": {
-          "step1:are_there_weapons_in_the_clients_house": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       },
@@ -417,6 +503,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -443,6 +536,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
+          }
         }
       },
       {
@@ -454,9 +554,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "info",
         "relevance": {
-          "step1:can_the_client_hide_a_bag_with_supplies_for_emergencies": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
+            }
           }
         }
       }

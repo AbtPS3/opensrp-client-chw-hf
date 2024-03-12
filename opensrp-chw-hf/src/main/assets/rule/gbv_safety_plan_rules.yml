@@ -1,0 +1,133 @@
+---
+name: step1_signs_of_partner_behaviour_that_alert_for_possibility_of_violence
+description: signs_of_partner_behaviour_that_alert_for_possibility_of_violence
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_signs_of_partner_behaviour_that_alert_for_possibility_of_violence
+description: prompt_for_signs_of_partner_behaviour_that_alert_for_possibility_of_violence
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_signs_of_partner_behaviour_that_alert_for_possibility_of_violence == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_can_the_client_get_out_of_the_house_before_the_violence_starts
+description: can_the_client_get_out_of_the_house_before_the_violence_starts
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_can_the_client_get_out_of_the_house_before_the_violence_starts
+description: prompt_for_can_the_client_get_out_of_the_house_before_the_violence_starts
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_can_the_client_get_out_of_the_house_before_the_violence_startse == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_can_the_client_send_a_message_for_help
+description: can_the_client_send_a_message_for_help
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_can_the_client_send_a_message_for_help
+description: prompt_for_can_the_client_send_a_message_for_help
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_can_the_client_send_a_message_for_help == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_are_there_neighbours_who_could_help_in_an_emergency_situation
+description: are_there_neighbours_who_could_help_in_an_emergency_situation
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation
+description: prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_neighbours_who_could_help_in_an_emergency_situation == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help
+description: is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help
+description: prompt_for_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_is_there_a_way_the_client_can_communicate_to_alert_neighbours_for_help == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_can_the_client_move_into_a_room_to_escape
+description: can_the_client_move_into_a_room_to_escape
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_can_the_client_move_into_a_room_to_escape
+description: prompt_for_can_the_client_move_into_a_room_to_escape
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_can_the_client_move_into_a_room_to_escape == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_are_there_weapons_in_the_clients_house
+description: are_there_weapons_in_the_clients_house
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_for_are_there_weapons_in_the_clients_house
+description: prompt_for_are_there_weapons_in_the_clients_house
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_weapons_in_the_clients_house == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_weapons_location_in_the_house
+description: weapons_location_in_the_house
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_weapons_in_the_clients_house == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_can_the_client_move_the_weapons
+description: can_the_client_move_the_weapons
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_weapons_in_the_clients_house == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_does_the_client_have_places_where_they_can_go_in_an_emergency
+description: does_the_client_have_places_where_they_can_go_in_an_emergency
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_can_the_client_hide_a_bag_with_supplies_for_emergencies
+description: can_the_client_hide_a_bag_with_supplies_for_emergencies
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes'"
+actions:
+    - "isRelevant = true"
+---
+name: step1_prompt_can_the_client_hide_a_bag_with_supplies_for_emergencies
+description: prompt_can_the_client_hide_a_bag_with_supplies_for_emergencies
+priority: 1
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_can_the_client_hide_a_bag_with_supplies_for_emergencies == 'yes'"
+actions:
+    - "isRelevant = true"

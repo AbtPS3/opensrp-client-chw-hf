@@ -47,3 +47,10 @@ priority: 1
 condition: "global_typeOfAssault.contains('sexual_violence') || global_typeOfAssault.contains('physical_violence')"
 actions:
   - "isRelevant = true"
+---
+name: step1_was_the_survivor_provided_fp
+description: was_the_survivor_provided_fp
+priority: 1
+condition: "global_gender == 'Female'"
+actions:
+  - "isRelevant = true"

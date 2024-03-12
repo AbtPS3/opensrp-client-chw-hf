@@ -250,32 +250,6 @@
             }
           }
         }
-      },
-      {
-        "key": "did_violence_cause_disability",
-        "type": "native_radio",
-        "openmrs_entity_id": "did_violence_cause_disability",
-        "openmrs_entity": "concept",
-        "openmrs_entity_parent": "",
-        "label": "Did the violence result to disability?",
-        "options": [
-          {
-            "text": "Yes",
-            "key": "yes",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "text": "No",
-            "key": "no",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select the answer to this question"
-        }
       }
     ]
   }

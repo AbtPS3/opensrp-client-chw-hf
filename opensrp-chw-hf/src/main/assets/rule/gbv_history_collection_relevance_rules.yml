@@ -65,7 +65,7 @@ actions:
 name: step4_history_of_pregnancy_prior_to_incidence
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female'"
+condition: "global_gender == 'Female'  && step4_gravida > 0"
 actions:
     - "isRelevant = true"
 ---

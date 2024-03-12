@@ -57,13 +57,46 @@
     "title": "Forensic Examination",
     "fields": [
       {
+        "key": "forensic_examination_done",
+        "type": "native_radio",
+        "openmrs_entity_id": "forensic_examination_done",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "label": "Forensic Examinaition Done?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the answer"
+        }
+      },
+      {
         "key": "information",
         "type": "toaster_notes",
         "text": "Record all evidence collected in client case note file and Inform police to collect forensic evidence kit",
         "openmrs_entity_id": "information",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "virginal_swab",
@@ -122,6 +155,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -148,6 +188,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -174,6 +221,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -200,6 +254,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -226,6 +287,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -252,6 +320,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -278,6 +353,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       },
       {
@@ -286,7 +368,14 @@
         "hint": "Other obtained materials(specify)",
         "openmrs_entity_id": "other_obtained_materials",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept"
+        "openmrs_entity": "concept",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "does_the_client_need_lab_investigation",
@@ -312,6 +401,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select the answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_forensic_examination_relevance_rules.yml"
+            }
+          }
         }
       }
     ]

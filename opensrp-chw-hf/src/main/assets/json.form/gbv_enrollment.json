@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "GBV/VAC Enrollment",
+    "title": "GBV and VAC Enrollment",
     "fields": [
       {
         "key": "registration_number",
