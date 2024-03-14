@@ -398,6 +398,13 @@
         "v_required": {
           "value": false,
           "err": "Tafadhali taja nambari ya simu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -418,6 +425,13 @@
         "v_required": {
           "value": false,
           "err": "Tafadhali bainisha nambari nyingine ya simu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
         }
       },
       {

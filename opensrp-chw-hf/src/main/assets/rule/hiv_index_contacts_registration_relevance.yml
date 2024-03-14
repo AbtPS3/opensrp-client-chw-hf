@@ -1,4 +1,18 @@
 ---
+name: step2_phone_number
+description: phone_number
+priority: 1
+condition: "step2_age_calculated < 15"
+actions:
+  - "isRelevant = true"
+---
+name: step2_other_phone_number
+description: other_phone_number
+priority: 1
+condition: "step2_age_calculated < 15"
+actions:
+  - "isRelevant = true"
+---
 name: step2_relationship_under_15_for_possible_children
 description: relationship_under_15_for_possible_children relevance
 priority: 1
