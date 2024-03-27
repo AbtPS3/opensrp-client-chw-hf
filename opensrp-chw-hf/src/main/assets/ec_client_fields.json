@@ -10367,6 +10367,14 @@
           }
         },
         {
+          "column_name": "forensic_examination_done",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "forensic_examination_done"
+          }
+        },
+        {
           "column_name": "virginal_swab",
           "type": "Event",
           "json_mapping": {
@@ -10492,6 +10500,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "was_the_survivor_provided_et"
+          }
+        },
+        {
+          "column_name": "services_the_client_has_been_linked_to",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "services_the_client_has_been_linked_to"
           }
         },
         {
