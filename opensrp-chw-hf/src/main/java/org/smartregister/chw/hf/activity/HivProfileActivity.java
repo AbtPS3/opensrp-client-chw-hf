@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -164,6 +166,14 @@ public class HivProfileActivity extends CoreHivProfileActivity implements HivPro
     protected void onResume() {
         super.onResume();
         ((HivProfileContract.Presenter) getHivProfilePresenter()).fetchReferralTasks();
+        try {
+            new Handler(Looper.getMainLooper()).postDelayed(this::delayNotifyDataSetChanged, 2000);
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
+    private void delayNotifyDataSetChanged() {
         if (notificationAndReferralRecyclerView != null && notificationAndReferralRecyclerView.getAdapter() != null) {
             notificationAndReferralRecyclerView.getAdapter().notifyDataSetChanged();
         }

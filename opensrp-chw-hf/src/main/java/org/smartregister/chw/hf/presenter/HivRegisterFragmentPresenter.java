@@ -1,5 +1,7 @@
 package org.smartregister.chw.hf.presenter;
 
+import android.content.Context;
+
 import org.jetbrains.annotations.NotNull;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.hf.R;
@@ -7,6 +9,8 @@ import org.smartregister.chw.hiv.contract.BaseHivRegisterFragmentContract;
 import org.smartregister.chw.hiv.presenter.BaseHivRegisterFragmentPresenter;
 import org.smartregister.chw.hiv.util.Constants.Tables;
 import org.smartregister.chw.hiv.util.DBConstants;
+
+import java.text.MessageFormat;
 
 public class HivRegisterFragmentPresenter extends BaseHivRegisterFragmentPresenter {
 
@@ -27,6 +31,22 @@ public class HivRegisterFragmentPresenter extends BaseHivRegisterFragmentPresent
     @NotNull
     public String getDueFilterCondition() {
         return CoreConstants.TABLE_NAME.HIV_MEMBER + ".base_entity_id IN (SELECT for FROM task WHERE business_status = 'Referred')";
+    }
+
+    public String getDueFilterCondition(boolean isReferred, String elicitationStatus, Context context) {
+        StringBuilder customFilter = new StringBuilder();
+
+        if (isReferred) {
+            customFilter.append(MessageFormat.format(" and {0}.{1} IN (SELECT for FROM task WHERE business_status = ''Referred'') ", getMainTable(), "base_entity_id"));
+        }
+
+        if (elicitationStatus != null && !elicitationStatus.equalsIgnoreCase("all")) {
+            if (elicitationStatus.equalsIgnoreCase("Elicited"))
+                customFilter.append(" and index_contact_base_entity_id IS NOT NULL ");
+            else
+                customFilter.append(" and index_contact_base_entity_id IS NULL ");
+        }
+        return customFilter.toString();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.hf.utils.Constants.REQUEST_FILTERS;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -81,5 +83,13 @@ public class HivRegisterActivity extends CoreHivRegisterActivity {
         this.startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_FILTERS) {
+            ((HivRegisterFragment) mBaseFragment).onFiltersUpdated(requestCode, data);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 }
  

@@ -470,6 +470,12 @@
             "text": "Siblings",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings"
+          },
+          {
+            "key": "non_biological_child",
+            "text": "Non-Biological child living in the same household",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_biological_child"
           }
         ],
         "v_required": {
@@ -546,6 +552,12 @@
             "text": "Siblings",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings"
+          },
+          {
+            "key": "non_biological_child",
+            "text": "Non-Biological child living in the same household",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_biological_child"
           },
           {
             "key": "sexual_partner",
@@ -937,6 +949,34 @@
             "text": "Dual Referral",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "dual_referral"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "The answer to this question is required"
+        }
+      },
+      {
+        "key": "point_of_elicitation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "point_of_elicitation",
+        "type": "native_radio",
+        "label": "Point of elicitation",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "facility",
+            "text": "Facility",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "facility"
+          },
+          {
+            "key": "community",
+            "text": "Community",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "community"
           }
         ],
         "v_required": {
