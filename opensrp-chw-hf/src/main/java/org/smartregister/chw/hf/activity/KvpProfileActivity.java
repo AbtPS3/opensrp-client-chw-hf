@@ -210,7 +210,11 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
         intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
 
         Form form = new Form();
+        form.setName(this.getString(R.string.register_hiv_index_clients_contacts));
         form.setActionBarBackground(org.smartregister.chw.core.R.color.family_actionbar);
+        form.setNavigationBackground(org.smartregister.chw.core.R.color.family_navigation);
+        form.setHomeAsUpIndicator(org.smartregister.chw.core.R.mipmap.ic_cross_white);
+        form.setPreviousLabel(getResources().getString(org.smartregister.chw.core.R.string.back));
         form.setWizard(true);
         intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
         startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);

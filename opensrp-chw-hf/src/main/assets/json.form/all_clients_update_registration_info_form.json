@@ -770,7 +770,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "Primary_Caregiver_Name",
         "type": "edit_text",
-        "hint": "Name of caregiver",
+        "hint": "Name of caregiver/treatment supporter",
         "v_regex": {
           "value": "[A-Za-z\\u00C0-\\u017F\\s\\u00C0-\\u017F\\.\\-\\']*",
           "err": "Please enter a valid name"
@@ -793,7 +793,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_phone_number",
         "type": "edit_text",
-        "hint": "Primary caregiver phone number",
+        "hint": "Primary caregiver/Treatment supporter phone number",
         "v_numeric": {
           "value": "true",
           "err": "Number must be a total of 10 digits in length"

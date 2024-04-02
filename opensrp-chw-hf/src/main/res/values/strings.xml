@@ -1815,6 +1815,7 @@
     <string name="sbc_print_materials">Print Materials</string>
     <string name="sbc_other_hiv_interventions">Other HIV Interventions</string>
     <string name="sbc_income_generating_activity">Income Generating Activity (IGA)</string>
+    <string name="menu_hiv">CLHIV</string>
 
 
 </resources>
