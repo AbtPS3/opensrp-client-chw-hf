@@ -1,15 +1,31 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.hf.utils.JsonFormUtils.SYNC_LOCATION_ID;
+import static org.smartregister.util.JsonFormUtils.STEP1;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+import com.vijay.jsonwizard.domain.Form;
+
+import org.json.JSONObject;
+import org.smartregister.AllConstants;
 import org.smartregister.chw.core.activity.CoreKvpProfileActivity;
+import org.smartregister.chw.core.model.CoreAllClientsMemberModel;
+import org.smartregister.chw.core.utils.CoreConstants;
+import org.smartregister.chw.core.utils.CoreJsonFormUtils;
+import org.smartregister.chw.core.utils.UpdateDetailsUtil;
 import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.dao.HfKvpDao;
+import org.smartregister.chw.hf.interactor.KvpProfileInteractor;
+import org.smartregister.chw.hf.model.HfAllClientsRegisterModel;
+import org.smartregister.chw.hf.presenter.KvpProfilePresenter;
 import org.smartregister.chw.hivst.dao.HivstDao;
 import org.smartregister.chw.kvp.KvpLibrary;
 import org.smartregister.chw.kvp.domain.Visit;
@@ -18,7 +34,15 @@ import org.smartregister.chw.kvp.util.DBConstants;
 import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.commonregistry.CommonRepository;
+import org.smartregister.family.contract.FamilyProfileContract;
+import org.smartregister.family.domain.FamilyEventClient;
+import org.smartregister.family.interactor.FamilyProfileInteractor;
+import org.smartregister.family.util.JsonFormUtils;
 import org.smartregister.family.util.Utils;
+import org.smartregister.opd.pojo.RegisterParams;
+import org.smartregister.opd.utils.OpdConstants;
+import org.smartregister.opd.utils.OpdJsonFormUtils;
+import org.smartregister.opd.utils.OpdUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -127,14 +151,28 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.kvp_profile_menu, menu);
+        menu.findItem(R.id.action_location_info).setVisible(UpdateDetailsUtil.isIndependentClient(memberObject.getBaseEntityId()));
 
+        if (HfKvpDao.getDominantKVPGroup(memberObject.getBaseEntityId()).equalsIgnoreCase("fsw")) {
+            menu.findItem(R.id.action_index_client_elicitation).setVisible(true);
+        }
         if (HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
             int age = memberObject.getAge();
             menu.findItem(R.id.action_hivst_registration).setVisible(!HivstDao.isRegisteredForHivst(memberObject.getBaseEntityId()) && age >= 15);
         }
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_index_client_elicitation) {
+            startHivIndexClientsRegistration();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -149,6 +187,68 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
         HivstRegisterActivity.startHivstRegistrationActivity(this, memberObject.getBaseEntityId(), gender);
     }
 
+    public void startHivIndexClientsRegistration() {
+        try {
+            String locationId = org.smartregister.family.util.Utils.context().allSharedPreferences().getPreference(AllConstants.CURRENT_LOCATION_ID);
+            ((KvpProfilePresenter) profilePresenter).startIndexContactRegistrationForm(locationId);
+        } catch (Exception e) {
+            Timber.e(e);
+            displayToast(org.smartregister.family.R.string.error_unable_to_start_form);
+        }
+    }
+
+    public void startForm(String formName, String entityId, String metadata, String currentLocationId) throws Exception {
+        JSONObject jsonForm = new HfAllClientsRegisterModel(getContext()).getFormAsJson(formName, entityId, currentLocationId);
+        if (formName.equalsIgnoreCase(CoreConstants.JSON_FORM.getHivIndexClientsContactsRegistrationForm())) {
+            JSONObject global = jsonForm.getJSONObject("global");
+            global.put("index_client_age", memberObject.getAge());
+        }
+//        startFormActivity(jsonForm);
+
+
+        Intent intent = new Intent(this, org.smartregister.family.util.Utils.metadata().familyMemberFormActivity);
+        intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
+
+        Form form = new Form();
+        form.setActionBarBackground(org.smartregister.chw.core.R.color.family_actionbar);
+        form.setWizard(true);
+        intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
+        startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK) return;
+        try {
+            String jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+            Timber.d("JSONResult : %s", jsonString);
+
+            if (jsonString == null)
+                finish();
+
+            JSONObject form = new JSONObject(jsonString);
+            String encounterType = form.getString(OpdJsonFormUtils.ENCOUNTER_TYPE);
+            if (encounterType.equals(CoreConstants.EventType.FAMILY_REGISTRATION)) {
+                RegisterParams registerParam = new RegisterParams();
+                registerParam.setEditMode(false);
+                registerParam.setFormTag(OpdJsonFormUtils.formTag(OpdUtils.context().allSharedPreferences()));
+                showProgressDialog(org.smartregister.chw.core.R.string.saving_dialog_title);
+                ((KvpProfilePresenter) profilePresenter).saveForm(jsonString, registerParam);
+            }
+            if (form.getString(JsonFormUtils.ENCOUNTER_TYPE).equals(org.smartregister.chw.core.utils.Utils.metadata().familyRegister.updateEventType)) {
+                FamilyEventClient familyEventClient = new CoreAllClientsMemberModel().processJsonForm(jsonString, memberObject.getFamilyBaseEntityId());
+                JSONObject syncLocationField = CoreJsonFormUtils.getJsonField(new JSONObject(jsonString), STEP1, SYNC_LOCATION_ID);
+                familyEventClient.getEvent().setLocationId(CoreJsonFormUtils.getSyncLocationUUIDFromDropdown(syncLocationField));
+                familyEventClient.getEvent().setEntityType(CoreConstants.TABLE_NAME.INDEPENDENT_CLIENT);
+                new FamilyProfileInteractor().saveRegistration(familyEventClient, jsonString, true, (FamilyProfileContract.InteractorCallBack) profilePresenter);
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
     @Override
     public void openMedicalHistory() {
         KvpMedicalHistoryActivity.startMe(this, memberObject);
@@ -157,4 +257,13 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
     private Visit getVisit(String eventType) {
         return KvpLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), eventType);
     }
+
+    @Override
+    protected void initializePresenter() {
+        showProgressBar(true);
+        profilePresenter = new KvpProfilePresenter(this, new KvpProfileInteractor(), memberObject);
+        fetchProfileData();
+        profilePresenter.refreshProfileBottom();
+    }
+
 }
