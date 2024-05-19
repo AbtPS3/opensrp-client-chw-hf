@@ -353,11 +353,9 @@
           "err": "Please select the answer"
         },
         "relevance": {
-          "relevance": {
-            "rules-engine": {
-              "ex-rules": {
-                "rules-file": "gbv_safety_plan_rules.yml"
-              }
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_safety_plan_rules.yml"
             }
           }
         }

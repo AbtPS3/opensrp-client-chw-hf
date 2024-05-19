@@ -87,7 +87,7 @@ public class GbvVisitUtils extends VisitUtils {
         boolean isPhysicalExaminationComplete = computeCompletionStatus(obs, "systolic");
         checks.add(isPhysicalExaminationComplete);
 
-        boolean isForensicExaminationComplete = computeCompletionStatus(obs, "does_the_client_need_lab_investigation");
+        boolean isForensicExaminationComplete = computeCompletionStatus(obs, "forensic_examination_done");
         checks.add(isForensicExaminationComplete);
 
         if (shouldProvideLabInvestigation(v)) {
@@ -102,7 +102,7 @@ public class GbvVisitUtils extends VisitUtils {
         checks.add(isEducationAndCounsellingComplete);
 
         if (GbvDao.getMember(v.getBaseEntityId()).getAge() > 7) {
-            boolean isSafetyPlanComplete = computeCompletionStatus(obs, "signs_of_partner_behaviour_that_alert_for_possibility_of_violence");
+            boolean isSafetyPlanComplete = computeCompletionStatus(obs, "has_safety_plan_been_done");
             checks.add(isSafetyPlanComplete);
         }
 

@@ -62,7 +62,7 @@
         "openmrs_entity_id": "forensic_examination_done",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
-        "label": "Forensic Examinaition Done?",
+        "label": "Forensic Examination Done?",
         "options": [
           {
             "key": "yes",
