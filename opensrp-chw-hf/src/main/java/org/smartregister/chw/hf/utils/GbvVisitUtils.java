@@ -40,7 +40,7 @@ public class GbvVisitUtils extends VisitUtils {
             }
         }
 
-        if (gbvVisits.size() > 0) {
+        if (!gbvVisits.isEmpty()) {
             processVisits(gbvVisits, visitRepository, visitDetailsRepository);
         }
     }

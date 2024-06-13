@@ -51,7 +51,7 @@ actions:
 name: step1_prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation
 description: prompt_for_are_there_neighbours_who_could_help_in_an_emergency_situation
 priority: 1
-condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_neighbours_who_could_help_in_an_emergency_situation == 'yes'"
+condition: "step1_has_safety_plan_been_done == 'yes' && step1_are_there_neighbours_who_could_help_in_an_emergency_situation != ''"
 actions:
     - "isRelevant = true"
 ---

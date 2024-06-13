@@ -79,7 +79,7 @@ actions:
 name: step4_current_pregnancy_status
 description: In Where, Remove the following options if the client is male (Vaginal)
 priority: 1
-condition: "global_gender == 'Female' && global_age >= 10"
+condition: "global_gender == 'Female' && global_age >= 10 && step1_gravida != 0  && step1_para != 0"
 actions:
     - "isRelevant = true"
 ---
