@@ -77,10 +77,10 @@ public class GbvMonthlyReportObject extends ReportObject {
         // Calculate and add total values for "totals"
         for (String indicatorCode : indicatorCodes) {
             for (String sex : clientSex) {
-                if (sex.equalsIgnoreCase("male")) {
-                    indicatorDataObject.put(indicatorCode + "-totalMale", calculateGbvSpecificTotal(indicatorsValues, indicatorCode + "-" + sex));
+                if (sex.equalsIgnoreCase("M")) {
+                    indicatorDataObject.put(indicatorCode + "-totalMale", calculateGbvSpecificTotal(indicatorsValues, indicatorCode + "-.*-" + sex.toLowerCase()));
                 } else {
-                    indicatorDataObject.put(indicatorCode + "-totalFemale", calculateGbvSpecificTotal(indicatorsValues, indicatorCode + "-" + sex));
+                    indicatorDataObject.put(indicatorCode + "-totalFemale", calculateGbvSpecificTotal(indicatorsValues, indicatorCode + "-.*-" + sex.toLowerCase()));
                 }
             }
         }
