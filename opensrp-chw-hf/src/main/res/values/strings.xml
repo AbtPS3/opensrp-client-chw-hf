@@ -1911,6 +1911,7 @@
     <string name="gbv_other_services_the_client_has_been_linked_to">Other services the client has been linked to:</string>
     <string name="gbv_does_the_client_require_a_followup_visit">Does the client require a follow-up visit:</string>
     <string name="gbv_next_appointment_date">Next appointment date:</string>
+    <string name="gbv_download_history">Download Details:</string>
 
 
 

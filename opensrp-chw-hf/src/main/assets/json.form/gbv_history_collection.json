@@ -65,7 +65,7 @@
         "key": "no_of_witnesses",
         "type": "repeating_group",
         "reference_edit_text_hint": "Number of Witnesses",
-        "repeating_group_label": "Witness #",
+        "repeating_group_label": "Examination Investigation Witness #",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "no_of_witnesses",

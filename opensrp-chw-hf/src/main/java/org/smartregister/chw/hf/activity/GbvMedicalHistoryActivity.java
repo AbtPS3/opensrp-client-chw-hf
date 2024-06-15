@@ -1,17 +1,28 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.AllConstants.DEFAULT_LOCALITY_NAME;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.BulletSpan;
 import android.text.style.StyleSpan;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.gkemon.XMLtoPDF.PdfGenerator;
+import com.gkemon.XMLtoPDF.PdfGeneratorListener;
+import com.gkemon.XMLtoPDF.model.FailureResponse;
+import com.gkemon.XMLtoPDF.model.SuccessResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -25,19 +36,25 @@ import org.smartregister.chw.core.activity.DefaultAncMedicalHistoryActivityFlv;
 import org.smartregister.chw.fp.util.FamilyPlanningConstants;
 import org.smartregister.chw.gbv.domain.MemberObject;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.dao.HeiDao;
 import org.smartregister.chw.hf.interactor.GbvMedicalHistoryInteractor;
+import org.smartregister.chw.ld.LDLibrary;
+import org.smartregister.chw.pmtct.dao.PmtctDao;
 import org.smartregister.family.util.Utils;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import timber.log.Timber;
 
 public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
     private static MemberObject gbvMemberObject;
+
+    private RelativeLayout headerLayout;
 
     private final Flavor flavor = new GbvMedicalHistoryActivityFlv();
 
@@ -47,6 +64,11 @@ public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
         Intent intent = new Intent(activity, GbvMedicalHistoryActivity.class);
         gbvMemberObject = memberObject;
         activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -354,5 +376,94 @@ public class GbvMedicalHistoryActivity extends CoreAncMedicalHistoryActivity {
                 return resourceName;
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.gbv_history_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.action_download_history) {
+            downloadHistory();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void downloadHistory() {
+        headerLayout = findViewById(R.id.header_layout);
+        headerLayout.setVisibility(View.VISIBLE);
+        TextView facilityName = findViewById(R.id.facility_name);
+        TextView clientName = findViewById(R.id.client_name);
+
+        String facilityNameString = LDLibrary.getInstance().context().allSharedPreferences().getPreference(DEFAULT_LOCALITY_NAME);
+
+        if (StringUtils.isNotBlank(facilityNameString)) {
+            facilityName.setText(facilityNameString);
+        } else {
+            facilityName.setVisibility(View.GONE);
+        }
+
+
+        int age = 0;
+        String firstName = "";
+        String middleName = "";
+        String lastName = "";
+        try {
+            age = gbvMemberObject.getAge();
+            firstName = gbvMemberObject.getFirstName();
+            middleName = gbvMemberObject.getMiddleName();
+            lastName = gbvMemberObject.getLastName();
+            clientName.setText(MessageFormat.format(getString(org.smartregister.ld.R.string.partograph_client_name), firstName, middleName, lastName));
+
+
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+        View mView = findViewById(R.id.main_layout);
+        PdfGenerator.getBuilder()
+                .setContext(GbvMedicalHistoryActivity.this)
+                .fromViewSource()
+                .fromView(mView)
+                .setFileName(String.format(Locale.getDefault(), "%s %s %s, %d",
+                        firstName,
+                        middleName,
+                        lastName,
+                        age))
+                .setFolderNameOrPath("MyFolder/MyDemoHorizontalText/")
+                .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
+                .build(new PdfGeneratorListener() {
+                    @Override
+                    public void onFailure(FailureResponse failureResponse) {
+                        super.onFailure(failureResponse);
+                    }
+
+                    @Override
+                    public void showLog(String log) {
+                        super.showLog(log);
+                    }
+
+                    @Override
+                    public void onStartPDFGeneration() {
+                        /*When PDF generation begins to start*/
+                    }
+
+                    @Override
+                    public void onFinishPDFGeneration() {
+                        /*When PDF generation is finished*/
+                        headerLayout.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onSuccess(SuccessResponse response) {
+                        super.onSuccess(response);
+                    }
+                });
     }
 }
