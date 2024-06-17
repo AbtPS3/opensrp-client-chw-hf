@@ -79,6 +79,33 @@
         }
       },
       {
+        "key": "how_was_the_client_identified",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "how_was_the_client_identified",
+        "combine_checkbox_option_values": "true",
+        "type": "native_radio",
+        "label": "How was the client Identified?",
+        "options": [
+          {
+            "key": "screening",
+            "text": "Screening",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screening"
+          },
+          {
+            "key": "known_case",
+            "text": "Known Case",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "known_case"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        }
+      },
+      {
         "key": "education_level_filled",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

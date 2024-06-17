@@ -285,6 +285,98 @@
         }
       },
       {
+        "key": "assailants_relationship_with_survivor",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "assailants_relationship_with_survivor",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Indicate assailant relationship with Survivor",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "wife",
+            "text": "Wife",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wife"
+          },
+          {
+            "key": "husband",
+            "text": "Husband",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "husband"
+          },
+          {
+            "key": "father",
+            "text": "Father",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "father"
+          },
+          {
+            "key": "mother",
+            "text": "Mother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mother"
+          },
+          {
+            "key": "brother",
+            "text": "Brother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "brother"
+          },
+          {
+            "key": "sister",
+            "text": "Sister",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sister"
+          },
+          {
+            "key": "uncle",
+            "text": "Uncle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "uncle"
+          },
+          {
+            "key": "aunt",
+            "text": "Aunt",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aunt"
+          },
+          {
+            "key": "stepmother",
+            "text": "Stepmother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stepmother"
+          },
+          {
+            "key": "stepfather",
+            "text": "Stepfather",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stepfather"
+          },
+          {
+            "key": "teacher",
+            "text": "Teacher",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "teacher"
+          },
+          {
+            "key": "fellow_student",
+            "text": "Fellow Student",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fellow_student"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "gbv_history_collection_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "type_of_assault_male",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

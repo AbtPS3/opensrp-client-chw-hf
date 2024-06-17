@@ -1,4 +1,11 @@
 ---
+name: step2_assailants_relationship_with_survivor
+description: assailants_relationship_with_survivor
+priority: 1
+condition: "step2_alleged_assailants == 'known'"
+actions:
+    - "isRelevant = true"
+---
 name: step2_type_of_assault_male
 description: Assault Details (Type of Assault)
 priority: 1
