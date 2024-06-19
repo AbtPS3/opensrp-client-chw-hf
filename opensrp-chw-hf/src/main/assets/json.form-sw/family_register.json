@@ -123,10 +123,10 @@
         "openmrs_entity_id": "cityVillage",
         "type": "edit_text",
         "edit_type": "name",
-        "hint": "Jina la Eneo",
+        "hint": "Kitongoji/Barabara/Eneo",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza jina la eneo"
+          "err": "Tafadhali ingiza jina la Kitongoji/Barabara/Eneo"
         }
       },
       {

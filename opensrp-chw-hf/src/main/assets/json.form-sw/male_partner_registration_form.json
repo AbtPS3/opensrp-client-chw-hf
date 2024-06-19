@@ -123,10 +123,10 @@
         "openmrs_entity_id": "cityVillage",
         "type": "edit_text",
         "edit_type": "name",
-        "hint": "Jina la eneo",
+        "hint": "Kitongoji/Road Name/Neighborhood",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka jina la eneo au mji"
+          "err": "Tafadhali weka jina la Kitongoji/Road Name/Neighborhood"
         }
       },
       {

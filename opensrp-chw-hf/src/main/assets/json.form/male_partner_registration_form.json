@@ -123,10 +123,10 @@
         "openmrs_entity_id": "cityVillage",
         "type": "edit_text",
         "edit_type": "name",
-        "hint": "Area name",
+        "hint": "Kitongoji/Road Name/Neighborhood",
         "v_required": {
           "value": "true",
-          "err": "Please enter the name of area or town"
+          "err": "Please enter the name of Kitongoji/Road Name/Neighborhood"
         }
       },
       {
