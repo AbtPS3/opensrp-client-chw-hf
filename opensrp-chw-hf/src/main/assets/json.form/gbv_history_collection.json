@@ -344,6 +344,18 @@
             "openmrs_entity_id": "aunt"
           },
           {
+            "key": "grandmother",
+            "text": "Grandmother",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "grandmother"
+          },
+          {
+            "key": "grandfather",
+            "text": "Grandfather",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "grandfather"
+          },
+          {
             "key": "stepmother",
             "text": "Stepmother",
             "openmrs_entity": "concept",
@@ -366,6 +378,12 @@
             "text": "Fellow Student",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "fellow_student"
+          },
+          {
+            "key": "other",
+            "text": "Other",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
