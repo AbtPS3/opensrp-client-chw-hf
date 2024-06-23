@@ -412,6 +412,15 @@
               }
             },
             {
+              "name": "recently_tested_negative",
+              "text": "Recently tested negative",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "recently_tested_negative",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
               "name": "other",
               "text": "Other",
               "meta_data": {
