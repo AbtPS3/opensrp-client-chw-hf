@@ -210,8 +210,8 @@ android {
             applicationId "org.smartregister.chw.moh.hf"
             minSdkVersion 21
             targetSdkVersion 33
-            versionCode 34
-            versionName "1.2.7"
+            versionCode 38
+            versionName "1.2.11"
             testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
             multiDexEnabled true
             buildConfigField "String", 'opensrp_url', '"https://ucs.moh.go.tz/opensrp/"'
